@@ -1,0 +1,67 @@
+// ==========================================================================
+// CSS UPDATER (How some HTML tags should be defaulted)
+// ==========================================================================//
+
+//default to border-box
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+hr {
+    border: 0;
+    margin-top: em(8px);
+    margin-bottom: em(16px);
+    height: 1px;
+
+    overflow: visible; //visible pseudo elements
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: $color-secondary;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    color: inherit;
+}
+
+//default spacing (add .no-spacing to remove)
+p, ul, li {
+    margin-bottom: .5em;
+}
+
+input, textarea, select {
+    outline: 0;
+    border: 0;
+}
+
+textarea {
+    resize: vertical;
+    overflow: auto; //no scrollbar by default
+}
+
+//set inline elements to inline-block
+a, span, img {
+    display: inline-block;
+}
+
+//give nav element higher z-index
+nav {
+    z-index: $z-nav;
+}
+
+//normalize sup/sub tags
+sub, sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 0.85em;
+    line-height: 0;
+}
+
+sup {top: -0.5em; }
+sub {bottom: -0.25em; }

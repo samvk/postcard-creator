@@ -1,0 +1,68 @@
+// ==========================================================================
+// EMAIL TEMPLATE SECTION
+// ==========================================================================//
+
+
+
+.email-box {
+    box-shadow: 0 1.875em 5em rgba(49, 0, 0, 0.4);
+    border-radius: 6px;
+    padding: 2em;
+
+    @include display-flex;
+    @include flex-direction(column);
+    @include align-items(center);
+    
+    width: 720px;
+    max-width: 94%;
+    @extend .center;
+    
+    background-image: linear-gradient(-3deg, #F43329, #F43329 5%, white 9%, white 79.7%, #F43329 85.7%, #F43329);
+    text-shadow: 1px 1px 2px rgba(51, 51, 51, 0.4);
+}
+
+.email__label {
+    position: relative;
+    width: 80%;
+    padding: 0.3em;
+}
+
+.email__label--tag {
+    position: absolute;
+    transform: translateX(-100%);
+    padding: 0.3em 1em;
+    color: white;
+}
+
+input, textarea {
+    @extend .center;
+    background-color: $lightgrey;
+    border: 1px solid $mediumgrey;
+    border-radius: 2px;
+    width: 100%;
+    padding: 0.25em 0.5em;
+}
+
+.mail__message {
+    min-height: 6.4em;
+}
+
+.gcard--preview {
+    box-shadow: 0 em(15px) em(50px) rgba(0, 70, 136, 0.4);
+    border-radius: 4px;
+    width: 60%;
+    margin: 1em;
+}
+
+.email__email-address {
+    @include margin-top-bottom(1em);
+    padding-right: 8em;
+}
+
+.email__button {
+    position: absolute;
+    margin: 0;
+    @include center-abs(y);
+    right: 0px;
+    @extend .red-circle;
+}

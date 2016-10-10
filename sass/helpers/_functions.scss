@@ -1,0 +1,39 @@
+// ==========================================================================
+// FUNCTIONS
+// ==========================================================================//
+
+// ==========================================================================
+// INCLUDES:
+// 
+// * color($pallete[, $shade])
+// * em() converter
+// * rem() converter
+// 
+// ==========================================================================//
+
+//see _colors.scss for list of palletes
+@function color($color, $shade: "base") {
+	@return map-get(map-get($colors, $color), $shade);
+}
+
+@function em($target, $context: $font-size--base) {
+	@if not unitless($target) {
+		$target: strip-units($target);
+	}
+	@if not unitless($context) {
+		$context: strip-units($context);
+	}
+	@if $target == 0 { @return 0 }
+	@return $target / $context * 1em;
+}
+
+@function rem($target, $context: $font-size--base) {
+	@if not unitless($target) {
+		$target: strip-units($target);
+	}
+	@if not unitless($context) {
+		$context: strip-units($context);
+	}
+	@if $target == 0 { @return 0 }
+	@return $target / $context + 0rem;
+}

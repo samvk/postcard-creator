@@ -1,0 +1,25 @@
+// ==========================================================================
+// VARIABLES
+// ==========================================================================//
+
+// ==========================================================================
+// INCLUDES:
+//
+// * $zindex
+//
+// RELATED:
+// * Fonts (see custom/fonts/_font-variables.scss)
+// * Colors (see custom/_colors.scss)
+
+// Other variables - those unlikely to change between projects or need to be referenced - can be found where they're first used.
+
+// ==========================================================================//
+
+//z-index
+
+$z-overlay: 500;
+$z-dropdown: 400;
+$z-nav: 300;
+$z-pseudo: 200;
+$z-default: 1;
+$z-hidden: -1000;

@@ -1,0 +1,22 @@
+// ==========================================================================
+// DROPZONE UI DESIGN EFFECTS
+// ==========================================================================//
+
+//highlight dropzone text on hover
+
+.dropzone__card--text { @extend %color-transition; } //smooth color transition
+.dropzone__card:hover {
+    .dropzone__card--text {
+        color: $red; //highlight card text
+    }
+}
+
+//removable "drag and drop" styling
+.dropzone.is-drag-enabled {
+    background-image: url("/img/dropzone.png");
+    outline: 2px dashed rgba(244, 51, 41, 0.2);
+}
+
+.dropzone.is-dragging {
+    outline: 3px dashed rgba(244, 51, 41, 0.4);
+}

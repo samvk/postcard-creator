@@ -1,0 +1,26 @@
+// ==========================================================================
+// DESIGN
+// ==========================================================================//
+
+//border-radius
+
+.rounded { border-radius: 5px; }
+.circle  { border-radius: 1000px; }
+
+//button
+
+.button {
+	cursor: pointer;
+	display: inline-block;
+	padding: em(10px) em(20px);
+	
+	@include hover {
+		text-decoration: none;
+	}
+}
+
+//no wrap
+
+.nowrap{
+    white-space: nowrap;
+}

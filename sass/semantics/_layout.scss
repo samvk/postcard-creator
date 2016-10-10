@@ -1,0 +1,102 @@
+// ==========================================================================
+// LAYOUT
+// ==========================================================================//
+
+//position
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+
+//display
+
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+
+.list--inline-block li {
+	display: inline-block;
+}
+
+//floats
+
+.left {float: left; }
+.right {float: right; }
+
+.clearfix { @extend %clearfix; }
+
+//centering
+
+.center {
+	float: none !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-abs {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.center-content {
+	text-align: center;
+
+	div {
+		@extend .center;
+	}
+}
+
+//visibility
+
+.is-hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.is-invisible {
+    visibility: hidden;
+}
+
+.is-not-displayed {
+	display: none;
+}
+
+//overflow
+
+.overflow-hidden { overflow: hidden; }
+
+//z-index
+
+.z0 { z-index: $z-hidden; }
+.z2 { z-index: $z-pseudo; }
+.z3 { z-index: $z-nav; }
+.z4 { z-index: $z-dropdown; }
+.z5 { z-index: $z-overlay; }
+
+//box-sizing
+
+.content-box { box-sizing: content-box;}
+
+//no spacing from updater.scss
+
+.no-spacing {
+	margin-bottom: 0;
+
+	p, li {
+		margin-bottom: 0;
+	} 
+}
+
+p, li {
+    &.no-spacing {
+        margin-bottom: 0;
+    }
+}
+
+.list--no-spacing {
+    li {
+        margin-bottom: 0;
+    }
+}

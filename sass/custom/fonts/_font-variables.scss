@@ -1,0 +1,50 @@
+// ==========================================================================
+// FONT VARIABLES
+// ==========================================================================//
+
+//Import Google Fonts
+
+//Import Fonts
+@font-face {
+    font-family: "BrandonGrotesqueBold";
+    src: url("/fonts/Brandon_blk.woff") format('woff'),
+        url("/fonts/Brandon_blk.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "BrandonGrotesqueItalic";
+    src: url("/fonts/Brandon_med_it.woff") format('woff'),
+        url("/fonts/Brandon_med_it.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "BrandonGrotesqueBoldItalic";
+    src: url("/fonts/Brandon_blk_it.woff") format('woff'),
+        url("/fonts/Brandon_blk_it.otf") format('opentype');
+}
+
+//Fonts
+$font-family--primary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+$font-family--secondary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+$font-family--accent: "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+$font-family--loud: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+
+// Font Weights
+
+$lighter: 100;
+$light: 300;
+$font-weight--medium: 400;
+$bold: 700;
+$bolder: 900;
+
+//Font Sizes
+
+$font-size--base: 16px;
+
+//Line Heights
+
+$line-height--base: 1.4;
+$line-height--none: 1;
+$line-height--half: 1.2;
+$line-height--2: 1.7;
+$line-height--3: 2;

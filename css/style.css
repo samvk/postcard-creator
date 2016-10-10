@@ -1,0 +1,793 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+.button, button, .step, .dropzone__card--text {
+  -moz-transition: color 150ms linear, background-color 150ms linear;
+  -o-transition: color 150ms linear, background-color 150ms linear;
+  -webkit-transition: color 150ms linear, background-color 150ms linear;
+  transition: color 150ms linear, background-color 150ms linear;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@font-face {
+  font-family: "BrandonGrotesqueBold";
+  src: url("/fonts/Brandon_blk.woff") format("woff"), url("/fonts/Brandon_blk.otf") format("opentype");
+}
+@font-face {
+  font-family: "BrandonGrotesqueItalic";
+  src: url("/fonts/Brandon_med_it.woff") format("woff"), url("/fonts/Brandon_med_it.otf") format("opentype");
+}
+@font-face {
+  font-family: "BrandonGrotesqueBoldItalic";
+  src: url("/fonts/Brandon_blk_it.woff") format("woff"), url("/fonts/Brandon_blk_it.otf") format("opentype");
+}
+html {
+  font-size: 12.8px;
+  line-height: 1.4;
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.h1, h1 {
+  font-size: 4em;
+}
+@media screen and (min-width: 1200px) {
+  .h1, h1 {
+    font-size: 7em;
+  }
+}
+
+.h2, h2 {
+  font-size: 3.3em;
+}
+@media screen and (min-width: 768px) {
+  .h2, h2 {
+    font-size: 3.8em;
+  }
+}
+
+.h3, h3 {
+  font-size: 2.7em;
+}
+@media screen and (min-width: 768px) {
+  .h3, h3 {
+    font-size: 3.1em;
+  }
+}
+
+.h4, h4 {
+  font-size: 2.2em;
+}
+@media screen and (min-width: 768px) {
+  .h4, h4 {
+    font-size: 2.4em;
+  }
+}
+
+.h5, h5 {
+  font-size: 1.8em;
+}
+@media screen and (min-width: 768px) {
+  .h5, h5 {
+    font-size: 2em;
+  }
+}
+
+.h6, h6 {
+  font-size: 1.5em;
+}
+
+p,
+blockquote,
+li {
+  font-size: 1em;
+}
+
+.button, button {
+  font-size: 1.5em;
+}
+
+input,
+textarea,
+select {
+  font-size: 1em;
+}
+
+body {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h3 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h4 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h5 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+h6 {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+p,
+blockquote,
+ul,
+button {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+input,
+textarea,
+select {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+hr {
+  border: 0;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  height: 1px;
+  overflow: visible;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  color: inherit;
+}
+
+p, ul, li {
+  margin-bottom: .5em;
+}
+
+input, textarea, select {
+  outline: 0;
+  border: 0;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+a, span, img {
+  display: inline-block;
+}
+
+nav {
+  z-index: 300;
+}
+
+sub, sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: 0.85em;
+  line-height: 0;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+.underline, u {
+  text-decoration: underline;
+}
+
+.italic, em {
+  font-style: italic;
+}
+
+.bold, strong {
+  font-weight: 700;
+}
+
+.loud {
+  color: #333;
+  font-family: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center, .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6, .red-circle, .step-count, .email__button {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.uppercase, .dropzone__or {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.l0 {
+  line-height: 1;
+}
+
+.lhalf {
+  line-height: 1.2;
+}
+
+.l2 {
+  line-height: 1.7;
+}
+
+.l3 {
+  line-height: 2;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.circle, .red-circle, .step-count, .email__button, .step {
+  border-radius: 1000px;
+}
+
+.button, button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.625em 1.25em;
+}
+.button:hover, button:hover, .button:active, button:active {
+  text-decoration: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.list--inline-block li {
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center, .center-content div, .header__sub-title, .dropzone, #gcard, .email-box, input, textarea {
+  float: none !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-abs, .dropzone__card--text {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-content {
+  text-align: center;
+}
+
+.is-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.is-invisible {
+  visibility: hidden;
+}
+
+.is-not-displayed {
+  display: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.z0 {
+  z-index: -1000;
+}
+
+.z2 {
+  z-index: 200;
+}
+
+.z3 {
+  z-index: 300;
+}
+
+.z4 {
+  z-index: 400;
+}
+
+.z5 {
+  z-index: 500;
+}
+
+.content-box {
+  box-sizing: content-box;
+}
+
+.no-spacing, .red-circle, .step-count, .email__button, .dropzone__card--text {
+  margin-bottom: 0;
+}
+.no-spacing p, .red-circle p, .step-count p, .email__button p, .dropzone__card--text p, .no-spacing li, .red-circle li, .step-count li, .email__button li, .dropzone__card--text li {
+  margin-bottom: 0;
+}
+
+p.no-spacing, p.red-circle, p.step-count, p.email__button, p.dropzone__card--text, li.no-spacing, li.red-circle, li.step-count, li.email__button, li.dropzone__card--text {
+  margin-bottom: 0;
+}
+
+.list--no-spacing li {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+img.padding {
+  padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  img.xs-full-width {
+    width: 100%;
+  }
+}
+
+.hide-xs, .hide-sm, .hide-md {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-xs {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hide-sm {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hide-md {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .show-xs {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .show-sm {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .show-md {
+    display: none;
+  }
+}
+
+body {
+  color: #333;
+  background-color: #FCFCFC;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
+  color: #F43329;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+::-moz-selection {
+  color: #FFF;
+  background-color: #F8847E;
+}
+
+::selection {
+  color: #FFF;
+  background-color: #F8847E;
+}
+
+.red-circle, .step-count, .email__button {
+  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  background-color: #F43329;
+  color: #FFF;
+  box-shadow: 2px 2px 2px rgba(51, 51, 51, 0.4);
+  text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+}
+.red-circle p, .step-count p, .email__button p, .red-circle blockquote, .step-count blockquote, .email__button blockquote, .red-circle li, .step-count li, .email__button li {
+  color: #FFF;
+}
+
+.button, button {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #F43329;
+  color: #FFF;
+  padding: 1.3em 2em;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  border-radius: 5px;
+}
+.button p, button p, .button blockquote, button blockquote, .button li, button li {
+  color: #FFF;
+}
+.button a, button a {
+  color: #FFF;
+}
+.button:hover, button:hover, .button:active, button:active {
+  color: #FFF;
+  background-color: #F5473E;
+}
+
+section {
+  font-size: 1rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+header {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.header__title {
+  line-height: 1;
+  text-shadow: 0.04375em 0.04375em 0.125em rgba(244, 51, 41, 0.25);
+}
+
+.header__sub-title {
+  font: 1.5em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  width: 78%;
+  min-width: 278px;
+}
+@media screen and (min-width: 1200px) {
+  .header__sub-title {
+    font-size: 2em;
+  }
+}
+
+.steps-list {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .steps-list {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+}
+
+.step-count {
+  width: 3em;
+  height: 3em;
+  margin-right: 11px;
+}
+
+.step {
+  font: 1.3em "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+  color: #Ef3D34;
+  text-shadow: 1px 1px 1px rgba(244, 51, 41, 0.22);
+  height: 3em;
+  line-height: 3em;
+  width: 26%;
+  min-width: 230px;
+}
+
+.step.is-active {
+  background-color: #Ef3D34;
+  color: #FFF;
+  text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+}
+.step.is-active p, .step.is-active blockquote, .step.is-active li {
+  color: #FFF;
+}
+
+.dropzone {
+  cursor: pointer;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-height: 332px;
+  max-width: 310px;
+}
+@media screen and (min-width: 768px) {
+  .dropzone {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    max-width: 100%;
+  }
+}
+
+.dropzone__card {
+  color: #FFF;
+  font-size: 1.7em;
+  font-family: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+  text-align: center;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.dropzone__card--icon {
+  width: 320px;
+}
+
+.dropzone__card--text {
+  position: absolute;
+  bottom: 21.6%;
+  white-space: nowrap;
+  color: #FFF;
+}
+
+.dropzone__or {
+  font-size: 2em;
+  color: #0B0B0B;
+  text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+}
+
+.dropzone__card:hover .dropzone__card--text {
+  color: #F43329;
+}
+
+.dropzone.is-drag-enabled {
+  background-image: url("/img/dropzone.png");
+  outline: 2px dashed rgba(244, 51, 41, 0.2);
+}
+
+.dropzone.is-dragging {
+  outline: 3px dashed rgba(244, 51, 41, 0.4);
+}
+
+#gcard {
+  box-shadow: 0 1.875em 5em rgba(0, 70, 136, 0.4);
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.email-box {
+  box-shadow: 0 1.875em 5em rgba(49, 0, 0, 0.4);
+  border-radius: 6px;
+  padding: 2em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 720px;
+  max-width: 94%;
+  background-image: linear-gradient(-3deg, #f43329, #f43329 5%, #ffffff 9%, #ffffff 79.7%, #f43329 85.7%, #f43329);
+  text-shadow: 1px 1px 2px rgba(51, 51, 51, 0.4);
+}
+
+.email__label {
+  position: relative;
+  width: 80%;
+  padding: 0.3em;
+}
+
+.email__label--tag {
+  position: absolute;
+  transform: translateX(-100%);
+  padding: 0.3em 1em;
+  color: white;
+}
+
+input, textarea {
+  background-color: #F8F8F8;
+  border: 1px solid #ECECEC;
+  border-radius: 2px;
+  width: 100%;
+  padding: 0.25em 0.5em;
+}
+
+.mail__message {
+  min-height: 6.4em;
+}
+
+.gcard--preview {
+  box-shadow: 0 0.9375em 3.125em rgba(0, 70, 136, 0.4);
+  border-radius: 4px;
+  width: 60%;
+  margin: 1em;
+}
+
+.email__email-address {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-right: 8em;
+}
+
+.email__button {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+}
+
+/*# sourceMappingURL=style.css.map */

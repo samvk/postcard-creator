@@ -1,0 +1,50 @@
+// ==========================================================================
+// STEPS (INSTRUCTIONS LIST)
+// ==========================================================================//
+
+.steps-list {
+    //layout
+    width: 100%;
+    @include display-flex;
+    @include flex-direction(column);
+    @include align-items(center);
+    
+    @include media($sm-min) {
+        //layout
+        @include flex-direction(row);
+        @include justify-content(space-around);
+    }
+}
+
+.step-count {
+    //design
+    @extend .red-circle;
+
+    //layout
+    @include size(3em);
+    margin-right: 11px;
+    
+}
+
+.step {
+    //text
+    font: 1.3em $font-family--loud;
+
+    //design
+    color: $darkred;
+    @extend .circle;
+    text-shadow: 1px 1px 1px rgba(244, 51, 41, 0.22);
+    
+    //layout
+    @include line-height(3em);
+    width: 26%;
+    min-width: 230px;
+    
+    //animations
+    @extend %color-transition;
+}
+
+.step.is-active {
+    @include palette($white, $darkred);
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+}

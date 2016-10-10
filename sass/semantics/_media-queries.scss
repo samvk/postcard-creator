@@ -1,0 +1,47 @@
+// ==========================================================================
+// MEDIA QUERIES (classes related to mobile size)
+// ==========================================================================//
+
+//hidden elements
+
+.hide-xs, .hide-sm, .hide-md {
+    display: none;
+}
+
+.hide-xs {
+	@include media($sm-min) {
+		display: block;
+	}
+}
+
+.hide-sm {
+	@include media($sm-min) {
+		display: block;
+	}
+}
+
+.hide-md {
+	@include media($lg-min) {
+		display: block;
+	}
+}
+
+//visible elements
+
+.show-xs {
+	@include media($sm-min) {
+		display: none;
+	}
+}
+
+.show-sm {
+	@include media($md-min) {
+		display: none;
+	}
+}
+
+.show-md {
+	@include media($lg-min) {
+		display: none;
+	}
+}

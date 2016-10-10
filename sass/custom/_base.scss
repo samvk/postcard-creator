@@ -1,0 +1,55 @@
+// ==========================================================================
+// BASE RULES
+// ==========================================================================//
+
+body {
+    //design (defaults)
+    color: $charcoal;
+    background-color: $offwhite;
+}
+
+.container {
+    //layout
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include media($sm-min) {
+        width: 750px;
+    }
+    @include media($md-min) {
+        width: 970px;
+    }
+    @include media($lg-min) {
+        width: 1170px;
+    }
+
+}
+
+//headers
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    //text
+    color: $red;
+    font-weight: $bolder;
+    text-transform: uppercase;
+    @extend .text-center;
+}
+
+//text highlighting
+@include selection($white, $salmon);
+
+//custom
+
+.red-circle {
+    //text
+    font-family: $font-family--primary;
+    @extend .text-center;
+    @extend .no-spacing;
+
+    //design
+    @include palette($white, $red);
+    @extend .circle;
+    box-shadow: 2px 2px 2px rgba(51, 51, 51, 0.4);
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+}

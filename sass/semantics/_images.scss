@@ -1,0 +1,18 @@
+// ==========================================================================
+// IMAGES
+// ==========================================================================//
+
+//responsive images
+img {
+	max-width: 100%;
+}
+
+img.padding {
+	padding: $font-size--base - 1;
+}
+
+img.xs-full-width {
+	@include media($xs-max) {
+		width: 100%;
+	}
+}

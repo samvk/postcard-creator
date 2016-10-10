@@ -1,0 +1,274 @@
+// ==========================================================================
+// MIXINS and PLACEHOLDERS
+// ==========================================================================//
+
+// ==========================================================================
+// INCLUDES:
+// 
+// Mixins:
+// * media{} queries
+// * hover{} state
+// * active{} state
+// * margin() shorthand mixins
+// * padding() shorthand mixins
+// * absolute() shorthand
+// * fixed() shorthand
+// * size(width, height) shorthand
+// * hr(color, height, width) shorthand
+// * line-height(height/line-height)
+// * pseudo(pos){} element maker
+// * arrow(direction, color, size)
+// * underline(color, size)
+// * palette(color, background-color, link-color, theme-color)
+// * selection(color, background-color)
+// * responsive-image(url, width, image-width, image-height)
+// * drag-none()
+//
+// Placeholders:
+// * %clearfix on parent element of floats
+// 
+// ==========================================================================//
+
+//Media queries breakpoints
+$sm-min: 768px;
+$md-min: 992px;
+$lg-min: 1200px;
+
+$xs-max: ($sm-min - 1);
+$sm-max: ($md-min - 1);
+$md-max: ($lg-min - 1);
+
+@mixin media($breakpoint) {
+	$query: "";
+	@if $breakpoint == $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min {
+		$query: "min-width";	
+	} @else if $breakpoint == $xs-max or $breakpoint == $sm-max or $breakpoint == $md-max {
+		$query: "max-width";
+	}
+	@media screen and ($query: $breakpoint) { @content; }
+}
+
+//HOVER and ACTIVE(allow common color arguments or content)
+//includes :active until overwritten
+@mixin hover($color: null, $background: null) {
+
+    @if $color != null OR $background != null {
+        @extend %color-transition;
+    }
+
+	&:hover,
+	&:active {
+		color: $color;
+		background-color: $background;
+		@content;
+	}
+}
+
+@mixin active($color: null, $background: null) {
+	&:active {
+		color: $color;
+		background-color: $background;
+		@content;
+	}
+}
+
+//Margin shorthand allowing null values(all values required)
+@mixin margin($top, $right, $bottom, $left){
+	margin-top: $top;
+	margin-right: $right;
+	margin-bottom: $bottom;
+	margin-left: $left;
+}
+
+//to avoid unnecessary 0 values for the other sides
+@mixin margin-top-bottom($top, $bottom: $top){
+	margin-top: $top;
+	margin-bottom: $bottom;
+}
+
+@mixin margin-left-right($left, $right: $left){
+	margin-left: $left;
+	margin-right: $right;
+}
+
+//Padding shorthand allowing null values(all values required)
+@mixin padding($top, $right, $bottom, $left){
+	padding-top: $top;
+	padding-right: $right;
+	padding-bottom: $bottom;
+	padding-left: $left;
+}
+
+//to avoid unnecessary 0 values for the other sides
+@mixin padding-top-bottom($top, $bottom: $top){
+	padding-top: $top;
+	padding-bottom: $bottom;
+}
+
+@mixin padding-left-right($left, $right: $left){
+	padding-left: $left;
+	padding-right: $right;
+}
+
+//written as absolute(top 10px right 5px)
+@mixin absolute($args) {
+	@include position(absolute, $args);
+}
+
+//written as fixed(top 10px right 5px)
+@mixin fixed($args) {
+	@include position(fixed, $args);
+}
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin hr($color, $height: null, $width: null) {
+    hr {
+        background-color: $color;
+        height: $height;
+        width: $width;
+    }
+}
+
+@mixin center-abs($position: x) {
+    @if $position == x {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if $position == y {
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if $position == both {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}
+
+//vertically center text
+@mixin line-height($height) {
+	height: $height;
+	line-height: $height;
+}
+
+@mixin pseudo($position: "before"){
+    @if $position == "before" OR $position == "after" {
+        &:#{$position} {
+            position: absolute;
+            display: block;
+            content: "";
+
+            @content;
+        }
+    } @else {
+        @error '"#{position}" is not a valid pseudo-element.';
+    }
+}
+
+@mixin arrow($direction, $color, $height: 6px, $width: 2*$height, $position: null){
+    
+    @if ($direction == "up") {
+        $position: "before" !default;
+    } @else {
+        $position: "after" !default;
+    }
+    
+    @include pseudo($position) {
+        height: 0;
+        width: 0;
+        @if ($direction == "up"){
+            border-bottom: $height solid $color;
+            border-left: 0.5*$width solid transparent;
+            border-right: 0.5*$width solid transparent;
+        }
+        @else if ($direction == "down"){
+            border-top: $height solid $color;
+            border-left: 0.5*$width solid transparent;
+            border-right: 0.5*$width solid transparent;
+        }
+        @else if ($direction == "left"){
+            border-top: $height solid transparent;
+            border-bottom: 0.5*$width solid transparent;
+            border-right: 0.5*$width solid $color;
+        }
+        @else if ($direction == "right"){
+            border-top: $height solid transparent;
+            border-bottom: 0.5*$width solid transparent;
+            border-left: 0.5*$width solid $color;
+        }
+        
+        @content;
+    }
+}
+
+@mixin underline($color: $color-primary, $size: 6px, $type: solid) {
+	border-bottom: $size $type $color;
+}
+
+@mixin palette($color: null, $background: null, $link-color: null, $theme-color: null) {
+	background-color: $background;
+
+	color: $color;
+
+	p, blockquote, li {
+		color: $color;
+	}
+
+	a {
+		color: $link-color;
+	}
+
+	.loud {
+		color: $theme-color;
+	}
+}
+
+@mixin selection($color: null, $background: null) {
+    ::-moz-selection { 
+        color: $color;
+        background-color: $background;
+    };
+    ::selection { 
+        color: $color;
+        background-color: $background;
+    };
+}
+
+@mixin responsive-image($url, $width, $image-width, $image-height) {
+	//Responsive background images get their size by exploiting padding-top (based off of width) as a ratio of the images.
+
+	//design
+    @if $url {
+        background-image: url(#{$url});
+    }
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	//layout
+	position: absolute;
+	height: 0;
+	//background image respond like image
+	width: $width * 1%;
+	padding-top: calc(#{$image-height}%/#{$image-width} * #{$width});
+
+	@content; //include overrides here
+};
+
+@mixin drag-none {
+	@include user-select(none);
+	-webkit-user-drag: none;
+	user-drag: none;
+	-webkit-touch-callout: none;
+}
+
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

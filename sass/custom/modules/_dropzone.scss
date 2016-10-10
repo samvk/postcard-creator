@@ -1,0 +1,64 @@
+// ==========================================================================
+// DROPZONE
+// ==========================================================================//
+
+.dropzone {
+    //design
+    cursor: pointer; //interactive cursor
+
+    //layout
+    @include display-flex;
+    @include justify-content(space-around);
+    @include flex-direction(column);
+    @include align-items(center);
+
+    @include padding-left-right(1em);
+    min-height: 332px;
+    max-width: 310px;
+    @extend .center;
+
+    
+    @include media($sm-min) {
+        //layout
+        @include flex-direction(row);
+        max-width: 100%;
+    }
+}
+
+.dropzone__card {
+    //text
+    color: $white;
+    font-size: 1.7em;
+    font-family: $font-family--loud;
+    text-align: center;
+    
+    //layout(self)
+    @include flex-grow(1);
+
+    //layout (children)
+    @include display-flex;
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+
+}
+
+.dropzone__card--icon {
+    width: 320px;
+}
+
+.dropzone__card--text {
+    position: absolute;
+    bottom: 21.6%;
+    @extend .center-abs;
+    @extend .no-spacing;
+    white-space: nowrap;
+    color: $white;
+}
+
+.dropzone__or {
+    font-size: 2em;
+    color: $black;
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
+    @extend .uppercase;
+}
