@@ -21,12 +21,11 @@
     <!-- Custom Fonts -->
 
 	<!-- Custom CSS -->
-	<link href="/css/style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
-    
     <header>
         <div class="container">
             <h1 class="header__title">Greetings, World!</h1>
@@ -37,94 +36,120 @@
     <section class="steps">
         <div class="container">
             <ol class="steps-list">
-                <li class="step is-active"><span class="step-count">1</span>Upload a photo&hellip;</li>
-                <li class="step"><span class="step-count">2</span>Personalize&hellip;</li>
-                <li class="step"><span class="step-count">3</span>Send!</li>
+                <li class="step is-active" data-step="upload"><span class="step-count">1</span>Upload a photo&hellip;</li>
+                <li class="step" data-step="personalize"><span class="step-count">2</span>Personalize&hellip;</li>
+                <li class="step" data-step="send"><span class="step-count">3</span>Send!</li>
             </ol>
         </div>
     </section>
 
-    <section class="photobooth">
+    <section class="dropzone-section">
         <div class="container">
-            <div class="dropzone is-drag-enabled">
-                <div class="dropzone__card dropzone__browse">
-                    <div class="relative">
-                        <img class="dropzone__card--icon" src="/img/draganddrop.svg">
-                        <p class="dropzone__card--text">Choose a photo</p>
-                    </div>
-                    
-                </div>
+			<div class="dropzone-wrapper">
+				<div class="dropzone__message-wrapper">
+					<p class="dropzone__message"></p>
+				</div>
 
-                <div class="dropzone__card dropzone__or"><p>or</p></div>
+				<div class="dropzone">
+					<div class="dropzone__card dropzone__browse">
+						<div class="relative">
+							<img class="dropzone__card--icon" src="/img/draganddrop.svg" alt="Choose a photo">
+							<p class="dropzone__card--text">Choose a photo</p>
+						</div>
+					</div>
 
-                <div class="dropzone__card dropzone__camera">
-                    <div class="relative">
-                        <img class="dropzone__card--icon" src="/img/camera.svg">
-                        <p class="dropzone__card--text">Take a photo</p>
-                    </div>
-                </div>
-            </div>
-            <input id="photoInput" class="is-hidden" type="file" accept="image/*" capture="camera">
+					<div class="dropzone__card dropzone__or"><p class="hide-xs">or</p></div>
+
+					<div class="dropzone__card dropzone__camera">
+						<div class="relative hide-xs">
+							<img class="dropzone__card--icon" src="/img/camera.svg" alt="Take a photo">
+							<p class="dropzone__card--text">Take a photo</p>
+						</div>
+					</div>
+				</div>
+			</div>
+            <input id="fileInput" aria-hidden="true" type="file" accept="image/*">
         </div>
     </section>
 
-    <section class="canvas-wrapper">
+    <section class="canvas-section">
         <div class="container">
-            <canvas id="gcard" width="690" height="460">
-                Your browser does not support the HTML5 canvas tag.
-            </canvas>
+			<div class="text-center">
+				<div class="inline-block gcard-wrapper">
+					<canvas id="gcard" width="690" height="460">
+						Your browser does not support the HTML5 canvas tag.
+					</canvas>
+					<img class="design__button" src="img/pantone.svg">
+				</div>
+			</div>
+			<label class="gcard__label">
+				<input class="gcard__header" type="text" placeholder="Type header here..." maxlength="60">
+			</label>
+			<label class="gcard__label">
+				<textarea class="gcard__message" placeholder="Type message here..." maxlength="350"></textarea>
+			</label>
+			<button><span class="button--preview">Preview &amp;</span> Send!</button>
+			
         </div>
-    </section>
-    
-    <section class="email-template">
-        <div class="container">
-            <form class="email-box" action="" method="post">
-                <label class="email__label"><span class="email__label--tag">Subject:</span><input type="text" name="" placeholder="" maxlength="200" required></label>
-                <label class="email__label"><span class="email__label--tag">Message:</span><textarea class="mail__message" name="" placeholder="(optional)" maxlength="12000"></textarea></label>
-                <img class="gcard--preview" src="https://placekitten.com/390/260">
-                <label class="email__label"><input class="email__email-address" type="text" name="" placeholder="What's the recipient's email address?" maxlength="100" required>
-                    <button class="email__button" type="submit">Send!</button>
-                </label>
-            </form>
-        </div>
+		<img class="gcard-image" aria-hidden="true" alt=""> <!-- Holds #gcard upload -->
     </section>
 
-    <footer></footer>
-    
-    <!-- ****************----------------**************** -->
-    
+	<section class="email-section">
+		<img class="gcard-back" src="img/postcard-back.png" alt="Back of Greeting Card">
 
-    <p style="margin-top: 500px">-------------------------------</p>
-    <h1>Greetings, World!</h1>
+		<form class="email-form" action="php/contact.php" method="post">
+			<div class="email__body-container">
+				<label class="email__body">
+					<span class="email__header"><u>Message</u></span>
+					<textarea name="body" placeholder="" maxlength="12000"></textarea>
+				</label>
+			</div>
+			<div class="email__address-container">
+				<label class="email__to">
+					<span class="email__header">To:</span>
+					<input type="text" name="to" placeholder="" maxlength="100" required>
+				</label>
+				<label class="email__from">
+					<span class="email__header">From:</span>
+					<input type="text" name="from" placeholder="" maxlength="100" required>
+				</label>
+				<label class="email__user-email">
+					<span class="email__header">Return Email:</span>
+					<input type="email" name="user-email" placeholder="" maxlength="100" required>
+				</label>
+			</div>
+			<div class="email__send--container">
+				<label class="email__target-email">
+					<input type="email" name="target-email" placeholder="What's the recipient's email address?" maxlength="1000" required>
+					<button class="email__button" type="submit">Send!</button>
+				</label>
+				<div class="response"></div>
+			</div>
+		</form>
+	</section>
+	
+	<article class="webcam-wrapper is-closed">
+		<div id="webcam"></div>
+		<img class="webcam__snap" src="/img/camera.svg" alt="Take snapshot">
+		<div class="webcam__close">&#10006;</div>
+	</article>
+	
+	<!-- Force fonts to load for canvas -->
+	<article class="is-hidden">
+		<p style="font-family: Lobster Two">1</p>
+		<p style="font-family: Lato">1</p>
+		<p style="font-family: Berkshire Swash">1</p>
+	</article>
 
-    <form action="">
-        <label>Select a file:
-            <input id="photoInput-old" type="file" name="files" accept="image/*" capture="camera">
-        </label>
-    </form>
-    
-<!--    <div class="filedrop"></div>-->
-    
-    <div class="filecontents"></div>
-    
-    <p>Canvas:</p>
-    <div class="canvas-wrapper"></div>
-    <!--<canvas id="myCanvas" width="704" height="396" style="border:1px solid red;">
-        Your browser does not support the HTML5 canvas tag.
-    </canvas>
-
-    <canvas id="myCanvas" width="704" height="396" style="border:1px solid red;">
-        Your browser does not support the HTML5 canvas tag.
-    </canvas>-->
+    <footer>
+		<p class="no-spacing">2016 &copy; <strong>SAMVK</strong></p>
+	</footer>
 
 <!--**************************************************-->
 
-	<!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>window.jQuery || document.write("<script src='/js/jquery.min.js'><\/script>")</script>
-
 	<!-- Javascript -->
-	<script src="js/script.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script src="dist/app.js"></script>
 
 </body>
 
