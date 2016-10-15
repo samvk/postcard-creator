@@ -1,0 +1,21 @@
+// ==========================================================================
+// FOOTER
+// ==========================================================================//
+
+footer {
+	//base font-size
+	font-size: 1rem;
+
+	//layout
+	margin-top: 2em;
+}
+
+footer p {
+	//text
+	color: $black;
+	font-size: 1.1em;
+	font-family: $font-family--logo;
+
+	//layout
+	padding: 1em;
+}

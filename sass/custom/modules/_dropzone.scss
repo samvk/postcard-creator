@@ -13,7 +13,6 @@
     @include align-items(center);
 
     @include padding-left-right(1em);
-    min-height: 332px;
     max-width: 310px;
     @extend .center;
 

@@ -1,0 +1,114 @@
+// ==========================================================================
+// EMAIL TEMPLATE SECTION
+// ==========================================================================//
+
+//FONT
+.email-form p, input, textarea {
+	//text
+	//font-family: "Homemade Apple", cursive;
+}
+
+//LAYOUT
+.email-section {
+	//layout
+	position: relative;
+	padding: 0;
+	max-width: $postcard-width;
+	max-height: $postcard-height;
+}
+
+.email-form {
+	//layout
+	padding-top: 23%;
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.email__body-container,
+.email__address-container {
+	height: 77%;
+	@include padding-left-right(3%);
+}
+
+.email__body-container { width: 48%; }
+.email__address-container { width: 52%; }
+
+
+.email-form input, .email-form textarea {
+	//design
+	background-color: rgba(255, 204, 163, 0.34);
+
+	//layout
+	width: 100%;
+	margin: 5% 0;
+	padding: 0.4em;
+}
+
+.email-form textarea {
+	//margin-top: 61%;
+	height: 70%;
+}
+
+.email__to input {
+	//margin-top: 56%;
+}
+
+.email__address-container input {
+	height: 14%;
+}
+
+.email__send--container {
+	@include padding-left-right(3%);
+	//display: inline-block;
+	//display: flex;
+	width: 100%;
+}
+
+.email__send--container {
+	position: relative;
+}
+
+.email__send--container input {
+	width: 90%;
+	height: 70%;
+	margin: 0;
+	padding-right: 5%;
+}
+
+.email__button {
+	//design
+	background-color: $gold;
+
+	//layout
+	position: absolute;
+	margin-top: -1%;
+	margin-left: -4%;
+	//padding: 0.8em 1.2em;
+	padding: 1.8%;
+
+	//animation
+	&:hover {
+		background-color: #ffc259;
+	}
+}
+
+//HEADERS
+.email__header {
+	//text
+	font-size: 1.2em;
+	font-family: "Homemade Apple", cursive;
+
+	//layout
+	position: absolute;
+	transform: rotate(-4deg) translateY(-10%);
+}
+
+.response {
+	position: absolute;
+	bottom: -7px;
+	right: 15px;
+	color: saddlebrown;
+}

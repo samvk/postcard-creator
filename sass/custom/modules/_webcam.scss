@@ -1,0 +1,59 @@
+// ==========================================================================
+// WEBCAM SECTION
+// ==========================================================================//
+
+.webcam-wrapper {
+	//design
+	background-color: $black;
+	box-shadow: 0 1.875em 4em rgba(0, 0, 0, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 2px;
+
+	//layout
+	position: fixed;
+	@include center-abs(both);
+	max-width: 100%;
+
+	//animation
+	@include fade-in(absolute); //defines .fade-in properties
+}
+
+#webcam {
+	//layout
+	overflow: hidden;
+}
+
+.webcam__snap {
+	//design
+	cursor: pointer;
+
+	//layout
+	position: absolute;
+	bottom: 1.8em;
+	@include size(64px);
+	@include center-abs(x);
+
+	//animation
+	opacity: 0.6;
+	@include transition(opacity 200ms linear);
+}
+
+.webcam__snap:hover {
+	opacity: 1;
+}
+
+.webcam__close {
+	//text
+	color: $black;
+	font-size: 3.5em;
+	text-shadow: 2px 2px 1px rgba(51, 51, 51, 0.4);
+
+	//design
+	cursor: pointer;
+
+	//layout
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0.8em;
+}

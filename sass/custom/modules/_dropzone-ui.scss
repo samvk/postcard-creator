@@ -2,21 +2,72 @@
 // DROPZONE UI DESIGN EFFECTS
 // ==========================================================================//
 
-//highlight dropzone text on hover
+//dropzone hover effect
+.dropzone__browse,
+.dropzone__camera {
+    @include transition(opacity 150ms linear);
+    &:hover { opacity: 0.85; }
+}
 
-.dropzone__card--text { @extend %color-transition; } //smooth color transition
-.dropzone__card:hover {
-    .dropzone__card--text {
-        color: $red; //highlight card text
+.dropzone-wrapper {
+	//design
+	background-image: url("/img/dropzone.png");
+
+	//layout
+	position: relative;
+	overflow: hidden;
+
+	//animation
+	@include transition(max-height 1800ms);
+	max-height: 634px;
+
+	@include media($sm-min){
+		//layout
+		max-height: 334px;
+	}
+}
+
+.dropzone-wrapper.is-dragging {
+    outline: 3px dashed rgba(244, 51, 41, 0.4);
+
+    .dropzone__card { 
+        @include transition(opacity 0);
+        opacity: 0.85;
     }
 }
 
-//removable "drag and drop" styling
-.dropzone.is-drag-enabled {
-    background-image: url("/img/dropzone.png");
-    outline: 2px dashed rgba(244, 51, 41, 0.2);
+.dropzone-wrapper.is-compressed {
+	//layout
+	position: relative;
+	max-height: 3.5em;
 }
 
-.dropzone.is-dragging {
-    outline: 3px dashed rgba(244, 51, 41, 0.4);
+//dropzone message
+.dropzone__message-wrapper {
+	//layout
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.dropzone__message {
+	//text
+	color: #A61009;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 1px rgba(99, 75, 74, 0.5);
+	text-align: center;
+
+	//layout
+	position: absolute;
+	@include center-abs(both);
+	width: 94%;
+	@extend .no-spacing;
+	
+	//animation
+	opacity: 0;
+	@include transition(opacity 700ms linear);
+}
+
+.dropzone__message.display-alert {
+	opacity: 1;
 }

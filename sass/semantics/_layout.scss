@@ -50,9 +50,13 @@
 //visibility
 
 .is-hidden {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+[aria-hidden="true"] {
+	@extend .is-hidden;
 }
 
 .is-invisible {

@@ -3,24 +3,31 @@
 // ==========================================================================//
 
 //Import Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
+
+//for postcards
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+@import url('https://fonts.googleapis.com/css?family=Lato:700i');
 
 //Import Fonts
 @font-face {
     font-family: "BrandonGrotesqueBold";
-    src: url("/fonts/Brandon_blk.woff") format('woff'),
-        url("/fonts/Brandon_blk.otf") format('opentype');
+    src: url("../fonts/Brandon_blk.woff") format('woff'),
+        url("../fonts/Brandon_blk.otf") format('opentype');
 }
 
 @font-face {
     font-family: "BrandonGrotesqueItalic";
-    src: url("/fonts/Brandon_med_it.woff") format('woff'),
-        url("/fonts/Brandon_med_it.otf") format('opentype');
+    src: url("../fonts/Brandon_med_it.woff") format('woff'),
+        url("../fonts/Brandon_med_it.otf") format('opentype');
 }
 
 @font-face {
     font-family: "BrandonGrotesqueBoldItalic";
-    src: url("/fonts/Brandon_blk_it.woff") format('woff'),
-        url("/fonts/Brandon_blk_it.otf") format('opentype');
+    src: url("../fonts/Brandon_blk_it.woff") format('woff'),
+        url("../fonts/Brandon_blk_it.otf") format('opentype');
 }
 
 //Fonts
@@ -28,6 +35,7 @@ $font-family--primary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
 $font-family--secondary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
 $font-family--accent: "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 $font-family--loud: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+$font-family--logo: "Montserrat", Arial, Helvetica, sans-serif;
 
 // Font Weights
 

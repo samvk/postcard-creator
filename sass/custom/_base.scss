@@ -2,18 +2,25 @@
 // BASE RULES
 // ==========================================================================//
 
+html {
+	//force h-scroll (to prevent respositioning)
+	overflow-y: scroll;
+}
+
 body {
     //design (defaults)
     color: $charcoal;
     background-color: $offwhite;
 }
 
+a {
+	color: $red;
+}
+
 .container {
     //layout
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+	@include margin-left-right(auto);
+	@include padding-left-right(auto);
 
     @include media($sm-min) {
         width: 750px;

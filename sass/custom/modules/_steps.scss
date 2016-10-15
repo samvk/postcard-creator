@@ -41,10 +41,11 @@
     min-width: 230px;
     
     //animations
-    @extend %color-transition;
+	transition: color 1400ms linear, background 1400ms linear;
 }
 
 .step.is-active {
-    @include palette($white, $darkred);
+	color: $white;
+	background: $red;
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
 }

@@ -30,7 +30,7 @@
 // ==========================================================================//
 
 //Media queries breakpoints
-$sm-min: 768px;
+$sm-min: 769px;
 $md-min: 992px;
 $lg-min: 1200px;
 
@@ -240,6 +240,10 @@ $md-max: ($lg-min - 1);
 @mixin responsive-image($url, $width, $image-width, $image-height) {
 	//Responsive background images get their size by exploiting padding-top (based off of width) as a ratio of the images.
 
+	//width(%)
+	//image-width(#)
+	//image-height(#)
+	
 	//design
     @if $url {
         background-image: url(#{$url});
