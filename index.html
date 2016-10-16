@@ -71,63 +71,79 @@
             <input id="fileInput" aria-hidden="true" type="file" accept="image/*">
         </div>
     </section>
-
-    <section class="canvas-section">
-        <div class="container">
-			<div class="text-center">
-				<div class="inline-block gcard-wrapper">
-					<canvas id="gcard" width="690" height="460">
-						Your browser does not support the HTML5 canvas tag.
-					</canvas>
-					<img class="design__button" src="img/pantone.svg">
-				</div>
-			</div>
-			<label class="gcard__label">
-				<input class="gcard__header" type="text" placeholder="Type header here..." maxlength="60">
-			</label>
-			<label class="gcard__label">
-				<textarea class="gcard__message" placeholder="Type message here..." maxlength="350"></textarea>
-			</label>
-			<button><span class="button--preview">Preview &amp;</span> Send!</button>
-			
-        </div>
-		<img class="gcard-image" aria-hidden="true" alt=""> <!-- Holds #gcard upload -->
-    </section>
-
-	<section class="email-section">
-		<img class="gcard-back" src="img/postcard-back.png" alt="Back of Greeting Card">
-
-		<form class="email-form" action="php/contact.php" method="post">
-			<div class="email__body-container">
-				<label class="email__body">
-					<span class="email__header"><u>Message</u></span>
-					<textarea name="body" placeholder="" maxlength="12000"></textarea>
-				</label>
-			</div>
-			<div class="email__address-container">
-				<label class="email__to">
-					<span class="email__header">To:</span>
-					<input type="text" name="to" placeholder="" maxlength="100" required>
-				</label>
-				<label class="email__from">
-					<span class="email__header">From:</span>
-					<input type="text" name="from" placeholder="" maxlength="100" required>
-				</label>
-				<label class="email__user-email">
-					<span class="email__header">Return Email:</span>
-					<input type="email" name="user-email" placeholder="" maxlength="100" required>
-				</label>
-			</div>
-			<div class="email__send--container">
-				<label class="email__target-email">
-					<input type="email" name="target-email" placeholder="What's the recipient's email address?" maxlength="1000" required>
-					<button class="email__button" type="submit">Send!</button>
-				</label>
-				<div class="response"></div>
-			</div>
-		</form>
-	</section>
 	
+	
+	
+	<section class="gcard-3d"> <!-- .front and .back inline style spammed by flip() for IE support -->
+		
+		<div class="container">
+
+			<div class="front">
+
+				<article class="canvas-section">
+					<canvas id="gcard" width="690" height="460">
+						Your browser does not support the greeting card generator.
+					</canvas>
+					<img class="gcard__icon design__button" src="img/pantone.svg">
+
+					<label class="gcard__label">
+						<input class="gcard__header" type="text" placeholder="Type header here..." maxlength="60">
+					</label>
+					<label class="gcard__label">
+						<textarea class="gcard__message" placeholder="Type message here..." maxlength="350"></textarea>
+					</label>
+					<p class="text-right">
+						<button class="gcard__button">Save</button>
+					</p>
+				</article>
+
+
+			</div>
+
+			<div class="back">
+
+				<article class="email-section">
+					<img class="gcard-back" src="img/postcard-back.png" alt="Back of Greeting Card">
+
+					<form class="email-form" action="php/contact.php" method="post">
+						<div class="email__body-container">
+							<label class="email__body">
+								<span class="email__header"><u>Message</u></span>
+								<textarea name="body" placeholder="" maxlength="12000"></textarea>
+							</label>
+						</div>
+						<div class="email__address-container">
+							<label class="email__to">
+								<span class="email__header">To:</span>
+								<input type="text" name="to" placeholder="" maxlength="100" required>
+							</label>
+							<label class="email__from">
+								<span class="email__header">From:</span>
+								<input type="text" name="from" placeholder="" maxlength="100" required>
+							</label>
+							<label class="email__user-email">
+								<span class="email__header">Return Email:</span>
+								<input type="email" name="user-email" placeholder="" maxlength="100" required>
+							</label>
+						</div>
+						<div class="email__send--container">
+							<label class="email__target-email">
+								<input type="email" name="target-email" placeholder="What's the recipient's email address?" maxlength="1000" required>
+								<button class="email__button" type="submit">Send!</button>
+							</label>
+						</div>
+					</form>
+					<img class="gcard__icon edit__button" src="img/pencil.svg">
+				</article>
+
+			</div>
+
+			<img class="gcard-image" aria-hidden="true" alt=""> <!-- Holds #gcard upload -->
+
+		</div>
+
+	</section>
+
 	<article class="webcam-wrapper is-closed">
 		<div id="webcam"></div>
 		<img class="webcam__snap" src="/img/camera.svg" alt="Take snapshot">
@@ -135,11 +151,11 @@
 	</article>
 	
 	<!-- Force fonts to load for canvas -->
-	<article class="is-hidden">
-		<p style="font-family: Lobster Two">1</p>
-		<p style="font-family: Lato">1</p>
-		<p style="font-family: Berkshire Swash">1</p>
-	</article>
+	<div aria-hidden="true">
+		<p style="font-family: Lobster Two">.</p>
+		<p style="font-family: Lato">.</p>
+		<p style="font-family: Berkshire Swash">.</p>
+	</div>
 
     <footer>
 		<p class="no-spacing">2016 &copy; <strong>SAMVK</strong></p>
@@ -150,7 +166,7 @@
 	<!-- Javascript -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 	<script src="dist/app.js"></script>
-
+	
 </body>
 
 </html>

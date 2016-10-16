@@ -12,18 +12,18 @@ function uploadFile(files) {
     //VALIDATE
 		//File Type
 	if ( !photoFile || !photoFile.type.match("image.*") ) {
-		dropzoneAlert("Oops, I can't seem to read this. Make sure you're uploading an image file.");
+		dropzoneAlert("Oops, I can't seem to read this. Make sure you're uploading an image file.", "error");
 		return;
 	}
 		//Max File Size
     if (photoFile.size > (MAX_FILESIZE*1024*1024) ) {
-        dropzoneAlert(`Sorry, your photo is too large (max: ${MAX_FILESIZE} MBs)`);
+        dropzoneAlert(`Sorry, your photo is too large (max: ${MAX_FILESIZE} MBs)`, "error");
         return;
     }
 	
 	//LOADING SCREEN
 	reader.onloadstart = function() {
-		dropzoneAlert("Loading...");
+		dropzoneAlert("Loading...", null, true);
 	};
 	reader.onloadend = function() {
 		dropzoneAlert(""); //clear
@@ -32,7 +32,7 @@ function uploadFile(files) {
     //ERROR HANDLING
 		//Failed upload
     reader.onerror = function() {
-        dropzoneAlert("Something went wrong. Please try reuploading your phot Sorry about that.");
+        dropzoneAlert("Something went wrong. Please try reuploading your phot Sorry about that.", "error");
     };
 
     	//successful upload
@@ -42,7 +42,7 @@ function uploadFile(files) {
 			.attr("src", e.target.result)
 			//error if "image" file has bad data code
 			.on("error", function() {
-				dropzoneAlert("Sorry, I can't understand this image file.");
+				dropzoneAlert("Sorry, I can't understand this image file.", "error");
 		})
 	//SUCCESS
 		//wait till image is loaded

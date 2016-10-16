@@ -1,0 +1,54 @@
+// ==========================================================================
+// GREETING CARD AND CANVAS
+// ==========================================================================//
+
+.canvas-section {
+	max-width: 100%;
+}
+
+#gcard {
+	//display
+	border-radius: 10px;
+
+	//layout
+	display: block;
+	@extend .center;
+    max-width: 100%;
+}
+
+#gcard, .email-section {
+	//display
+	box-shadow: 0 em(30px) em(80px) rgba(0, 70, 136, 0.4);
+}
+
+.gcard-wrapper {
+	//layout
+	position: relative;
+	@include margin-left-right(auto);
+}
+
+.gcard__icon {
+	//design
+	cursor: pointer;
+	opacity: 0.9;
+
+	//layout
+	position: absolute;
+	top: 0;
+	padding: 1em;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.design__button {
+	right: 0;
+	@include size(7em);
+	
+}
+
+.edit__button {
+	left: 0;
+	@include size(6em);
+}

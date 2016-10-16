@@ -1,0 +1,32 @@
+// ==========================================================================
+// DROPZONE MESSAGES
+// ==========================================================================//
+
+.dropzone__message {
+	//text
+	font-size: 1.2em;
+	text-shadow: 1px 1px 1px rgba(99, 75, 74, 0.5);
+	text-align: center;
+
+	//layout
+	position: absolute;
+	width: 94%;
+	@include center-abs(both);
+	@extend .no-spacing;
+	
+	//animation
+	opacity: 0;
+	@include transition(opacity 700ms linear);
+}
+
+.dropzone__message.display-alert {
+	opacity: 1;
+}
+
+.dropzone__message[data-status="success"] {
+	color: #09A610;
+}
+
+.dropzone__message[data-status="error"] {
+	color: #A61009;
+}

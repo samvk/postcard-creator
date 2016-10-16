@@ -52,7 +52,6 @@ $(".gcard__header, .gcard__message").on("input", function(){
 });
 
 $(".design__button").on("click", function() {
-	console.log("click");
 	let img = $(".gcard-image")[0]; //keep current image
 	renderCanvas(img, true);
 });

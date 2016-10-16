@@ -60,7 +60,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.button, button {
+.button, button, .gcard__button, .email__button {
   -moz-transition: color 150ms linear, background-color 150ms linear;
   -o-transition: color 150ms linear, background-color 150ms linear;
   -webkit-transition: color 150ms linear, background-color 150ms linear;
@@ -382,8 +382,7 @@ sub {
   float: right;
 }
 
-.center, .center-content div, .header__sub-title, .dropzone, #gcard, .gcard__label input, .gcard__label textarea {
-  float: none !important;
+.center, .center-content div, .header__sub-title, .dropzone, #gcard {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -575,22 +574,10 @@ a {
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
-  background-color: #F43329;
-  color: #FFF;
   padding: 1.3em 2em;
   margin-top: 0.8em;
   margin-bottom: 0.8em;
   border-radius: 5px;
-}
-.button p, button p, .button blockquote, button blockquote, .button li, button li {
-  color: #FFF;
-}
-.button a, button a {
-  color: #FFF;
-}
-.button:hover, button:hover, .button:active, button:active {
-  color: #FFF;
-  background-color: #F5473E;
 }
 
 section {
@@ -760,25 +747,34 @@ header {
 
 .dropzone-wrapper.is-compressed {
   position: relative;
-  max-height: 3.5em;
 }
 
 .dropzone__message-wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
+  display: block;
+}
+
+.dropzone-wrapper.is-compressed,
+.dropzone__message-wrapper {
+  max-height: 3.5em;
+}
+
+.dropzone-wrapper.is-compressed .dropzone__message-wrapper {
+  cursor: pointer;
+  z-index: 20;
 }
 
 .dropzone__message {
-  color: #A61009;
   font-size: 1.2em;
   text-shadow: 1px 1px 1px rgba(99, 75, 74, 0.5);
   text-align: center;
   position: absolute;
+  width: 94%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 94%;
   opacity: 0;
   -moz-transition: opacity 700ms linear;
   -o-transition: opacity 700ms linear;
@@ -790,27 +786,26 @@ header {
   opacity: 1;
 }
 
-.canvas-section {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  -moz-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
-  -o-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
-  -webkit-transition: opacity 2000ms ease-in, visibility 0ms;
-  -webkit-transition-delay: 0s, 2000ms;
-  transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
+.dropzone__message[data-status="success"] {
+  color: #09A610;
 }
-.canvas-section.fade-in {
-  position: inherit;
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0ms;
+
+.dropzone__message[data-status="error"] {
+  color: #A61009;
+}
+
+.canvas-section {
+  max-width: 100%;
 }
 
 #gcard {
-  box-shadow: 0 1.875em 5em rgba(0, 70, 136, 0.4);
   border-radius: 10px;
+  display: block;
   max-width: 100%;
+}
+
+#gcard, .email-section {
+  box-shadow: 0 1.875em 5em rgba(0, 70, 136, 0.4);
 }
 
 .gcard-wrapper {
@@ -819,18 +814,27 @@ header {
   margin-right: auto;
 }
 
-.design__button {
+.gcard__icon {
   cursor: pointer;
   opacity: 0.9;
   position: absolute;
   top: 0;
-  right: 0;
   padding: 1em;
+}
+.gcard__icon:hover {
+  opacity: 1;
+}
+
+.design__button {
+  right: 0;
   width: 7em;
   height: 7em;
 }
-.design__button:hover {
-  opacity: 1;
+
+.edit__button {
+  left: 0;
+  width: 6em;
+  height: 6em;
 }
 
 .gcard__label input, .gcard__label textarea {
@@ -840,18 +844,61 @@ header {
   width: 690px;
 }
 
-.gcard__header {
+.gcard__label .gcard__header {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   margin-top: 0.4em;
   height: 3em;
 }
 
-.gcard__message {
+.gcard__label .gcard__message {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   margin-top: 0.3em;
+  padding-right: 6em;
   height: 6em;
+}
+
+.gcard__button {
+  background-color: #F43329;
+  color: #FFF;
+  margin: 0;
+  padding: .9em 1.5em;
+  transform: translate(-100%, -105%);
+  position: absolute;
+}
+.gcard__button p, .gcard__button blockquote, .gcard__button li {
+  color: #FFF;
+}
+.gcard__button a {
+  color: #FFF;
+}
+.gcard__button:hover, .gcard__button:active {
+  color: #FFF;
+  background-color: #F5473E;
+}
+.gcard__button:active {
+  background-color: #Ef3D34;
+}
+
+.gcard-3d {
+  width: 690px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -moz-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
+  -o-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
+  -webkit-transition: opacity 2000ms ease-in, visibility 0ms;
+  -webkit-transition-delay: 0s, 2000ms;
+  transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
+}
+.gcard-3d.fade-in {
+  position: inherit;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms;
 }
 
 .webcam-wrapper {
@@ -916,10 +963,8 @@ header {
 
 .email-section {
   position: relative;
-  padding: 0;
   max-width: 690px;
   max-height: 460px;
-  margin: 0 auto;
 }
 
 .email-form {
@@ -969,24 +1014,44 @@ header {
 
 .email__send--container {
   position: relative;
+  margin-top: -7%;
 }
 
 .email__send--container input {
   width: 90%;
-  height: 70%;
+  height: 50%;
   margin: 0;
   padding-right: 5%;
+}
+.email__send--container input:-moz-placeholder {
+  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+}
+.email__send--container input::-moz-placeholder {
+  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+}
+.email__send--container input:-ms-input-placeholder {
+  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+}
+.email__send--container input::-webkit-input-placeholder {
+  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 .email__button {
   background-color: #FFB330;
+  color: #FFF;
   position: absolute;
-  margin-top: -1%;
-  margin-left: -4%;
-  padding: 1.8%;
+  margin-top: -0.5%;
+  margin-left: -5%;
+  padding: 1.8% 2.5%;
 }
-.email__button:hover {
-  background-color: #ffc259;
+.email__button p, .email__button blockquote, .email__button li {
+  color: #FFF;
+}
+.email__button:hover, .email__button:active {
+  background-color: #FFC259;
+}
+.email__button:active {
+  background-color: #FFA60D;
 }
 
 .email__header {
@@ -994,13 +1059,6 @@ header {
   font-family: "Homemade Apple", cursive;
   position: absolute;
   transform: rotate(-4deg) translateY(-10%);
-}
-
-.response {
-  position: absolute;
-  bottom: -7px;
-  right: 15px;
-  color: saddlebrown;
 }
 
 footer {

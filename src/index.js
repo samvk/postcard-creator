@@ -1,5 +1,5 @@
 //Import side-effect (non-binding) modules
-import "app-ui";
+import "gcard-ui";
 import "dropzone-ui";
 import "steps-ui";
 import "webcamera";

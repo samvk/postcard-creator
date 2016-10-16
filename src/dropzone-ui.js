@@ -2,6 +2,18 @@ import Events from "pubsub";
 
 const $dropzoneWrapper = $(".dropzone-wrapper");
 
+function dropzoneAlert(message, status = "", waitForResponse = false){
+	const $dropzoneMessage = $(".dropzone__message");
+	$dropzoneMessage.text(message).addClass("display-alert").attr("data-status", status);
+	
+	//fade message out (unless told waiting for something)
+	if (!waitForResponse) {
+		setTimeout(function() {
+			$dropzoneMessage.removeClass("display-alert");
+		}, 3800);
+	}
+}
+
 $dropzoneWrapper.click(function(){
 	$("#fileInput").trigger("click");
 });
@@ -29,12 +41,11 @@ Events.on("gcardSet", function(){
 	});
 });
 
+//on reset
+Events.on("resetOver", function(){
+	$dropzoneWrapper.removeClass("is-compressed");
+	dropzoneAlert("Send another?");
+});
 
-export default function dropzoneAlert(message){
-	const $dropzoneMessage = $(".dropzone__message");
-	$dropzoneMessage.text(message);
-	$dropzoneMessage.addClass("display-alert");
-	setTimeout(function() {
-		$dropzoneMessage.removeClass("display-alert");
-	}, 3800);
-}
+
+export default dropzoneAlert;

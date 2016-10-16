@@ -7,13 +7,12 @@
 	background-color: rgba(255, 255, 255, 0.45);
 
 	//layout
-	@extend .center;
 	padding: 0.25em 0.5em;
 	max-width: 100%;
 	width: 690px; //width of landscape postcard
 }
 
-.gcard__header {
+.gcard__label .gcard__header {
 	//design
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
@@ -23,12 +22,26 @@
 	height: 3em;
 }
 
-.gcard__message {
+.gcard__label .gcard__message {
 	//design
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 
 	//layout
 	margin-top: 0.3em;
+	padding-right: 6em;
 	height: 6em;
+}
+
+.gcard__button {
+	//design
+	    @include palette($white, $red, $white);
+    	@include hover($white, $lightred);
+    	@include active(null, $darkred);
+
+	//layout
+	margin: 0;
+	padding: .9em 1.5em;
+	transform: translate(-100%, -105%);
+	position: absolute;
 }

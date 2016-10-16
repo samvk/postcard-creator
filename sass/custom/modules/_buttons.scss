@@ -10,10 +10,6 @@
     text-transform: uppercase;
     font-weight: $bold;
 
-    //design
-    @include palette($white, $red, $white);
-    @include hover($white, $lightred);
-
     //layout
     padding: 1.3em 2em;
     @include margin-top-bottom(.8em);

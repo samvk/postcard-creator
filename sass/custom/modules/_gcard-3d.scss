@@ -1,0 +1,13 @@
+// ==========================================================================
+// GREETING CARD AND CANVAS
+// ==========================================================================//
+
+.gcard-3d {
+	//layout
+	width: 690px;
+	max-width: 100%;
+	margin: 0 auto;
+
+	//transition
+	@include fade-in(inherit, 2000ms, ease-in);
+}
