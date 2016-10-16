@@ -24,9 +24,12 @@
 }
 
 .dropzone__message[data-status="success"] {
+	//text
 	color: #09A610;
+	font-size: 2em;
 }
 
 .dropzone__message[data-status="error"] {
+	//text
 	color: #A61009;
 }

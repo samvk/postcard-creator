@@ -52,45 +52,11 @@
 
 	__webpack_require__(5);
 
-	__webpack_require__(6);
-
 	__webpack_require__(9);
 
 	__webpack_require__(10);
 
 	__webpack_require__(11);
-
-	var _pubsub = __webpack_require__(3);
-
-	var _pubsub2 = _interopRequireDefault(_pubsub);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/*************** Drag and Drop listeners *****************/
-	//prevent default browser file drop behaviour
-	//Import side-effect (non-binding) modules
-	$("body").on("drag dragstart dragend dragover dragenter dragleave drop", function (e) {
-	    e.preventDefault();
-	    e.stopPropagation();
-	}).on("dragover dragenter", function () {
-	    _pubsub2.default.trigger("drag");
-	}).on("dragleave dragend drop", function () {
-	    _pubsub2.default.trigger("dragend");
-	});
-
-	/*************** File Upload listeners *****************/
-
-
-	//Imports
-	$("body").on("drop", function (e) {
-	    var files = e.originalEvent.dataTransfer.files;
-	    _pubsub2.default.trigger("fileUpload", files);
-	});
-
-	$("#fileInput").change(function (e) {
-	    var files = e.target.files;
-	    _pubsub2.default.trigger("fileUpload", files);
-	});
 
 /***/ },
 /* 1 */
@@ -106,23 +72,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_pubsub2.default.on("gcardSet", function () {
-		$(".gcard-3d").addClass("fade-in");
-	});
+	/*************** </> Imports ******************/
 
 	$(".gcard-3d").flip({ trigger: "manual" }); //bind flip
 
 	_pubsub2.default.on("gcardSet", function () {
+		$(".gcard-3d").addClass("fade-in");
+	}).on("gcardSet", function () {
 		$(".gcard-3d").flip(false); //flip to front
-	});
-
-	_pubsub2.default.on("gcardSave", function () {
+	}).on("gcardSave", function () {
 		$(".gcard-3d").flip(true); //flip to back
-	});
-
-	_pubsub2.default.on("reset", function () {
+	}).on("reset", function () {
 		$(".gcard-3d").removeClass("fade-in");
 	});
+
+	/*************** Postcard icon listeners *****************/
 
 	$(".gcard__button").click(function () {
 		_pubsub2.default.trigger("gcardSave");
@@ -535,6 +499,8 @@
 	        value: function on(eventName, handler) {
 	            eventStore[eventName] = eventStore[eventName] || [];
 	            eventStore[eventName].push(handler);
+
+	            return this;
 	        }
 	    }, {
 	        key: "trigger",
@@ -579,79 +545,13 @@
 
 	"use strict";
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
 	var _pubsub = __webpack_require__(3);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var $dropzoneWrapper = $(".dropzone-wrapper");
-
-	function dropzoneAlert(message) {
-		var status = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-		var waitForResponse = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-		var $dropzoneMessage = $(".dropzone__message");
-		$dropzoneMessage.text(message).addClass("display-alert").attr("data-status", status);
-
-		//fade message out (unless told waiting for something)
-		if (!waitForResponse) {
-			setTimeout(function () {
-				$dropzoneMessage.removeClass("display-alert");
-			}, 3800);
-		}
-	}
-
-	$dropzoneWrapper.click(function () {
-		$("#fileInput").trigger("click");
-	});
-
-	_pubsub2.default.on("drag", function () {
-		$dropzoneWrapper.addClass("is-dragging");
-	});
-	_pubsub2.default.on("dragend", function () {
-		$dropzoneWrapper.removeClass("is-dragging");
-	});
-	_pubsub2.default.on("gcardSet", function () {
-		$dropzoneWrapper.addClass("is-compressed");
-	});
-
-	//dropzone maximises on click and re-minimizes on body click
-	$(".dropzone__message-wrapper").click(function (e) {
-		e.stopPropagation();
-		$dropzoneWrapper.removeClass("is-compressed");
-	});
-
-	//after image is already loaded 
-	_pubsub2.default.on("gcardSet", function () {
-		$("body").on("click", function () {
-			$dropzoneWrapper.addClass("is-compressed");
-		});
-	});
-
-	//on reset
-	_pubsub2.default.on("resetOver", function () {
-		$dropzoneWrapper.removeClass("is-compressed");
-		dropzoneAlert("Send another?");
-	});
-
-	exports.default = dropzoneAlert;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _pubsub = __webpack_require__(3);
-
-	var _pubsub2 = _interopRequireDefault(_pubsub);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	/*************** </> Imports ******************/
 
 	function setStep(name) {
 		$("[data-step]").removeClass("is-active");
@@ -660,23 +560,19 @@
 
 	_pubsub2.default.on("gcardSet", function () {
 		setStep("personalize");
-	});
-
-	_pubsub2.default.on("gcardSave", function () {
+	}).on("gcardSave", function () {
 		setStep("send");
-	});
-
-	_pubsub2.default.on("resetOver", function () {
+	}).on("resetOver", function () {
 		setStep("upload");
 	});
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _webcam = __webpack_require__(7);
+	var _webcam = __webpack_require__(6);
 
 	var _webcam2 = _interopRequireDefault(_webcam);
 
@@ -687,6 +583,8 @@
 	var _data = __webpack_require__(8);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
 
 	function closeWebcam() {
 		$(".webcam-wrapper").removeClass("fade-in");
@@ -727,7 +625,7 @@
 	$(".webcam__close").click(closeWebcam);
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
@@ -740,7 +638,7 @@
 	// Copyright (c) 2012 - 2016 Joseph Huckaby
 	// Licensed under the MIT License
 
-	var _dropzoneUi = __webpack_require__(4);
+	var _dropzoneUi = __webpack_require__(7);
 
 	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
@@ -1487,6 +1385,83 @@
 	})(window);
 
 /***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _pubsub = __webpack_require__(3);
+
+	var _pubsub2 = _interopRequireDefault(_pubsub);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
+
+	var $dropzoneWrapper = $(".dropzone-wrapper");
+
+	function dropzoneAlert(message) {
+		var status = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+		var waitForResponse = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+		var $dropzoneMessage = $(".dropzone__message");
+		$dropzoneMessage.text(message).addClass("display-alert").attr("data-status", status);
+
+		//fade message out (unless told waiting for something)
+		if (!waitForResponse) {
+			setTimeout(function () {
+				$dropzoneMessage.removeClass("display-alert");
+			}, 3800);
+		}
+	}
+
+	$dropzoneWrapper.click(function () {
+		$("#fileInput").trigger("click");
+	});
+
+	_pubsub2.default.on("drag", function () {
+		$dropzoneWrapper.addClass("is-dragging");
+	}).on("dragend", function () {
+		$dropzoneWrapper.removeClass("is-dragging");
+	}).on("gcardSet", function () {
+		$dropzoneWrapper.addClass("is-compressed");
+	});
+
+	//dropzone maximises on click and re-minimizes on body click
+	$(".dropzone__message-wrapper").click(function (e) {
+		e.stopPropagation();
+		$dropzoneWrapper.removeClass("is-compressed");
+	});
+
+	//after image is already loaded 
+	_pubsub2.default.on("gcardSet", function () {
+		$("body").on("click", function () {
+			$dropzoneWrapper.addClass("is-compressed");
+		});
+		//on reset
+	}).on("resetOver", function () {
+		$dropzoneWrapper.removeClass("is-compressed");
+		dropzoneAlert("Send another?");
+	});
+
+	/*************** Drag and Drop listeners *****************/
+	$("body").on("drag dragstart dragend dragover dragenter dragleave drop", function (e) {
+		//prevent default browser file drop behaviour
+		e.preventDefault();
+		e.stopPropagation();
+	}).on("dragover dragenter", function () {
+		_pubsub2.default.trigger("drag");
+	}).on("dragleave dragend drop", function () {
+		_pubsub2.default.trigger("dragend");
+	});
+
+	exports.default = dropzoneAlert;
+
+/***/ },
 /* 8 */
 /***/ function(module, exports) {
 
@@ -1514,11 +1489,13 @@
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
-	var _dropzoneUi = __webpack_require__(4);
+	var _dropzoneUi = __webpack_require__(7);
 
 	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
 
 	var sending = false;
 
@@ -1564,13 +1541,15 @@
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
-	var _dropzoneUi = __webpack_require__(4);
+	var _dropzoneUi = __webpack_require__(7);
 
 	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
 	var _data = __webpack_require__(8);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
 
 	var $gcardImage = $(".gcard-image");
 
@@ -1626,6 +1605,17 @@
 
 	_pubsub2.default.on("fileUpload", uploadFile);
 
+	/*************** File Upload listeners *****************/
+	$("body").on("drop", function (e) {
+		var files = e.originalEvent.dataTransfer.files;
+		_pubsub2.default.trigger("fileUpload", files);
+	});
+
+	$("#fileInput").change(function (e) {
+		var files = e.target.files;
+		_pubsub2.default.trigger("fileUpload", files);
+	});
+
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
@@ -1645,6 +1635,8 @@
 	var _paintCanvas2 = _interopRequireDefault(_paintCanvas);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
 
 	function renderCanvas(img, switchStyle) {
 		(0, _canvasOrientation2.default)(img); //set canvas orientation
@@ -1716,6 +1708,8 @@
 	exports.default = setCanvasOrientation;
 
 	var _data = __webpack_require__(8);
+
+	/*************** </> Imports ******************/
 
 	var canvasData = {};
 
@@ -1789,6 +1783,8 @@
 	var _canvasTemplate3 = _interopRequireDefault(_canvasTemplate2);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
 
 	function paintCanvas(header, message, style) {
 		//Dev note: Do not set these as default parameters to avoid ignoring empty strings

@@ -1,17 +1,16 @@
 import Events from "pubsub";
 import dropzoneAlert from "dropzone-ui";
+/*************** </> Imports ******************/
 
 
 let sending = false;
 
 $(".email-form").submit(function(e){
 	e.preventDefault();
-	//prevent duplicate requests
-	if (sending) return false;
-
-	dropzoneAlert("Sending...", null, true);
-
+	if (sending) return false; //prevent duplicate requests
 	sending = true;
+	
+	dropzoneAlert("Sending...", null, true);	
 
 	const url = $(this).attr("action"),
 		  image = $(".gcard-image").attr("src"),
@@ -22,7 +21,6 @@ $(".email-form").submit(function(e){
 		url: url,
 		data: data,
 	})
-
 	.done(response => {
 		response = JSON.parse(response);
 		dropzoneAlert(response.message, response.status);
@@ -33,7 +31,6 @@ $(".email-form").submit(function(e){
 			Events.trigger("resetOver");
 		}, 4600);
 	})
-
 	.fail(response => {
 		sending = false;
 		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");

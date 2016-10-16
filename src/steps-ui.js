@@ -1,18 +1,16 @@
 import Events from "pubsub";
+/*************** </> Imports ******************/
+
 
 function setStep(name) {
 	$(`[data-step]`).removeClass("is-active");
 	$(`[data-step="${name}"]`).addClass("is-active");
 }
 
-Events.on("gcardSet", function(){
+Events.on("gcardSet", () => {
 	setStep("personalize");
-});
-
-Events.on("gcardSave", function(){
+}).on("gcardSave", () => {
 	setStep("send");
-});
-
-Events.on("resetOver", function(){
+}).on("resetOver", () => {
 	setStep("upload");
 });

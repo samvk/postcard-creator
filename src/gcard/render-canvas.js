@@ -1,6 +1,8 @@
 import Events from "pubsub";
 import setCanvasOrientation from "gcard/canvas-orientation";
 import paintCanvas from "gcard/paint-canvas";
+/*************** </> Imports ******************/
+
 
 function renderCanvas(img, switchStyle) {
 	setCanvasOrientation(img); //set canvas orientation

@@ -1,4 +1,6 @@
 import Events from "pubsub";
+/*************** </> Imports ******************/
+
 
 const $dropzoneWrapper = $(".dropzone-wrapper");
 
@@ -20,11 +22,9 @@ $dropzoneWrapper.click(function(){
 
 Events.on("drag", function(){
 	$dropzoneWrapper.addClass("is-dragging");
-});
-Events.on("dragend", function(){
+}).on("dragend", function(){
 	$dropzoneWrapper.removeClass("is-dragging");
-});
-Events.on("gcardSet", function(){
+}).on("gcardSet", function(){
 	$dropzoneWrapper.addClass("is-compressed");
 });
 
@@ -39,12 +39,22 @@ Events.on("gcardSet", function(){
 	$("body").on("click", function(){
 		$dropzoneWrapper.addClass("is-compressed");
 	});
-});
-
 //on reset
-Events.on("resetOver", function(){
+}).on("resetOver", function(){
 	$dropzoneWrapper.removeClass("is-compressed");
 	dropzoneAlert("Send another?");
+});
+
+
+/*************** Drag and Drop listeners *****************/
+$("body").on("drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+	//prevent default browser file drop behaviour
+	e.preventDefault();
+	e.stopPropagation();
+}).on("dragover dragenter", function() {
+	Events.trigger("drag");
+}).on("dragleave dragend drop", function() {
+	Events.trigger("dragend");
 });
 
 

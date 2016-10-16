@@ -1,4 +1,5 @@
 import { POSTCARD } from "data";
+/*************** </> Imports ******************/
 
 
 let canvasData = {};

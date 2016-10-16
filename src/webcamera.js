@@ -1,6 +1,8 @@
 import Webcam from "webcamjs/webcam";
 import Events from "pubsub";
 import { POSTCARD } from "data";
+/*************** </> Imports ******************/
+
 
 function closeWebcam() {
 	$(".webcam-wrapper").removeClass("fade-in");

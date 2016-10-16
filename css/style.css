@@ -719,6 +719,7 @@ header {
 }
 
 .dropzone-wrapper {
+  outline: 1px dashed rgba(244, 51, 41, 0.5);
   background-image: url("/img/dropzone.png");
   position: relative;
   overflow: hidden;
@@ -788,6 +789,7 @@ header {
 
 .dropzone__message[data-status="success"] {
   color: #09A610;
+  font-size: 2em;
 }
 
 .dropzone__message[data-status="error"] {

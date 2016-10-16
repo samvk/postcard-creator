@@ -1,7 +1,7 @@
 import Events from "pubsub";
 import dropzoneAlert from "dropzone-ui";
 import { MAX_FILESIZE } from "data";
-
+/*************** </> Imports ******************/
 
 const $gcardImage = $(".gcard-image");
 
@@ -56,3 +56,14 @@ function uploadFile(files) {
 }
 
 Events.on("fileUpload", uploadFile);
+
+/*************** File Upload listeners *****************/
+$("body").on("drop", function(e) {
+	let files = e.originalEvent.dataTransfer.files;
+	Events.trigger("fileUpload", files);
+});
+
+$("#fileInput").change(function(e){
+	let files = e.target.files;
+	Events.trigger("fileUpload", files);
+});

@@ -1,5 +1,6 @@
 import canvasText from "canvas-text-wrapper/canvas-text-wrapper";
 import canvasTemplate from "gcard/canvas-template";
+/*************** </> Imports ******************/
 
 
 export default function paintCanvas(header,	message, style) {
