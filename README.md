@@ -73,6 +73,12 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 * The MIT License (MIT)
 * https://nnattawat.github.io/flip
 
+#### PHPMailer
+* 5.2.16
+* A PHP library that beautifies and simplifies email attachments
+* GNU Lesser General Public License
+* https://github.com/PHPMailer/PHPMailer
+
 
 ## Installation
 
@@ -96,11 +102,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Contributors
 
 *Greetings, World!* is built by Sam Kauffman. You can contact me anytime at **hello@samvk.com**. You can also view my full portfolio for other projects at **https://samvk.com**. Thanks for reading!
-
-
-### Known Issues
-##### a.k.a. Why I’m still a proof-of-concept and What to fix next
-
-* The greeting card generator currently sends the cards inline as HTML. Several email clients block this and so the greeting card’s alt text appears in place.
-
-* The target-email input escapes its container on screen less than 600 pixels.
