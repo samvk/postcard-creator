@@ -2285,6 +2285,8 @@
 					font: "30px 'Lato', sans-serif",
 					color: "#212121",
 					shadow: "#FCFCFC",
+					shadowOffsetX: 2,
+					shadowOffsetY: 2,
 					textAlign: "left",
 					verticalAlign: "bottom",
 					paddingY: 60

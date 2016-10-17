@@ -66,11 +66,15 @@ export default function canvasTemplate(switchStyle) {
 			hOptions = {
 				font: "100px 'Great Vibes', cursive",
 				color: "#FCFCFC",
+				shadowOffsetX: 3,
+				shadowOffsetY: 3
 			};
 			mOptions = {
 				font: "30px 'Lato', sans-serif",
 				color: "#212121",
 				shadow: "#FCFCFC",
+				shadowOffsetX: 2,
+				shadowOffsetY: 2,
 				textAlign: "left",
 				verticalAlign: "bottom",
 				paddingY: 60
