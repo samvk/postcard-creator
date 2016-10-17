@@ -2294,7 +2294,7 @@
 		(0, _dropzoneUi2.default)("Sending...", null, true);
 
 		var url = $(this).attr("action"),
-		    image = $(".gcard-image").attr("src"),
+		    image = $("#gcard")[0].toDataURL(),
 		    data = $(this).serialize() + "&image=" + image;
 
 		$.ajax({

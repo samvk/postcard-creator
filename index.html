@@ -76,27 +76,8 @@
 		
 		<div class="container">
 
-			<div class="front">
-				<article class="canvas-section">
-					<canvas id="gcard" width="690" height="460">
-						Your browser does not support our greeting card generator.
-					</canvas>
-					<img class="gcard__icon design__button" src="img/pantone.svg">
-
-					<label class="gcard__label">
-						<input class="gcard__header" type="text" placeholder="Type header here..." maxlength="60">
-					</label>
-					<label class="gcard__label">
-						<textarea class="gcard__message" placeholder="Type message here..." maxlength="350"></textarea>
-					</label>
-					<p class="text-right">
-						<button class="gcard__button">Save</button>
-					</p>
-				</article>
-			</div>
-
 			<div class="back">
-				<article class="email-section">
+				<article>
 					<img class="gcard-back" src="img/postcard-back.png" alt="Back of Greeting Card">
 
 					<form class="email-form" action="php/contact.php" method="post">
@@ -128,6 +109,25 @@
 						</div>
 					</form>
 					<img class="gcard__icon edit__button" src="img/pencil.svg">
+				</article>
+			</div>
+
+			<div class="front">
+				<article class="canvas-section">
+					<canvas id="gcard" width="690" height="460">
+						Your browser does not support our greeting card generator.
+					</canvas>
+					<img class="gcard__icon design__button" src="img/pantone.svg">
+
+					<label class="gcard__label">
+						<input class="gcard__header" type="text" placeholder="Type header here..." maxlength="60">
+					</label>
+					<label class="gcard__label">
+						<textarea class="gcard__message" placeholder="Type message here..." maxlength="350"></textarea>
+					</label>
+					<p class="text-right">
+						<button class="gcard__button">Save</button>
+					</p>
 				</article>
 			</div>
 

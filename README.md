@@ -77,11 +77,17 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 * The MIT License (MIT)
 * https://nnattawat.github.io/flip
 
+#### PHPMailer
+* 5.2.16
+* A PHP library that beautifies and simplifies email attachments
+* GNU Lesser General Public License
+* https://github.com/PHPMailer/PHPMailer
+
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at https://postcard.samvk.com.
-**Note:** Chrome 47+ requires an SSL to access the webcam.
+*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com.
+**Note:** Chrome 47+ requires an SSL to access the webcam. View locally or use Firefox for webcam support (or rehost on an HTTPS).
 
 
 ## License

@@ -28,7 +28,6 @@
 
 .email__body-container,
 .email__address-container {
-	height: 77%;
 	@include padding-left-right(3%);
 }
 
@@ -46,18 +45,17 @@
 	padding: 0.4em;
 }
 
-.email-form textarea { height: 70%; }
+.email-form textarea {
+	height: 70%;
+}
 
-.email__address-container input { height: 14%; }
+.email__address-container input {
+	height: 14%;
+}
 
 .email__send--container {
 	@include padding-left-right(3%);
 	width: 100%;
-}
-
-.email__send--container {
-	position: relative;
-	margin-top: -7%;
 }
 
 .email__send--container input {
@@ -81,7 +79,7 @@
 	position: absolute;
 	margin-top: -0.5%;
 	margin-left: -5%;
-	padding: 1.8% 2.5%;
+	padding: 0.7em 0.9em;
 }
 
 //HEADERS

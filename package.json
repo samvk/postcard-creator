@@ -12,11 +12,11 @@
     "url": "git+https://github.com/samvk/postcard-creator.git"
   },
   "author": "Sam Kauffman",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/samvk/postcard-creator/issues"
   },
-  "homepage": "https://github.com/samvk/postcard-creator#readme",
+  "homepage": "https://postcard.samvk.com",
   "dependencies": {
     "beta": "0.0.1",
     "canvas-text-wrapper": "^0.9.3",

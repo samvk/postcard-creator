@@ -13,9 +13,9 @@ $(".email-form").submit(function(e){
 	dropzoneAlert("Sending...", null, true);	
 
 	const url = $(this).attr("action"),
-		  image = $(".gcard-image").attr("src"),
+		  image = $("#gcard")[0].toDataURL(),
 		  data = $(this).serialize() + "&image=" + image;
-
+	
 	$.ajax({
 		type: "POST",
 		url: url,

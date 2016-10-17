@@ -995,7 +995,6 @@ header {
 
 .email__body-container,
 .email__address-container {
-  height: 77%;
   padding-left: 3%;
   padding-right: 3%;
 }
@@ -1029,11 +1028,6 @@ header {
   width: 100%;
 }
 
-.email__send--container {
-  position: relative;
-  margin-top: -7%;
-}
-
 .email__send--container input {
   width: 90%;
   margin: 0;
@@ -1059,7 +1053,7 @@ header {
   position: absolute;
   margin-top: -0.5%;
   margin-left: -5%;
-  padding: 1.8% 2.5%;
+  padding: 0.7em 0.9em;
 }
 .email__button p, .email__button blockquote, .email__button li {
   color: #FFF;
