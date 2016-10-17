@@ -4,7 +4,6 @@ export default class Events {
     static on(eventName, handler) {
         eventStore[eventName] = eventStore[eventName] || [];
         eventStore[eventName].push(handler);
-
 		return this;
     }
 

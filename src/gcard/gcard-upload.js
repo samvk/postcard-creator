@@ -3,6 +3,7 @@ import dropzoneAlert from "dropzone-ui";
 import { MAX_FILESIZE } from "data";
 /*************** </> Imports ******************/
 
+
 const $gcardImage = $(".gcard-image");
 
 function uploadFile(files) {

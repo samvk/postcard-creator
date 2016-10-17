@@ -2,6 +2,7 @@ import "libraries/flip/flip";
 import Events from "pubsub";
 /*************** </> Imports ******************/
 
+
 let $gcard3d = $(".gcard-3d")
 
 $gcard3d.flip({trigger: "manual"}); //bind flip

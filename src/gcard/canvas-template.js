@@ -1,4 +1,4 @@
-//Developers Note: fonts but be preloaded to ensure brower is prepped for canvas
+//Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
 //preload custom fonts used for canvas
 const fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
 for (let font of fonts) {
