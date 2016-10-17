@@ -48,15 +48,15 @@
 
 	__webpack_require__(1);
 
-	__webpack_require__(4);
+	__webpack_require__(3);
 
-	__webpack_require__(5);
+	__webpack_require__(7);
 
 	__webpack_require__(9);
 
 	__webpack_require__(10);
 
-	__webpack_require__(11);
+	__webpack_require__(15);
 
 /***/ },
 /* 1 */
@@ -64,9 +64,7 @@
 
 	"use strict";
 
-	__webpack_require__(2);
-
-	var _pubsub = __webpack_require__(3);
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
@@ -74,413 +72,21 @@
 
 	/*************** </> Imports ******************/
 
-	var $gcard3d = $(".gcard-3d");
-
-	$gcard3d.flip({ trigger: "manual" }); //bind flip
+	function setStep(name) {
+		$("[data-step]").removeClass("is-active");
+		$("[data-step=\"" + name + "\"]").addClass("is-active");
+	}
 
 	_pubsub2.default.on("gcardSet", function () {
-		$gcard3d.addClass("fade-in show-overflow");
-	}).on("gcardSet", function () {
-		$gcard3d.flip(false); //flip to front
+		setStep("personalize");
 	}).on("gcardSave", function () {
-		$gcard3d.flip(true); //flip to back
-	}).on("reset", function () {
-		$gcard3d.removeClass("fade-in");
-		setTimeout(function () {
-			//firefox hack (ignoring transitionend)
-			$gcard3d.removeClass("show-overflow");
-		}, 2000);
-	});
-
-	/*************** Postcard icon listeners *****************/
-
-	$(".gcard__button").click(function () {
-		_pubsub2.default.trigger("gcardSave");
-	});
-
-	$(".edit__button").click(function () {
-		_pubsub2.default.trigger("gcardSet");
+		setStep("send");
+	}).on("resetOver", function () {
+		setStep("upload");
 	});
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/*! flip - v1.1.1 - 2016-05-25
-	* https://github.com/nnattawat/flip
-	* Copyright (c) 2016 Nattawat Nonsung; Licensed MIT */
-	(function ($) {
-	  /*
-	   * Private attributes and method
-	   */
-
-	  // Function from David Walsh: http://davidwalsh.name/css-animation-callback licensed with http://opensource.org/licenses/MIT
-	  var whichTransitionEvent = function whichTransitionEvent() {
-	    var t,
-	        el = document.createElement("fakeelement"),
-	        transitions = {
-	      "transition": "transitionend",
-	      "OTransition": "oTransitionEnd",
-	      "MozTransition": "transitionend",
-	      "WebkitTransition": "webkitTransitionEnd"
-	    };
-
-	    for (t in transitions) {
-	      if (el.style[t] !== undefined) {
-	        return transitions[t];
-	      }
-	    }
-	  };
-
-	  /*
-	   * Model declaration
-	   */
-	  var Flip = function Flip($el, options, callback) {
-	    // Define default setting
-	    this.setting = {
-	      axis: "y",
-	      reverse: false,
-	      trigger: "click",
-	      speed: 500,
-	      forceHeight: false,
-	      forceWidth: false,
-	      autoSize: true,
-	      front: '.front',
-	      back: '.back'
-	    };
-
-	    this.setting = $.extend(this.setting, options);
-
-	    if (typeof options.axis === 'string' && (options.axis.toLowerCase() === 'x' || options.axis.toLowerCase() === 'y')) {
-	      this.setting.axis = options.axis.toLowerCase();
-	    }
-
-	    if (typeof options.reverse === "boolean") {
-	      this.setting.reverse = options.reverse;
-	    }
-
-	    if (typeof options.trigger === 'string') {
-	      this.setting.trigger = options.trigger.toLowerCase();
-	    }
-
-	    var speed = parseInt(options.speed);
-	    if (!isNaN(speed)) {
-	      this.setting.speed = speed;
-	    }
-
-	    if (typeof options.forceHeight === "boolean") {
-	      this.setting.forceHeight = options.forceHeight;
-	    }
-
-	    if (typeof options.forceWidth === "boolean") {
-	      this.setting.forceWidth = options.forceWidth;
-	    }
-
-	    if (typeof options.autoSize === "boolean") {
-	      this.setting.autoSize = options.autoSize;
-	    }
-
-	    if (typeof options.front === 'string' || options.front instanceof $) {
-	      this.setting.front = options.front;
-	    }
-
-	    if (typeof options.back === 'string' || options.back instanceof $) {
-	      this.setting.back = options.back;
-	    }
-
-	    // Other attributes
-	    this.element = $el;
-	    this.frontElement = this.getFrontElement();
-	    this.backElement = this.getBackElement();
-	    this.isFlipped = false;
-
-	    this.init(callback);
-	  };
-
-	  /*
-	   * Public methods
-	   */
-	  $.extend(Flip.prototype, {
-
-	    flipDone: function flipDone(callback) {
-	      var self = this;
-	      // Providing a nicely wrapped up callback because transform is essentially async
-	      self.element.one(whichTransitionEvent(), function () {
-	        self.element.trigger('flip:done');
-	        if (typeof callback === 'function') {
-	          callback.call(self.element);
-	        }
-	      });
-	    },
-
-	    flip: function flip(callback) {
-	      if (this.isFlipped) {
-	        return;
-	      }
-
-	      this.isFlipped = true;
-
-	      var rotateAxis = "rotate" + this.setting.axis;
-	      this.frontElement.css({
-	        transform: rotateAxis + (this.setting.reverse ? "(-180deg)" : "(180deg)"),
-	        "z-index": "0"
-	      });
-
-	      this.backElement.css({
-	        transform: rotateAxis + "(0deg)",
-	        "z-index": "1"
-	      });
-	      this.flipDone(callback);
-	    },
-
-	    unflip: function unflip(callback) {
-	      if (!this.isFlipped) {
-	        return;
-	      }
-
-	      this.isFlipped = false;
-
-	      var rotateAxis = "rotate" + this.setting.axis;
-	      this.frontElement.css({
-	        transform: rotateAxis + "(0deg)",
-	        "z-index": "1"
-	      });
-
-	      this.backElement.css({
-	        transform: rotateAxis + (this.setting.reverse ? "(180deg)" : "(-180deg)"),
-	        "z-index": "0"
-	      });
-	      this.flipDone(callback);
-	    },
-
-	    getFrontElement: function getFrontElement() {
-	      if (this.setting.front instanceof $) {
-	        return this.setting.front;
-	      } else {
-	        return this.element.find(this.setting.front);
-	      }
-	    },
-
-	    getBackElement: function getBackElement() {
-	      if (this.setting.back instanceof $) {
-	        return this.setting.back;
-	      } else {
-	        return this.element.find(this.setting.back);
-	      }
-	    },
-
-	    init: function init(callback) {
-	      var self = this;
-
-	      var faces = self.frontElement.add(self.backElement);
-	      var rotateAxis = "rotate" + self.setting.axis;
-	      var perspective = self.element["outer" + (rotateAxis === "rotatex" ? "Height" : "Width")]() * 2;
-	      var elementCss = {
-	        'perspective': perspective,
-	        'position': 'relative'
-	      };
-	      var backElementCss = {
-	        "transform": rotateAxis + "(" + (self.setting.reverse ? "180deg" : "-180deg") + ")",
-	        "z-index": "0"
-	      };
-	      var faceElementCss = {
-	        "backface-visibility": "hidden",
-	        "transform-style": "preserve-3d",
-	        "position": "absolute",
-	        "z-index": "1"
-	      };
-
-	      if (self.setting.forceHeight) {
-	        faces.outerHeight(self.element.height());
-	      } else if (self.setting.autoSize) {
-	        faceElementCss.height = '100%';
-	      }
-
-	      if (self.setting.forceWidth) {
-	        faces.outerWidth(self.element.width());
-	      } else if (self.setting.autoSize) {
-	        faceElementCss.width = '100%';
-	      }
-
-	      // Back face always visible on Chrome #39
-	      if ((window.chrome || window.Intl && Intl.v8BreakIterator) && 'CSS' in window) {
-	        //Blink Engine, add preserve-3d to self.element
-	        elementCss["-webkit-transform-style"] = "preserve-3d";
-	      }
-
-	      self.element.css(elementCss);
-	      self.backElement.css(backElementCss);
-	      faces.css(faceElementCss).find('*').css({
-	        "backface-visibility": "hidden"
-	      });
-
-	      // #39
-	      // not forcing width/height may cause an initial flip to show up on
-	      // page load when we apply the style to reverse the backface...
-	      // To prevent self we first apply the basic styles and then give the
-	      // browser a moment to apply them. Only afterwards do we add the transition.
-	      setTimeout(function () {
-	        // By now the browser should have applied the styles, so the transition
-	        // will only affect subsequent flips.
-	        var speedInSec = self.setting.speed / 1000 || 0.5;
-	        faces.css({
-	          "transition": "all " + speedInSec + "s ease-out"
-	        });
-
-	        // This allows flip to be called for setup with only a callback (default settings)
-	        if (typeof callback === 'function') {
-	          callback.call(self.element);
-	        }
-
-	        // While this used to work with a setTimeout of zero, at some point that became
-	        // unstable and the initial flip returned. The reason for this is unknown but we
-	        // will temporarily use a short delay of 20 to mitigate this issue. 
-	      }, 20);
-
-	      self.attachEvents();
-	    },
-
-	    clickHandler: function clickHandler(event) {
-	      if (!event) {
-	        event = window.event;
-	      }
-	      if (this.element.find($(event.target).closest('button, a, input[type="submit"]')).length) {
-	        return;
-	      }
-
-	      if (this.isFlipped) {
-	        this.unflip();
-	      } else {
-	        this.flip();
-	      }
-	    },
-
-	    hoverHandler: function hoverHandler() {
-	      var self = this;
-	      self.element.off('mouseleave.flip');
-
-	      self.flip();
-
-	      setTimeout(function () {
-	        self.element.on('mouseleave.flip', $.proxy(self.unflip, self));
-	        if (!self.element.is(":hover")) {
-	          self.unflip();
-	        }
-	      }, self.setting.speed + 150);
-	    },
-
-	    attachEvents: function attachEvents() {
-	      var self = this;
-	      if (self.setting.trigger === "click") {
-	        self.element.on($.fn.tap ? "tap.flip" : "click.flip", $.proxy(self.clickHandler, self));
-	      } else if (self.setting.trigger === "hover") {
-	        self.element.on('mouseenter.flip', $.proxy(self.hoverHandler, self));
-	        self.element.on('mouseleave.flip', $.proxy(self.unflip, self));
-	      }
-	    },
-
-	    flipChanged: function flipChanged(callback) {
-	      this.element.trigger('flip:change');
-	      if (typeof callback === 'function') {
-	        callback.call(this.element);
-	      }
-	    },
-
-	    changeSettings: function changeSettings(options, callback) {
-	      var self = this;
-	      var changeNeeded = false;
-
-	      if (options.axis !== undefined && self.setting.axis !== options.axis.toLowerCase()) {
-	        self.setting.axis = options.axis.toLowerCase();
-	        changeNeeded = true;
-	      }
-
-	      if (options.reverse !== undefined && self.setting.reverse !== options.reverse) {
-	        self.setting.reverse = options.reverse;
-	        changeNeeded = true;
-	      }
-
-	      if (changeNeeded) {
-	        var faces = self.frontElement.add(self.backElement);
-	        var savedTrans = faces.css(["transition-property", "transition-timing-function", "transition-duration", "transition-delay"]);
-
-	        faces.css({
-	          transition: "none"
-	        });
-
-	        // This sets up the first flip in the new direction automatically
-	        var rotateAxis = "rotate" + self.setting.axis;
-
-	        if (self.isFlipped) {
-	          self.frontElement.css({
-	            transform: rotateAxis + (self.setting.reverse ? "(-180deg)" : "(180deg)"),
-	            "z-index": "0"
-	          });
-	        } else {
-	          self.backElement.css({
-	            transform: rotateAxis + (self.setting.reverse ? "(180deg)" : "(-180deg)"),
-	            "z-index": "0"
-	          });
-	        }
-	        // Providing a nicely wrapped up callback because transform is essentially async
-	        setTimeout(function () {
-	          faces.css(savedTrans);
-	          self.flipChanged(callback);
-	        }, 0);
-	      } else {
-	        // If we didnt have to set the axis we can just call back.
-	        self.flipChanged(callback);
-	      }
-	    }
-
-	  });
-
-	  /*
-	   * jQuery collection methods
-	   */
-	  $.fn.flip = function (options, callback) {
-	    if (typeof options === 'function') {
-	      callback = options;
-	    }
-
-	    if (typeof options === "string" || typeof options === "boolean") {
-	      this.each(function () {
-	        var flip = $(this).data('flip-model');
-
-	        if (options === "toggle") {
-	          options = !flip.isFlipped;
-	        }
-
-	        if (options) {
-	          flip.flip(callback);
-	        } else {
-	          flip.unflip(callback);
-	        }
-	      });
-	    } else {
-	      this.each(function () {
-	        if ($(this).data('flip-model')) {
-	          // The element has been initiated, all we have to do is change applicable settings
-	          var flip = $(this).data('flip-model');
-
-	          if (options && (options.axis !== undefined || options.reverse !== undefined)) {
-	            flip.changeSettings(options, callback);
-	          }
-	        } else {
-	          // Init
-	          $(this).data('flip-model', new Flip($(this), options || {}, callback));
-	        }
-	      });
-	    }
-
-	    return this;
-	  };
-	})(jQuery);
-
-/***/ },
-/* 3 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -505,7 +111,6 @@
 	        value: function on(eventName, handler) {
 	            eventStore[eventName] = eventStore[eventName] || [];
 	            eventStore[eventName].push(handler);
-
 	            return this;
 	        }
 	    }, {
@@ -546,47 +151,20 @@
 	exports.default = Events;
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _pubsub = __webpack_require__(3);
-
-	var _pubsub2 = _interopRequireDefault(_pubsub);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/*************** </> Imports ******************/
-
-	function setStep(name) {
-		$("[data-step]").removeClass("is-active");
-		$("[data-step=\"" + name + "\"]").addClass("is-active");
-	}
-
-	_pubsub2.default.on("gcardSet", function () {
-		setStep("personalize");
-	}).on("gcardSave", function () {
-		setStep("send");
-	}).on("resetOver", function () {
-		setStep("upload");
-	});
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _webcam = __webpack_require__(6);
+	var _webcam = __webpack_require__(4);
 
 	var _webcam2 = _interopRequireDefault(_webcam);
 
-	var _pubsub = __webpack_require__(3);
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
-	var _data = __webpack_require__(8);
+	var _data = __webpack_require__(6);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -631,7 +209,7 @@
 	$("body, .webcam__close").click(closeWebcam);
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
@@ -644,7 +222,7 @@
 	// Copyright (c) 2012 - 2016 Joseph Huckaby
 	// Licensed under the MIT License
 
-	var _dropzoneUi = __webpack_require__(7);
+	var _dropzoneUi = __webpack_require__(5);
 
 	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
@@ -1399,7 +977,7 @@
 	})(window);
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1408,7 +986,7 @@
 		value: true
 	});
 
-	var _pubsub = __webpack_require__(3);
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
@@ -1476,7 +1054,7 @@
 	exports.default = dropzoneAlert;
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1484,7 +1062,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	//Any data which may be changed in later versions
+	//Any data which may be adjusted in later versions
 
 	var MAX_FILESIZE = exports.MAX_FILESIZE = 12; //in MBs
 
@@ -1494,74 +1072,441 @@
 	};
 
 /***/ },
-/* 9 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _pubsub = __webpack_require__(3);
+	__webpack_require__(8);
+
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
-
-	var _dropzoneUi = __webpack_require__(7);
-
-	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*************** </> Imports ******************/
 
-	var sending = false;
+	var $gcard3d = $(".gcard-3d");
 
-	$(".email-form").submit(function (e) {
-		e.preventDefault();
-		if (sending) return false; //prevent duplicate requests
-		sending = true;
+	$gcard3d.flip({ trigger: "manual" }); //bind flip
 
-		(0, _dropzoneUi2.default)("Sending...", null, true);
-
-		var url = $(this).attr("action"),
-		    image = $(".gcard-image").attr("src"),
-		    data = $(this).serialize() + "&image=" + image;
-
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: data
-		}).done(function (response) {
-			response = JSON.parse(response);
-			(0, _dropzoneUi2.default)(response.message, response.status);
-			_pubsub2.default.trigger("reset");
-
-			setTimeout(function () {
-				sending = false;
-				_pubsub2.default.trigger("resetOver");
-			}, 4600);
-		}).fail(function (response) {
-			sending = false;
-			(0, _dropzoneUi2.default)("Something went wrong. Your message could not be sent.", "error");
-		});
+	_pubsub2.default.on("gcardSet", function () {
+		$gcard3d.addClass("fade-in show-overflow");
+	}).on("gcardSet", function () {
+		$gcard3d.flip(false); //flip to front
+	}).on("gcardSave", function () {
+		$gcard3d.flip(true); //flip to back
+	}).on("reset", function () {
+		$gcard3d.removeClass("fade-in");
+		setTimeout(function () {
+			//firefox hack (ignoring transitionend)
+			$gcard3d.removeClass("show-overflow");
+		}, 2000);
 	});
 
-	_pubsub2.default.on("reset", function () {
-		$(".email-form")[0].reset();
+	/*************** Postcard icon listeners *****************/
+
+	$(".gcard__button").click(function () {
+		_pubsub2.default.trigger("gcardSave");
+	});
+
+	$(".edit__button").click(function () {
+		_pubsub2.default.trigger("gcardSet");
 	});
 
 /***/ },
-/* 10 */
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/*! flip - v1.1.1 - 2016-05-25
+	* https://github.com/nnattawat/flip
+	* Copyright (c) 2016 Nattawat Nonsung; Licensed MIT */
+	(function ($) {
+	  /*
+	   * Private attributes and method
+	   */
+
+	  // Function from David Walsh: http://davidwalsh.name/css-animation-callback licensed with http://opensource.org/licenses/MIT
+	  var whichTransitionEvent = function whichTransitionEvent() {
+	    var t,
+	        el = document.createElement("fakeelement"),
+	        transitions = {
+	      "transition": "transitionend",
+	      "OTransition": "oTransitionEnd",
+	      "MozTransition": "transitionend",
+	      "WebkitTransition": "webkitTransitionEnd"
+	    };
+
+	    for (t in transitions) {
+	      if (el.style[t] !== undefined) {
+	        return transitions[t];
+	      }
+	    }
+	  };
+
+	  /*
+	   * Model declaration
+	   */
+	  var Flip = function Flip($el, options, callback) {
+	    // Define default setting
+	    this.setting = {
+	      axis: "y",
+	      reverse: false,
+	      trigger: "click",
+	      speed: 500,
+	      forceHeight: false,
+	      forceWidth: false,
+	      autoSize: true,
+	      front: '.front',
+	      back: '.back'
+	    };
+
+	    this.setting = $.extend(this.setting, options);
+
+	    if (typeof options.axis === 'string' && (options.axis.toLowerCase() === 'x' || options.axis.toLowerCase() === 'y')) {
+	      this.setting.axis = options.axis.toLowerCase();
+	    }
+
+	    if (typeof options.reverse === "boolean") {
+	      this.setting.reverse = options.reverse;
+	    }
+
+	    if (typeof options.trigger === 'string') {
+	      this.setting.trigger = options.trigger.toLowerCase();
+	    }
+
+	    var speed = parseInt(options.speed);
+	    if (!isNaN(speed)) {
+	      this.setting.speed = speed;
+	    }
+
+	    if (typeof options.forceHeight === "boolean") {
+	      this.setting.forceHeight = options.forceHeight;
+	    }
+
+	    if (typeof options.forceWidth === "boolean") {
+	      this.setting.forceWidth = options.forceWidth;
+	    }
+
+	    if (typeof options.autoSize === "boolean") {
+	      this.setting.autoSize = options.autoSize;
+	    }
+
+	    if (typeof options.front === 'string' || options.front instanceof $) {
+	      this.setting.front = options.front;
+	    }
+
+	    if (typeof options.back === 'string' || options.back instanceof $) {
+	      this.setting.back = options.back;
+	    }
+
+	    // Other attributes
+	    this.element = $el;
+	    this.frontElement = this.getFrontElement();
+	    this.backElement = this.getBackElement();
+	    this.isFlipped = false;
+
+	    this.init(callback);
+	  };
+
+	  /*
+	   * Public methods
+	   */
+	  $.extend(Flip.prototype, {
+
+	    flipDone: function flipDone(callback) {
+	      var self = this;
+	      // Providing a nicely wrapped up callback because transform is essentially async
+	      self.element.one(whichTransitionEvent(), function () {
+	        self.element.trigger('flip:done');
+	        if (typeof callback === 'function') {
+	          callback.call(self.element);
+	        }
+	      });
+	    },
+
+	    flip: function flip(callback) {
+	      if (this.isFlipped) {
+	        return;
+	      }
+
+	      this.isFlipped = true;
+
+	      var rotateAxis = "rotate" + this.setting.axis;
+	      this.frontElement.css({
+	        transform: rotateAxis + (this.setting.reverse ? "(-180deg)" : "(180deg)"),
+	        "z-index": "0"
+	      });
+
+	      this.backElement.css({
+	        transform: rotateAxis + "(0deg)",
+	        "z-index": "1"
+	      });
+	      this.flipDone(callback);
+	    },
+
+	    unflip: function unflip(callback) {
+	      if (!this.isFlipped) {
+	        return;
+	      }
+
+	      this.isFlipped = false;
+
+	      var rotateAxis = "rotate" + this.setting.axis;
+	      this.frontElement.css({
+	        transform: rotateAxis + "(0deg)",
+	        "z-index": "1"
+	      });
+
+	      this.backElement.css({
+	        transform: rotateAxis + (this.setting.reverse ? "(180deg)" : "(-180deg)"),
+	        "z-index": "0"
+	      });
+	      this.flipDone(callback);
+	    },
+
+	    getFrontElement: function getFrontElement() {
+	      if (this.setting.front instanceof $) {
+	        return this.setting.front;
+	      } else {
+	        return this.element.find(this.setting.front);
+	      }
+	    },
+
+	    getBackElement: function getBackElement() {
+	      if (this.setting.back instanceof $) {
+	        return this.setting.back;
+	      } else {
+	        return this.element.find(this.setting.back);
+	      }
+	    },
+
+	    init: function init(callback) {
+	      var self = this;
+
+	      var faces = self.frontElement.add(self.backElement);
+	      var rotateAxis = "rotate" + self.setting.axis;
+	      var perspective = self.element["outer" + (rotateAxis === "rotatex" ? "Height" : "Width")]() * 2;
+	      var elementCss = {
+	        'perspective': perspective,
+	        'position': 'relative'
+	      };
+	      var backElementCss = {
+	        "transform": rotateAxis + "(" + (self.setting.reverse ? "180deg" : "-180deg") + ")",
+	        "z-index": "0"
+	      };
+	      var faceElementCss = {
+	        "backface-visibility": "hidden",
+	        "transform-style": "preserve-3d",
+	        "position": "absolute",
+	        "z-index": "1"
+	      };
+
+	      if (self.setting.forceHeight) {
+	        faces.outerHeight(self.element.height());
+	      } else if (self.setting.autoSize) {
+	        faceElementCss.height = '100%';
+	      }
+
+	      if (self.setting.forceWidth) {
+	        faces.outerWidth(self.element.width());
+	      } else if (self.setting.autoSize) {
+	        faceElementCss.width = '100%';
+	      }
+
+	      // Back face always visible on Chrome #39
+	      if ((window.chrome || window.Intl && Intl.v8BreakIterator) && 'CSS' in window) {
+	        //Blink Engine, add preserve-3d to self.element
+	        elementCss["-webkit-transform-style"] = "preserve-3d";
+	      }
+
+	      self.element.css(elementCss);
+	      self.backElement.css(backElementCss);
+	      faces.css(faceElementCss).find('*').css({
+	        "backface-visibility": "hidden"
+	      });
+
+	      // #39
+	      // not forcing width/height may cause an initial flip to show up on
+	      // page load when we apply the style to reverse the backface...
+	      // To prevent self we first apply the basic styles and then give the
+	      // browser a moment to apply them. Only afterwards do we add the transition.
+	      setTimeout(function () {
+	        // By now the browser should have applied the styles, so the transition
+	        // will only affect subsequent flips.
+	        var speedInSec = self.setting.speed / 1000 || 0.5;
+	        faces.css({
+	          "transition": "all " + speedInSec + "s ease-out"
+	        });
+
+	        // This allows flip to be called for setup with only a callback (default settings)
+	        if (typeof callback === 'function') {
+	          callback.call(self.element);
+	        }
+
+	        // While this used to work with a setTimeout of zero, at some point that became
+	        // unstable and the initial flip returned. The reason for this is unknown but we
+	        // will temporarily use a short delay of 20 to mitigate this issue. 
+	      }, 20);
+
+	      self.attachEvents();
+	    },
+
+	    clickHandler: function clickHandler(event) {
+	      if (!event) {
+	        event = window.event;
+	      }
+	      if (this.element.find($(event.target).closest('button, a, input[type="submit"]')).length) {
+	        return;
+	      }
+
+	      if (this.isFlipped) {
+	        this.unflip();
+	      } else {
+	        this.flip();
+	      }
+	    },
+
+	    hoverHandler: function hoverHandler() {
+	      var self = this;
+	      self.element.off('mouseleave.flip');
+
+	      self.flip();
+
+	      setTimeout(function () {
+	        self.element.on('mouseleave.flip', $.proxy(self.unflip, self));
+	        if (!self.element.is(":hover")) {
+	          self.unflip();
+	        }
+	      }, self.setting.speed + 150);
+	    },
+
+	    attachEvents: function attachEvents() {
+	      var self = this;
+	      if (self.setting.trigger === "click") {
+	        self.element.on($.fn.tap ? "tap.flip" : "click.flip", $.proxy(self.clickHandler, self));
+	      } else if (self.setting.trigger === "hover") {
+	        self.element.on('mouseenter.flip', $.proxy(self.hoverHandler, self));
+	        self.element.on('mouseleave.flip', $.proxy(self.unflip, self));
+	      }
+	    },
+
+	    flipChanged: function flipChanged(callback) {
+	      this.element.trigger('flip:change');
+	      if (typeof callback === 'function') {
+	        callback.call(this.element);
+	      }
+	    },
+
+	    changeSettings: function changeSettings(options, callback) {
+	      var self = this;
+	      var changeNeeded = false;
+
+	      if (options.axis !== undefined && self.setting.axis !== options.axis.toLowerCase()) {
+	        self.setting.axis = options.axis.toLowerCase();
+	        changeNeeded = true;
+	      }
+
+	      if (options.reverse !== undefined && self.setting.reverse !== options.reverse) {
+	        self.setting.reverse = options.reverse;
+	        changeNeeded = true;
+	      }
+
+	      if (changeNeeded) {
+	        var faces = self.frontElement.add(self.backElement);
+	        var savedTrans = faces.css(["transition-property", "transition-timing-function", "transition-duration", "transition-delay"]);
+
+	        faces.css({
+	          transition: "none"
+	        });
+
+	        // This sets up the first flip in the new direction automatically
+	        var rotateAxis = "rotate" + self.setting.axis;
+
+	        if (self.isFlipped) {
+	          self.frontElement.css({
+	            transform: rotateAxis + (self.setting.reverse ? "(-180deg)" : "(180deg)"),
+	            "z-index": "0"
+	          });
+	        } else {
+	          self.backElement.css({
+	            transform: rotateAxis + (self.setting.reverse ? "(180deg)" : "(-180deg)"),
+	            "z-index": "0"
+	          });
+	        }
+	        // Providing a nicely wrapped up callback because transform is essentially async
+	        setTimeout(function () {
+	          faces.css(savedTrans);
+	          self.flipChanged(callback);
+	        }, 0);
+	      } else {
+	        // If we didnt have to set the axis we can just call back.
+	        self.flipChanged(callback);
+	      }
+	    }
+
+	  });
+
+	  /*
+	   * jQuery collection methods
+	   */
+	  $.fn.flip = function (options, callback) {
+	    if (typeof options === 'function') {
+	      callback = options;
+	    }
+
+	    if (typeof options === "string" || typeof options === "boolean") {
+	      this.each(function () {
+	        var flip = $(this).data('flip-model');
+
+	        if (options === "toggle") {
+	          options = !flip.isFlipped;
+	        }
+
+	        if (options) {
+	          flip.flip(callback);
+	        } else {
+	          flip.unflip(callback);
+	        }
+	      });
+	    } else {
+	      this.each(function () {
+	        if ($(this).data('flip-model')) {
+	          // The element has been initiated, all we have to do is change applicable settings
+	          var flip = $(this).data('flip-model');
+
+	          if (options && (options.axis !== undefined || options.reverse !== undefined)) {
+	            flip.changeSettings(options, callback);
+	          }
+	        } else {
+	          // Init
+	          $(this).data('flip-model', new Flip($(this), options || {}, callback));
+	        }
+	      });
+	    }
+
+	    return this;
+	  };
+	})(jQuery);
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _pubsub = __webpack_require__(3);
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
-	var _dropzoneUi = __webpack_require__(7);
+	var _dropzoneUi = __webpack_require__(5);
 
 	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
 
-	var _data = __webpack_require__(8);
+	var _data = __webpack_require__(6);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1633,20 +1578,20 @@
 	});
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _pubsub = __webpack_require__(3);
+	var _pubsub = __webpack_require__(2);
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
-	var _canvasOrientation = __webpack_require__(12);
+	var _canvasOrientation = __webpack_require__(11);
 
 	var _canvasOrientation2 = _interopRequireDefault(_canvasOrientation);
 
-	var _paintCanvas = __webpack_require__(13);
+	var _paintCanvas = __webpack_require__(12);
 
 	var _paintCanvas2 = _interopRequireDefault(_paintCanvas);
 
@@ -1713,7 +1658,7 @@
 	});
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1723,7 +1668,7 @@
 	});
 	exports.default = setCanvasOrientation;
 
-	var _data = __webpack_require__(8);
+	var _data = __webpack_require__(6);
 
 	/*************** </> Imports ******************/
 
@@ -1780,7 +1725,7 @@
 	}
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1790,11 +1735,11 @@
 	});
 	exports.default = paintCanvas;
 
-	var _canvasTextWrapper = __webpack_require__(14);
+	var _canvasTextWrapper = __webpack_require__(13);
 
 	var _canvasTextWrapper2 = _interopRequireDefault(_canvasTextWrapper);
 
-	var _canvasTemplate2 = __webpack_require__(15);
+	var _canvasTemplate2 = __webpack_require__(14);
 
 	var _canvasTemplate3 = _interopRequireDefault(_canvasTemplate2);
 
@@ -1803,7 +1748,7 @@
 	/*************** </> Imports ******************/
 
 	function paintCanvas(header, message, style) {
-		//Dev note: Do not set these as default parameters to avoid ignoring empty strings
+		//Dev Note: Do not set these as default parameters to avoid ignoring empty strings
 		header = header || "Congratulations!";
 		//soft-hyphen(­) to "fix" ignored new-line issue on some browsers
 		message = message.replace(/\n{2,}/g, "\n ­ \n") || "Sending warm wishes to you on this festive occassion.";
@@ -1836,7 +1781,7 @@
 	}
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -2179,7 +2124,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2188,7 +2133,7 @@
 		value: true
 	});
 	exports.default = canvasTemplate;
-	//Developers Note: fonts but be preloaded to ensure brower is prepped for canvas
+	//Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
 	//preload custom fonts used for canvas
 	var fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
 	var _iteratorNormalCompletion = true;
@@ -2279,7 +2224,9 @@
 			case 2:
 				hOptions = {
 					font: "100px 'Great Vibes', cursive",
-					color: "#FCFCFC"
+					color: "#FCFCFC",
+					shadowOffsetX: 3,
+					shadowOffsetY: 3
 				};
 				mOptions = {
 					font: "30px 'Lato', sans-serif",
@@ -2318,6 +2265,60 @@
 			mOptions: Object.assign({}, defMOptions, mOptions)
 		};
 	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _pubsub = __webpack_require__(2);
+
+	var _pubsub2 = _interopRequireDefault(_pubsub);
+
+	var _dropzoneUi = __webpack_require__(5);
+
+	var _dropzoneUi2 = _interopRequireDefault(_dropzoneUi);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
+
+	var sending = false;
+
+	$(".email-form").submit(function (e) {
+		e.preventDefault();
+		if (sending) return false; //prevent duplicate requests
+		sending = true;
+
+		(0, _dropzoneUi2.default)("Sending...", null, true);
+
+		var url = $(this).attr("action"),
+		    image = $(".gcard-image").attr("src"),
+		    data = $(this).serialize() + "&image=" + image;
+
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: data
+		}).done(function (response) {
+			response = JSON.parse(response);
+			(0, _dropzoneUi2.default)(response.message, response.status);
+			_pubsub2.default.trigger("reset");
+
+			setTimeout(function () {
+				sending = false;
+				_pubsub2.default.trigger("resetOver");
+			}, 4600);
+		}).fail(function (response) {
+			sending = false;
+			(0, _dropzoneUi2.default)("Something went wrong. Your message could not be sent.", "error");
+		});
+	});
+
+	_pubsub2.default.on("reset", function () {
+		$(".email-form")[0].reset();
+	});
 
 /***/ }
 /******/ ]);
