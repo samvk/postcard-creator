@@ -1,3 +1,6 @@
+# Greetings, World!
+
+
 ## Synopsis
 
 *Greetings, World!* is a proof-of-concent postcard creator. It takes image input from the user and converts them to a digital 4 x 6 postcard.
@@ -7,11 +10,6 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 #### Developer Notes
 
 *Greetings, World!* is written in ES6 syntax and compiled & polyfilled with Babel. It uses Webpack as its module bundler of choice.
-
-
-## Installation
-
-*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com. Note: Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in FireFox (or upload the code to a secure domain).
 
 
 ## Steps
@@ -72,6 +70,11 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 * A jQuery plugin which brings CSS3 backface-visibility features to IE through brute force
 * The MIT License (MIT)
 * https://nnattawat.github.io/flip
+
+
+## Installation
+
+*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com. Note: Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in FireFox (or upload the code to a secure domain).
 
 
 ## License
