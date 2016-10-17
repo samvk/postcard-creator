@@ -1,3 +1,10 @@
+//Developers Note: fonts but be preloaded to ensure brower is prepped for canvas
+//preload custom fonts used for canvas
+const fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
+for (let font of fonts) {
+	$(".font-loader").append(`<p style="font-family: ${font}">.</p>`);
+}
+
 //default style options for header & message
 let defHOptions = {
 	lineHeight: 0.85,
@@ -19,7 +26,7 @@ let defMOptions = {
 let hOptions, mOptions, //set canvas options (for one or both)
 	style = 0;
 
-const TEMPLATE_COUNT = 2;
+const TEMPLATE_COUNT = 4;
 
 export default function canvasTemplate(switchStyle) {
 	//boolean called to cycle template
@@ -46,11 +53,45 @@ export default function canvasTemplate(switchStyle) {
 				color: "#FF5733",
 				textAlign: "left",
 				verticalAlign: "top",
+				paddingY: 40
 			};
 			mOptions = {
 				font: "30px 'Lato', sans-serif",
 				color: "#FCFCFC",
 				textAlign: "right",
+			};
+			break;
+
+		case 2:
+			hOptions = {
+				font: "100px 'Great Vibes', cursive",
+				color: "#FCFCFC",
+			};
+			mOptions = {
+				font: "30px 'Lato', sans-serif",
+				color: "#212121",
+				shadow: "#FCFCFC",
+				textAlign: "left",
+				verticalAlign: "bottom",
+				paddingY: 60
+			};
+			break;
+
+		case 3:
+			hOptions = {
+				font: "100px 'Pacifico', cursive",
+				color: "#FFA337",
+				textAlign: "right",
+				verticalAlign: "top",
+				paddingX: 30,
+				paddingY: 60
+			};
+			mOptions = {
+				font: "30px 'Homemade Apple', sans-serif",
+				color: "#FCFCFC",
+				textAlign: "left",
+				paddingX: 30,
+				paddingY: 30
 			};
 			break;
 	}

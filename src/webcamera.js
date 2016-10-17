@@ -38,5 +38,5 @@ function openWebcam(e) {
 
 $(".dropzone__camera").click(openWebcam);
 
-//toggle display on snap & unfocused click
-$(".webcam__close").click(closeWebcam);
+//toggle display on close & unfocused click
+$("body, .webcam__close").click(closeWebcam);

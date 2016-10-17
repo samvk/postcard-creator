@@ -74,16 +74,22 @@
 
 	/*************** </> Imports ******************/
 
-	$(".gcard-3d").flip({ trigger: "manual" }); //bind flip
+	var $gcard3d = $(".gcard-3d");
+
+	$gcard3d.flip({ trigger: "manual" }); //bind flip
 
 	_pubsub2.default.on("gcardSet", function () {
-		$(".gcard-3d").addClass("fade-in");
+		$gcard3d.addClass("fade-in show-overflow");
 	}).on("gcardSet", function () {
-		$(".gcard-3d").flip(false); //flip to front
+		$gcard3d.flip(false); //flip to front
 	}).on("gcardSave", function () {
-		$(".gcard-3d").flip(true); //flip to back
+		$gcard3d.flip(true); //flip to back
 	}).on("reset", function () {
-		$(".gcard-3d").removeClass("fade-in");
+		$gcard3d.removeClass("fade-in");
+		setTimeout(function () {
+			//firefox hack (ignoring transitionend)
+			$gcard3d.removeClass("show-overflow");
+		}, 2000);
 	});
 
 	/*************** Postcard icon listeners *****************/
@@ -621,8 +627,8 @@
 
 	$(".dropzone__camera").click(openWebcam);
 
-	//toggle display on snap & unfocused click
-	$(".webcam__close").click(closeWebcam);
+	//toggle display on close & unfocused click
+	$("body, .webcam__close").click(closeWebcam);
 
 /***/ },
 /* 6 */
@@ -1059,7 +1065,11 @@
 
 			getMovie: function getMovie() {
 				// get reference to movie object/embed in DOM
-				if (!this.loaded) return this.dispatch('error', new FlashError("Flash Movie is not loaded yet. (If error persists, refresh app.)"));
+				if (!this.loaded) {
+					//changed from alert to console.log due to persistent error spamming with working HTML5 webcam
+					console.log("Flash Movie is not loaded yet. (If error persists, refresh app.)");
+					return;
+				}
 				var movie = document.getElementById('webcam_movie_obj');
 				if (!movie || !movie._snap) movie = document.getElementById('webcam_movie_embed');
 				if (!movie) this.dispatch('error', new FlashError("Cannot locate Flash movie in DOM"));
@@ -1192,7 +1202,11 @@
 				var self = this;
 				var params = this.params;
 
-				if (!this.loaded) return this.dispatch('error', new WebcamError("Webcam may be laggy"));
+				if (!this.loaded) {
+					//changed from alert to console.log due to persistent error spamming with working HTML5 webcam
+					console.log("Webcam may be laggy.");
+					return;
+				}
 				// if (!this.live) return this.dispatch('error', new WebcamError("Webcam is not live yet"));
 				if (!user_callback) return this.dispatch('error', new WebcamError("Please provide a callback function or canvas to snap()"));
 
@@ -1501,12 +1515,10 @@
 
 	$(".email-form").submit(function (e) {
 		e.preventDefault();
-		//prevent duplicate requests
-		if (sending) return false;
+		if (sending) return false; //prevent duplicate requests
+		sending = true;
 
 		(0, _dropzoneUi2.default)("Sending...", null, true);
-
-		sending = true;
 
 		var url = $(this).attr("action"),
 		    image = $(".gcard-image").attr("src"),
@@ -2172,7 +2184,36 @@
 		value: true
 	});
 	exports.default = canvasTemplate;
-	//default style options for header & message
+	//Developers Note: fonts but be preloaded to ensure brower is prepped for canvas
+	//preload custom fonts used for canvas
+	var fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = fonts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var font = _step.value;
+
+			$(".font-loader").append("<p style=\"font-family: " + font + "\">.</p>");
+		}
+
+		//default style options for header & message
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+
 	var defHOptions = {
 		lineHeight: 0.85,
 		shadow: "black",
@@ -2195,7 +2236,7 @@
 	    //set canvas options (for one or both)
 	style = 0;
 
-	var TEMPLATE_COUNT = 2;
+	var TEMPLATE_COUNT = 4;
 
 	function canvasTemplate(switchStyle) {
 		//boolean called to cycle template
@@ -2221,12 +2262,46 @@
 					font: "100px 'Berkshire Swash', cursive",
 					color: "#FF5733",
 					textAlign: "left",
-					verticalAlign: "top"
+					verticalAlign: "top",
+					paddingY: 40
 				};
 				mOptions = {
 					font: "30px 'Lato', sans-serif",
 					color: "#FCFCFC",
 					textAlign: "right"
+				};
+				break;
+
+			case 2:
+				hOptions = {
+					font: "100px 'Great Vibes', cursive",
+					color: "#FCFCFC"
+				};
+				mOptions = {
+					font: "30px 'Lato', sans-serif",
+					color: "#212121",
+					shadow: "#FCFCFC",
+					textAlign: "left",
+					verticalAlign: "bottom",
+					paddingY: 60
+				};
+				break;
+
+			case 3:
+				hOptions = {
+					font: "100px 'Pacifico', cursive",
+					color: "#FFA337",
+					textAlign: "right",
+					verticalAlign: "top",
+					paddingX: 30,
+					paddingY: 60
+				};
+				mOptions = {
+					font: "30px 'Homemade Apple', sans-serif",
+					color: "#FCFCFC",
+					textAlign: "left",
+					paddingX: 30,
+					paddingY: 30
 				};
 				break;
 		}

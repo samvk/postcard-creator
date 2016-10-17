@@ -15,6 +15,7 @@
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
+	overflow: hidden;
 	@include transition(opacity $duration $ease, visibility 0ms $duration);	
 
 	&.fade-in {

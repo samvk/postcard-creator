@@ -21,6 +21,16 @@
 
 //no wrap
 
-.nowrap{
+body .nowrap{
     white-space: nowrap;
+}
+
+//overflow
+
+body .show-overflow {
+	overflow: visible;
+}
+
+body .hide-overflow {
+	overflow: hidden;
 }

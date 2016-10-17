@@ -18,8 +18,6 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5BBAD5">
 
-    <!-- Custom Fonts -->
-
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel="stylesheet">
 
@@ -79,10 +77,9 @@
 		<div class="container">
 
 			<div class="front">
-
 				<article class="canvas-section">
 					<canvas id="gcard" width="690" height="460">
-						Your browser does not support the greeting card generator.
+						Your browser does not support our greeting card generator.
 					</canvas>
 					<img class="gcard__icon design__button" src="img/pantone.svg">
 
@@ -96,12 +93,9 @@
 						<button class="gcard__button">Save</button>
 					</p>
 				</article>
-
-
 			</div>
 
 			<div class="back">
-
 				<article class="email-section">
 					<img class="gcard-back" src="img/postcard-back.png" alt="Back of Greeting Card">
 
@@ -135,7 +129,6 @@
 					</form>
 					<img class="gcard__icon edit__button" src="img/pencil.svg">
 				</article>
-
 			</div>
 
 			<img class="gcard-image" aria-hidden="true" alt=""> <!-- Holds #gcard upload -->
@@ -151,11 +144,7 @@
 	</article>
 	
 	<!-- Force fonts to load for canvas -->
-	<div aria-hidden="true">
-		<p style="font-family: Lobster Two">.</p>
-		<p style="font-family: Lato">.</p>
-		<p style="font-family: Berkshire Swash">.</p>
-	</div>
+	<div class="font-loader" aria-hidden="true"></div>
 
     <footer>
 		<p class="no-spacing">2016 &copy; <strong>SAMVK</strong></p>
@@ -164,6 +153,7 @@
 <!--**************************************************-->
 
 	<!-- Javascript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.16.0/polyfill.min.js"></script> <!-- Polyfill for IE -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 	<script src="dist/app.js"></script>
 	

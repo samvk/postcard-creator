@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster+Two");
 @import url("https://fonts.googleapis.com/css?family=Berkshire+Swash");
 @import url("https://fonts.googleapis.com/css?family=Lato:700i");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Great+Vibes");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -329,7 +331,7 @@ sub {
   border-radius: 5px;
 }
 
-.circle, .red-circle, .step-count, .step {
+.circle, .red-circle, .step-count, .step, .webcam__snap {
   border-radius: 1000px;
 }
 
@@ -342,8 +344,16 @@ sub {
   text-decoration: none;
 }
 
-.nowrap {
+body .nowrap {
   white-space: nowrap;
+}
+
+body .show-overflow {
+  overflow: visible;
+}
+
+body .hide-overflow {
+  overflow: hidden;
 }
 
 .relative {
@@ -798,6 +808,7 @@ header {
 
 .canvas-section {
   max-width: 100%;
+  padding-bottom: 5em;
 }
 
 #gcard {
@@ -890,6 +901,7 @@ header {
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
   -moz-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
   -o-transition: opacity 2000ms ease-in, visibility 0ms 2000ms;
   -webkit-transition: opacity 2000ms ease-in, visibility 0ms;
@@ -916,6 +928,7 @@ header {
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
   -moz-transition: opacity 1000ms ease, visibility 0ms 1000ms;
   -o-transition: opacity 1000ms ease, visibility 0ms 1000ms;
   -webkit-transition: opacity 1000ms ease, visibility 0ms;
@@ -935,6 +948,8 @@ header {
 
 .webcam__snap {
   cursor: pointer;
+  border: 3px solid #0B0B0B;
+  background-color: rgba(255, 255, 255, 0.08);
   position: absolute;
   bottom: 1.8em;
   width: 64px;
@@ -1065,13 +1080,17 @@ header {
 
 footer {
   font-size: 1rem;
-  margin-top: 2em;
+  position: fixed;
+  bottom: 0;
 }
 
 footer p {
-  color: #0B0B0B;
   font-size: 1.1em;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-shadow: 1px 1px 0px #FFF;
+  color: #0B0B0B;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 500px;
   padding: 1em;
 }
 
