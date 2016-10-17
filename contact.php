@@ -38,9 +38,10 @@ $success = file_put_contents($file, $data);
 $mail = new PHPMailer(true);
 
 $mail->AddAddress($target_email);
-$mail->SetFrom("noreply@thegreetingsworld.com");
+$mail->AddReplyTo($user_email, $from);
+$mail->SetFrom("noreply@greetingsworld.com", "Greetings, World!");
 
-$mail->Subject = "You've Recieved a Special Greeting from {$from} | Greetings, World!";
+$mail->Subject = "You've Recieved a Special Greeting from {$from}!";
 
 $mail->IsHTML(true);
 
@@ -54,6 +55,8 @@ $message = "
 	</head>
 	<body>
 		<p>{$body}</p>
+		<hr>
+		<p>Want to respond with style? Visit <a href='http://postcard.samvk.com'>GreetingsWorld.com<a> to send your own custom greeting card to {$from} at {$user_email}.</p>
 	</body>
 </html>
 ";
