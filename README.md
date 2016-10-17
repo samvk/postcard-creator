@@ -74,8 +74,8 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com.
-**Note:** Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in Firefox (or upload the code to a secure domain).
+*Greetings, World!* can be run locally (up until emailing) or previewed at https://postcard.samvk.com.
+**Note:** Chrome 47+ requires an SSL to access the webcam.
 
 
 ## License
@@ -93,4 +93,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Contributors
 
-*Greetings, World!* is built by Sam Kauffman. You can contact me anytime at **hello@samvk.com**. You can also view my full portfolio for other projects at **http://samvk.com**. Thanks for reading!
+*Greetings, World!* is built by Sam Kauffman. You can contact me anytime at **hello@samvk.com**. You can also view my full portfolio for other projects at **https://samvk.com**. Thanks for reading!
