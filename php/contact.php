@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 	exit;
 }
 
-require "php/libraries/mail/class.phpmailer.php";
+require "libraries/mail/class.phpmailer.php";
 
 //data
 $to = trim($_POST["to"]);
@@ -27,7 +27,7 @@ if ( empty($to) || empty($from) || empty($user_email) || empty($target_email) ) 
 }
 
 //Upload image for easy email attachment
-$uploadDir = "img/uploads/";
+$uploadDir = "../img/uploads/";
 $img = str_replace("data:image/png;base64,", "", $img);
 $img = str_replace(" ", "+", $img);
 $data = base64_decode($img);
