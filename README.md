@@ -28,21 +28,21 @@ The Greeting Card generator is entirely client-side until email sending. This me
 
 All choices are kept on reset besides the form. This means the user can quickly reuse or edit the previous message on the theme of their choice before entering a new recipient.
 
-The Greeting Card generator currently has a reasonable 12MB image size limit. But this is only for the browser's benifit and could be forgone.
+The Greeting Card generator currently has a reasonable 12MB image size limit. But this is only for the browser's benefit and could be forgone.
 
 All error messages are displayed at the top of the dropzone area for the user.
 
 
 ## Events
 
-the current list of PubSub Events *Greetings, World!* listens for are:
+The current list of PubSub Events *Greetings, World!* listens for are:
 
 * drag			// a user drags a file into the window
 * dragend		// a user stops dragging a file
 * fileUpload	// a user chooses a file to upload
 * gcardSet		// the image successfully uploads
 * gcardSave		// the user finishes designing their postcard
-* reset			// the ap exits its current step
+* reset			// the app exits its current step
 * resetOver		// the app returns to step one
 
 
@@ -55,13 +55,13 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 
 #### Webcamjs
 * 1.0.16
-* A small Webcam libary allowing for easy flash fallback
+* A small Webcam library allowing for easy flash fallback
 * The MIT License (MIT)
 * https://pixlcore.com/read/WebcamJS
 
 #### jQuery
 * 3.1.1
-* A feature-rich JavaScript allowing for simpler DOM manipultion chaining
+* A feature-rich JavaScript allowing for simpler DOM manipulation chaining
 * The MIT License (MIT)
 * https://jquery.com
 
@@ -74,7 +74,8 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com. Note: Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in FireFox (or upload the code to a secure domain).
+*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com.
+**Note:** Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in Firefox (or upload the code to a secure domain).
 
 
 ## License
