@@ -24,11 +24,7 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 
 #### Notes
 
-The Greeting Card generator is entirely client-side until email sending. This means any photo validation is only for the user. The eventual image emailed is a copy made from a canvas.
-
 All choices are kept on reset besides the form. This means the user can quickly reuse or edit the previous message on the theme of their choice before entering a new recipient.
-
-The Greeting Card generator currently has a reasonable 12MB image size limit. But this is only for the browser's benefit and could be forgone.
 
 All error messages are displayed at the top of the dropzone area for the user.
 
