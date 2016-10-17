@@ -12,9 +12,7 @@ $body = trim($_POST["body"]);
 $target_email = trim($_POST["target-email"]);
 $image = trim($_POST["image"]);
 
-//replace various seperators with "," for mail()
-$seperators = array(" ", ";");
-$target_email = str_replace($seperators, ", ", "Hello World of PHP");
+$body = htmlspecialchars($body);
 
 //Empty fields check (only if bypassed client-side validation)
 if ( empty($to) || empty($from) || empty($target_email) ) {
@@ -31,20 +29,18 @@ $subject = "You've Recieved a Special Greeting from {$from} | Greetings, World!"
 
 $message = "
 <html>
-<head>
-<title>Greetings, World!</title>
-</head>
-<body>
-<p>You have just received a new greeting:</p>
-<p>{$body}</p>
-<img src='$image'>
-</body>
+	<head>
+		<title>Greetings, World!</title>
+	</head>
+	<body>
+		<p>{$body}</p>
+		<img src='$image'>
+	</body>
 </html>
 ";
 
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
 $headers .= "From: noreply@thegreetingsworld.com\n";
 
 mail($target_email, $subject, $message, $headers);

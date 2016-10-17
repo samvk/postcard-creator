@@ -1543,6 +1543,10 @@
 		});
 	});
 
+	_pubsub2.default.on("reset", function () {
+		$(".email-form")[0].reset();
+	});
+
 /***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
@@ -1802,7 +1806,7 @@
 		//Dev note: Do not set these as default parameters to avoid ignoring empty strings
 		header = header || "Congratulations!";
 		//soft-hyphen(­) to "fix" ignored new-line issue on some browsers
-		message = message.replace(/\n{2,}/g, "\n ­ \n") || "Sending warm wishes on this festive occassion.";
+		message = message.replace(/\n{2,}/g, "\n ­ \n") || "Sending warm wishes to you on this festive occassion.";
 		message += " ­";
 
 		var canvas = $("#gcard")[0],

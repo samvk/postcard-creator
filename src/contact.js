@@ -36,3 +36,7 @@ $(".email-form").submit(function(e){
 		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");
 	});
 });
+
+Events.on("reset", function(){
+	$(".email-form")[0].reset();
+});

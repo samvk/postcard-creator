@@ -1036,8 +1036,8 @@ header {
 
 .email__send--container input {
   width: 90%;
-  height: 50%;
   margin: 0;
+  margin-top: 0.8%;
   padding-right: 5%;
 }
 .email__send--container input:-moz-placeholder {
