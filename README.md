@@ -4,6 +4,10 @@
 
 I chose to build the Postcard Creator as it felt like the most fully-rounded of the options. It requires a bit of work in front-end, back-end, and design, and creates a finished product one could actually use. It also let's me play around with a lot of what HTML5 has to offer.
 
+### Developer Notes
+
+*Greetings, World!* is written in ES6 syntax and compiled & polyfilled with Babel. It uses Webpack as its module bundler of choice.
+
 
 ## Installation
 
@@ -19,7 +23,6 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 5. Finally, the postcard is emailed, and the greeting card generator resets.
 
 *Currently, the return address is not being used, but would be valuable depending on the nature of the app.
-
 
 ### Notes
 
