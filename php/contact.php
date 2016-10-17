@@ -45,7 +45,7 @@ $message = "
 	</head>
 	<body>
 		<p>{$body}</p>
-		<img src='{$image}' alt='Your greeting card'>
+		<img src='cid:imageSrc' alt='Your greeting card'>
 	</body>
 </html>
 ";
