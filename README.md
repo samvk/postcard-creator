@@ -59,6 +59,12 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 * The MIT License (MIT)
 * https://pixlcore.com/read/WebcamJS
 
+#### CanvasTextWrapper.js
+* 0.9.3
+* A modified version of the original. Allows for easy text alignment with HTML5 canvas
+* The MIT License (MIT)
+* http://namniak.github.io/canvas-text-wrapper
+
 #### jQuery
 * 3.1.1
 * A feature-rich JavaScript allowing for simpler DOM manipulation chaining
