@@ -7,7 +7,7 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at [http://postcard.samvk.com]. Note: Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in FireFox (or upload the code to a secure domain).
+*Greetings, World!* can be run locally (up until emailing) or previewed at http://postcard.samvk.com. Note: Chrome 47+ requires HTTPS to access the webcam. This means the webcam feature should either be previewed locally or in FireFox (or upload the code to a secure domain).
 
 
 ## Steps
