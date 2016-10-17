@@ -26,7 +26,7 @@ if ( empty($to) || empty($from) || empty($user_email) || empty($target_email) ) 
 	exit;
 }
 
-//upload image
+//Upload image for easy email attachment
 $uploadDir = "img/uploads/";
 $img = str_replace("data:image/png;base64,", "", $img);
 $img = str_replace(" ", "+", $img);
@@ -34,7 +34,7 @@ $data = base64_decode($img);
 $file = $uploadDir . uniqid() . ".png";
 $success = file_put_contents($file, $data);
 
-//set mail info
+//Set mail info
 $mail = new PHPMailer(true);
 
 $mail->AddAddress($target_email);
@@ -44,7 +44,7 @@ $mail->Subject = "You've Recieved a Special Greeting from {$from} | Greetings, W
 
 $mail->IsHTML(true);
 
-//attach uploaded image
+//Attach uploaded image
 $mail->AddAttachment($file);
 
 $message = "
@@ -60,8 +60,11 @@ $message = "
 
 $mail->Body = $message;
 
-//send mail
+//Send mail
 $mail->Send();
+
+//Delete image after upload
+unlink($file);
 
 $response = array(
 	"status" => "success",
