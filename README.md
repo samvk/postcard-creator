@@ -1,6 +1,6 @@
 ## Synopsis
 
-*Greetings, World!* is a proof of concent postcard creator. It takes image input from the user and converts them to a digital 4 x 6 postcard.
+*Greetings, World!* is a proof-of-concent postcard creator. It takes image input from the user and converts them to a digital 4 x 6 postcard.
 
 I chose to build the Postcard Creator as it felt like the most fully-rounded of the options. It requires a bit of work in front-end, back-end, and design, and creates a finished product one could actually use. It also let's me play around with a lot of what HTML5 has to offer.
 
@@ -21,7 +21,7 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 *Currently, the return address is not being used, but would be valuable depending on the nature of the app.
 
 
-## Notes
+### Notes
 
 The Greeting Card generator is entirely client-side until email sending. This means any photo validation is only for the user. The eventual image emailed is a copy made from a canvas.
 
@@ -32,9 +32,9 @@ The Greeting Card generator currently has a reasonable 12MB image size limit. Bu
 All error messages are displayed at the top of the dropzone area for the user.
 
 
-## PubSub Events
+## Events
 
-the current list of events *Greetings, World!* listens for are:
+the current list of PubSub Events *Greetings, World!* listens for are:
 
 * drag			// a user drags a file into the window
 * dragend		// a user stops dragging a file
@@ -64,7 +64,7 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 * The MIT License (MIT)
 * https://jquery.com
 
-#### jQuery
+#### jQuery Flip
 * 1.1.1
 * A jQuery plugin which brings CSS3 backface-visibility features to IE through brute force
 * The MIT License (MIT)
