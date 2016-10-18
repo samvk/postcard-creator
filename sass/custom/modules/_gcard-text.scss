@@ -35,9 +35,9 @@
 
 .gcard__button {
 	//design
-	    @include palette($white, $red, $white);
-    	@include hover($white, $lightred);
-    	@include active(null, $darkred);
+	@include palette($white, $red, $white);
+    @include hover($white, $lightred);
+    @include active(null, $darkred);
 
 	//layout
 	margin: 0;

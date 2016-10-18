@@ -10,18 +10,28 @@
 // 
 // ==========================================================================//
 
-//NOTE: This mixin requires a "fade-in" class to trigger
+//NOTE: This mixin requires a "fade-in" class added to trigger
 @mixin fade-in($position: inherit, $duration: 1000ms, $ease: ease) {
-	position: absolute;
+	//design
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
+
+	//layout
+	position: absolute;
+	
+	//animation
 	@include transition(opacity $duration $ease, visibility 0ms $duration);	
 
 	&.fade-in {
-		position: $position;
+		//design
 		opacity: 1;
 		visibility: visible;
+
+		//layout
+		position: $position;
+		
+		//animation
 		transition-delay: 0ms;
 	}
 }

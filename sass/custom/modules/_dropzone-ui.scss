@@ -5,6 +5,7 @@
 //DROPZONE HOVER EFFECT
 .dropzone__browse,
 .dropzone__camera {
+	//animation
     @include transition(opacity 150ms linear);
     &:hover { opacity: 0.85; }
 }
@@ -29,8 +30,10 @@
 }
 
 .dropzone-wrapper.is-dragging {
+	//design
     outline: 3px dashed rgba(244, 51, 41, 0.4);
 
+	//animation
     .dropzone__card { 
         @include transition(opacity 0);
         opacity: 0.85;
@@ -45,19 +48,23 @@
 //DROPZONE MESSAGE WRAPPER
 .dropzone__message-wrapper {
 	//layout
+	display: block;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: block;
 }
 
 .dropzone-wrapper.is-compressed,
 .dropzone__message-wrapper {
+	//layout
 	max-height: 3.5em;
 }
 
 //when acting as dropzone decompressor
 .dropzone-wrapper.is-compressed .dropzone__message-wrapper {
+	//design
 	cursor: pointer;
+	
+	//layout
 	z-index: 20;
 }

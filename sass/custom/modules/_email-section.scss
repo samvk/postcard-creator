@@ -2,13 +2,6 @@
 // EMAIL TEMPLATE SECTION
 // ==========================================================================//
 
-//FONT
-.email-form p, input, textarea {
-	//text
-	//font-family: "Homemade Apple", cursive;
-}
-
-//LAYOUT
 .email-section {
 	//layout
 	position: relative;
@@ -28,9 +21,11 @@
 
 .email__body-container,
 .email__address-container {
+	//layout
 	@include padding-left-right(3%);
 }
 
+//layout
 .email__body-container { width: 48%; }
 .email__address-container { width: 52%; }
 
@@ -46,25 +41,30 @@
 }
 
 .email-form textarea {
+	//layout
 	height: 70%;
 }
 
 .email__address-container input {
+	//layout
 	height: 14%;
 }
 
 .email__send--container {
+	//layout
 	@include padding-left-right(3%);
 	width: 100%;
 }
 
 .email__send--container input {
+	//layout
 	width: 90%;
 	margin: 0;
 	margin-top: 0.8%;
 	padding-right: 5%;
 	
 	@include input-placeholder {
+		//text
 		font: 1.2em $font-family--accent;
 	}
 }
@@ -82,7 +82,6 @@
 	padding: 0.7em 0.9em;
 }
 
-//HEADERS
 .email__header {
 	//text
 	font-size: 1.2em;

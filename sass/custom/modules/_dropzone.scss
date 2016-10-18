@@ -43,21 +43,26 @@
 }
 
 .dropzone__card--icon {
+	//layout
     width: 320px;
 }
 
 .dropzone__card--text {
+	//design
+	color: $white;
+
+	//layout
     position: absolute;
     bottom: 21.6%;
     @extend .center-abs;
     @extend .no-spacing;
     white-space: nowrap;
-    color: $white;
 }
 
 .dropzone__or {
+	//text
     font-size: 2em;
+	@extend .uppercase;
     color: $black;
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.4);
-    @extend .uppercase;
 }
