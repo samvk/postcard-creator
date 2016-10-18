@@ -20,7 +20,7 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 4. When decided, they'll be asked to write an optional backside message, as well as some information about themselves, and the recipient.
 5. Finally, the postcard is emailed, and the greeting card generator resets<sup>✝</sup>.
 
-✝ All information besides recipient data is saved for easy repetition.
+<sup>✝</sup> All information besides recipient data is saved for easy repetition.
 
 
 #### Notes
@@ -45,7 +45,7 @@ The current list of PubSub Events *Greetings, World!* listens for are:
 
 ## Tests
 
-A small folder tests/ can be found with a few images to upload. It includes one good image and three different bad images (wrong file type, fake image, etc.)
+A small directory tests/ can be found with a few images to upload. It includes one good image and three different bad images (wrong file type, fake image, etc.)
 
 
 ## Libraries
