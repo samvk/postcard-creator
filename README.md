@@ -14,13 +14,14 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 
 ## Steps
 
-1. The user uploads a photo via drag & drop, file uploaded, or web camera.
+1. The user uploads a photo via drag & drop, file upload, or web camera.
 2. The greeting card generator determines the shape up the uploaded image and orients itself landscape or portrait, cropping the image to a 4 x 6 postcard.
 3. The user can then choose from a selection of designs with custom font type, color, and positioning. They're encouraged to add a custom header and message to their postcard.
-4. When decided, they'll be asked to write an optional backside message, as well as some information about themselves**, and the recipient.
-5. Finally, the postcard is emailed, and the greeting card generator resets.
+4. When decided, they'll be asked to write an optional backside message, as well as some information about themselves, and the recipient.
+5. Finally, the postcard is emailed, and the greeting card generator resets<sup>✝</sup>.
 
-*Currently, the return address is not being used, but would be valuable depending on the nature of the app.
+✝ All information besides recipient data is saved for easy repetition.
+
 
 #### Notes
 
@@ -83,7 +84,7 @@ A small folder tests/ can be found with a few images to upload. It includes one 
 ## Installation
 
 *Greetings, World!* can be run locally (up until emailing) or previewed at https://postcard.samvk.com.
-**Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://postcard.samvk.com or locally (or with Firefox.)
+**Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://postcard.samvk.com, locally, or with Firefox.
 
 
 ## License
