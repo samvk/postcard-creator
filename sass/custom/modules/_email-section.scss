@@ -58,8 +58,9 @@
 
 .email__send--container input {
 	//layout
-	width: 90%;
+	width: 64%;
 	margin: 0;
+	margin-left: 17%;
 	margin-top: 0.8%;
 	padding-right: 5%;
 	
@@ -90,4 +91,15 @@
 	//layout
 	position: absolute;
 	transform: rotate(-4deg) translateY(-10%);
+}
+
+.email__header--message {
+	@extend .email__header;
+	
+	//text
+	text-decoration: underline;
+	left: 17%;
+	
+	//layout
+	transform: rotate(-3deg) translateY(-10%)
 }

@@ -1029,8 +1029,9 @@ header {
 }
 
 .email__send--container input {
-  width: 90%;
+  width: 64%;
   margin: 0;
+  margin-left: 17%;
   margin-top: 0.8%;
   padding-right: 5%;
 }
@@ -1065,11 +1066,17 @@ header {
   background-color: #FFA60D;
 }
 
-.email__header {
+.email__header, .email__header--message {
   font-size: 1.2em;
   font-family: "Homemade Apple", cursive;
   position: absolute;
   transform: rotate(-4deg) translateY(-10%);
+}
+
+.email__header--message {
+  text-decoration: underline;
+  left: 17%;
+  transform: rotate(-3deg) translateY(-10%);
 }
 
 footer {
