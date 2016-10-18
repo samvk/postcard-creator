@@ -1029,9 +1029,9 @@ header {
 }
 
 .email__send--container input {
-  width: 64%;
+  width: 60%;
   margin: 0;
-  margin-left: 17%;
+  margin-left: 19%;
   margin-top: 0.8%;
   padding-right: 5%;
 }
