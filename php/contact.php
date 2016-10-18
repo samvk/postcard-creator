@@ -34,20 +34,7 @@ $data = base64_decode($img);
 $file = $uploadDir . uniqid() . ".png";
 $success = file_put_contents($file, $data);
 
-//Set mail info
-$mail = new PHPMailer(true);
-
-$mail->AddAddress($target_email);
-$mail->AddReplyTo($user_email, $from);
-$mail->SetFrom("noreply@greetingsworld.com", "Greetings, World!");
-
-$mail->Subject = "You've Recieved a Special Greeting from {$from}!";
-
-$mail->IsHTML(true);
-
-//Attach uploaded image
-$mail->AddAttachment($file);
-
+//Set email message
 $message = "
 <html>
 	<head>
@@ -61,17 +48,38 @@ $message = "
 </html>
 ";
 
-$mail->Body = $message;
+//Set email info
+$mail = new PHPMailer(true);
 
-//Send mail
-$mail->Send();
+//Send email
+try {
+	$mail->AddAddress($target_email);
+	$mail->AddReplyTo($user_email, $from);
+	$mail->SetFrom("noreply@greetingsworld.com", "Greetings, World!");
+	$mail->Subject = "You've Recieved a Special Greeting from {$from}!";
+	$mail->IsHTML(true);
+	$mail->AddAttachment($file); //Attach uploaded image
+	$mail->Body = $message;
 
-//Delete image after upload
-unlink($file);
-
-$response = array(
-	"status" => "success",
-	"message" => "Sent!"
-);
-
-echo json_encode($response);
+	$mail->Send();
+	
+	$response = array(
+		"status" => "success",
+		"message" => "Sent!"
+	);
+	echo json_encode($response);
+} catch (phpmailerException $e) {
+	$response = array(
+		"status" => "error",
+		"message" =>  "Error: " . $e->errorMessage() //PHPMailer error
+	);
+	echo json_encode($response);
+} catch (Exception $e) {
+	$response = array(
+		"status" => "error",
+		"message" => "Error: " . $e->getMessage()
+	);
+	echo json_encode($response);
+} finally {
+	unlink($file); //Delete image after upload
+}
