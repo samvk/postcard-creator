@@ -1,7 +1,6 @@
 const path = require('path'),
       SRC = path.join(__dirname, 'src/'),
       NODE_MODULES = path.join(__dirname, 'node_modules/');
-
 const config = {
     entry: "./src",               // entry point
     output: {                     // output folder
