@@ -49,10 +49,9 @@ $message = "
 </html>
 ";
 
-//Set email info
+//SEND EMAIL TO RECIPIENT
 $mail = new PHPMailer(true);
 
-//Send email
 try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
@@ -61,14 +60,22 @@ try {
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
 	$mail->Body = $message;
-
 	$mail->Send();
-	
+
+//SEND COPY OF EMAIL TO USER
+	$mail->ClearAddresses();
+	$mail->AddAddress($user_email);
+	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}!";
+	$mail->Send();
+
+	//SUCCESS
 	$response = array(
 		"status" => "success",
 		"message" => "Sent!"
 	);
 	echo json_encode($response);
+
+	//ERROR
 } catch (phpmailerException $e) {
 	$response = array(
 		"status" => "error",
