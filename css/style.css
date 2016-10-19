@@ -1093,7 +1093,7 @@ header {
 }
 
 .email__button.is-sending {
-  cursor: not-allowed;
+  cursor: pointer;
   background-color: #FFC259;
 }
 
