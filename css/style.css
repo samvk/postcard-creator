@@ -825,6 +825,7 @@ header {
 }
 
 #gcard {
+  background-color: #FFF;
   border-radius: 10px;
   display: block;
   max-width: 100%;
