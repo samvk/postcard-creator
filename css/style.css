@@ -478,7 +478,7 @@ img.padding {
   }
 }
 
-.hide-xs, .hide-sm, .hide-md {
+.hide-xs, .hide-sm, .hide-md, .hide-lg {
   display: none;
 }
 
@@ -496,6 +496,12 @@ img.padding {
 
 @media screen and (min-width: 1200px) {
   .hide-md {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .hide-lg {
     display: block;
   }
 }
@@ -617,6 +623,13 @@ header {
   .header__sub-title {
     font-size: 2em;
   }
+}
+
+.header__logo {
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: translate(-42%, -42%);
 }
 
 .steps-list {
