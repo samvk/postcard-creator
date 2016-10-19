@@ -33,6 +33,7 @@
 $sm-min: 769px;
 $md-min: 992px;
 $lg-min: 1200px;
+$xl-min: 1600px;
 
 $xs-max: ($sm-min - 1);
 $sm-max: ($md-min - 1);
@@ -40,7 +41,7 @@ $md-max: ($lg-min - 1);
 
 @mixin media($breakpoint) {
 	$query: "";
-	@if $breakpoint == $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min {
+	@if $breakpoint == $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min or $breakpoint == $xl-min {
 		$query: "min-width";	
 	} @else if $breakpoint == $xs-max or $breakpoint == $sm-max or $breakpoint == $md-max {
 		$query: "max-width";

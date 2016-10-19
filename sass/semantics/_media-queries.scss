@@ -4,7 +4,7 @@
 
 //hidden elements
 
-.hide-xs, .hide-sm, .hide-md {
+.hide-xs, .hide-sm, .hide-md, .hide-lg {
     display: none;
 }
 
@@ -22,6 +22,12 @@
 
 .hide-md {
 	@include media($lg-min) {
+		display: block;
+	}
+}
+
+.hide-lg {
+	@include media($xl-min) {
 		display: block;
 	}
 }

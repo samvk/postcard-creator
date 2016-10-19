@@ -30,3 +30,9 @@ header {
         font-size: 2em;
     }
 }
+
+.header__logo {
+	//layout
+	@include absolute(top 0 left 0);
+	transform: translate(-42%, -42%);
+}
