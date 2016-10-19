@@ -10,7 +10,8 @@ $(".email-form").submit(function(e){
 	if (sending) return false; //prevent duplicate requests
 	sending = true;
 	
-	dropzoneAlert("Sending...", null, true);	
+	dropzoneAlert("Sending...", null, true);
+	$(".email__button").addClass("is-sending");
 
 	const url = $(this).attr("action"),
 		  image = $("#gcard")[0].toDataURL(),
@@ -34,6 +35,9 @@ $(".email-form").submit(function(e){
 	.fail(response => {
 		sending = false;
 		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");
+	})
+	.always(() => {
+		$(".email__button").removeClass("is-sending");
 	});
 });
 

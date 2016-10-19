@@ -1048,6 +1048,19 @@ header {
   font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
+.email__header, .email__header--message {
+  font-size: 1.2em;
+  font-family: "Homemade Apple", cursive;
+  position: absolute;
+  transform: rotate(-4deg) translateY(-10%);
+}
+
+.email__header--message {
+  text-decoration: underline;
+  left: 17%;
+  transform: rotate(-3deg) translateY(-10%);
+}
+
 .email__button {
   background-color: #FFB330;
   color: #FFF;
@@ -1066,17 +1079,9 @@ header {
   background-color: #FFA60D;
 }
 
-.email__header, .email__header--message {
-  font-size: 1.2em;
-  font-family: "Homemade Apple", cursive;
-  position: absolute;
-  transform: rotate(-4deg) translateY(-10%);
-}
-
-.email__header--message {
-  text-decoration: underline;
-  left: 17%;
-  transform: rotate(-3deg) translateY(-10%);
+.email__button.is-sending {
+  cursor: not-allowed;
+  background-color: #FFC259;
 }
 
 footer {

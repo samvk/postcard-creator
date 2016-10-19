@@ -70,19 +70,6 @@
 	}
 }
 
-.email__button {
-	//design
-	@include palette($white, $gold);
-	@include hover(null, #FFC259);
-	@include active(null, #FFA60D);
-
-	//layout
-	position: absolute;
-	margin-top: -0.5%;
-	margin-left: -5%;
-	padding: 0.7em 0.9em;
-}
-
 .email__header {
 	//text
 	font-size: 1.2em;
@@ -102,4 +89,23 @@
 	
 	//layout
 	transform: rotate(-3deg) translateY(-10%)
+}
+
+.email__button {
+	//design
+	@include palette($white, $gold);
+	@include hover(null, #FFC259);
+	@include active(null, #FFA60D);
+
+	//layout
+	position: absolute;
+	margin-top: -0.5%;
+	margin-left: -5%;
+	padding: 0.7em 0.9em;
+}
+
+.email__button.is-sending {
+	//design
+	cursor: not-allowed;
+	background-color: #FFC259;
 }

@@ -2292,6 +2292,7 @@
 		sending = true;
 
 		(0, _dropzoneUi2.default)("Sending...", null, true);
+		$(".email__button").addClass("is-sending");
 
 		var url = $(this).attr("action"),
 		    image = $("#gcard")[0].toDataURL(),
@@ -2313,6 +2314,8 @@
 		}).fail(function (response) {
 			sending = false;
 			(0, _dropzoneUi2.default)("Something went wrong. Your message could not be sent.", "error");
+		}).always(function () {
+			$(".email__button").removeClass("is-sending");
 		});
 	});
 
