@@ -29,15 +29,14 @@ $(".email-form").submit(function(e){
 
 		setTimeout(function(){
 			sending = false;
+			$(".email__button").removeClass("is-sending");
 			Events.trigger("resetOver");
 		}, 4600);
 	})
 	.fail(response => {
 		sending = false;
-		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");
-	})
-	.always(() => {
 		$(".email__button").removeClass("is-sending");
+		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");
 	});
 });
 
