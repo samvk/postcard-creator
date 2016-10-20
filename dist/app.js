@@ -2323,5 +2323,18 @@
 		$(".email-form")[0].reset();
 	});
 
+	$.fn.validate = function (type, name) {
+		var _this = this;
+
+		this.change(function () {
+			console.log("chnage");
+			if (_this.val() === "" || _this.val() === null) {
+				alert(name + " must be filled out");
+			}
+		});
+	};
+
+	$("[name=\"to\"]").validate("text", "Message");
+
 /***/ }
 /******/ ]);
