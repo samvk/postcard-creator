@@ -58,6 +58,8 @@
 
 	__webpack_require__(15);
 
+	__webpack_require__(16);
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
@@ -2323,18 +2325,16 @@
 		$(".email-form")[0].reset();
 	});
 
-	$.fn.validate = function (type, name) {
-		var _this = this;
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
 
-		this.change(function () {
-			console.log("chnage");
-			if (_this.val() === "" || _this.val() === null) {
-				alert(name + " must be filled out");
-			}
-		});
-	};
+	"use strict";
 
-	$("[name=\"to\"]").validate("text", "Message");
+	//allow validation text to appear on change
+	$("input").blur(function () {
+		$(this).siblings(".email__validate").removeClass("is-invisible");
+	});
 
 /***/ }
 /******/ ]);

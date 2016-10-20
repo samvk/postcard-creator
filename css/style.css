@@ -280,7 +280,7 @@ sub {
 
 .loud {
   color: #333;
-  font-family: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 .text-left {
@@ -540,8 +540,6 @@ a {
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: auto;
-  padding-right: auto;
 }
 @media screen and (min-width: 769px) {
   .container {
@@ -657,7 +655,7 @@ header {
 }
 
 .step {
-  font: 1.3em "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+  font: 1.3em "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
   color: #Ef3D34;
   text-shadow: 1px 1px 1px rgba(244, 51, 41, 0.22);
   height: 3em;
@@ -698,7 +696,7 @@ header {
 .dropzone__card {
   color: #FFF;
   font-size: 1.7em;
-  font-family: "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
   text-align: center;
   -webkit-flex-grow: 1;
   flex-grow: 1;
@@ -1096,6 +1094,29 @@ header {
 .email__button.is-sending {
   cursor: default;
   background-color: #FFC259;
+}
+
+.email__validate {
+  font-size: 0.8em;
+  color: #Ef3D34;
+  opacity: 0;
+  display: block;
+  position: absolute;
+  transform: translateY(-85%);
+  -moz-transition: opacity 500ms ease, -moz-transform 500ms ease;
+  -o-transition: opacity 500ms ease, -o-transform 500ms ease;
+  -webkit-transition: opacity 500ms ease, -webkit-transform 500ms ease;
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.email__target-email .email__validate {
+  margin-top: 2%;
+  margin-left: 18.5%;
+}
+
+input:invalid + .email__validate {
+  opacity: 1;
+  transform: translateY(-110%);
 }
 
 footer {

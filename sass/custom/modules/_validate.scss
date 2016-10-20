@@ -1,0 +1,33 @@
+// ==========================================================================
+// EMAIL VALIDATION
+// ==========================================================================//
+
+.email__validate {
+	//text
+	font-size: 0.8em;
+	color: $darkred;
+
+	//design
+	opacity: 0;
+
+	//layout
+	display: block;
+	position: absolute;
+	transform: translateY(-85%);
+
+	//animation
+	@include transition(opacity 500ms ease, transform 500ms ease);
+}
+
+.email__target-email .email__validate {
+	margin-top: 2%;
+	margin-left: 18.5%;
+}
+
+input:invalid + .email__validate {
+	//design
+	opacity: 1;
+
+	//layout
+	transform: translateY(-110%);
+}

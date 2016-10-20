@@ -20,7 +20,6 @@ a {
 .container {
     //layout
 	@include margin-left-right(auto);
-	@include padding-left-right(auto);
 
     @include media($sm-min) {
         width: 750px;

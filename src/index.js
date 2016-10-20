@@ -9,3 +9,5 @@ import "gcard/gcard-upload";
 import "gcard/render-canvas";
 
 import "contact";
+
+import "validate";

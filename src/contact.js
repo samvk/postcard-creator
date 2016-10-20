@@ -6,7 +6,7 @@ import dropzoneAlert from "dropzone-ui";
 let sending = false;
 
 $(".email-form").submit(function(e){
-	e.preventDefault();
+	e.preventDefault();	
 	if (sending) return false; //prevent duplicate requests
 	sending = true;
 	
