@@ -36,6 +36,8 @@ $success = file_put_contents($file, $data);
 
 //Set email message
 $body = htmlspecialchars($body, ENT_NOQUOTES);
+$body = nl2br($body); //preserve line breaks
+
 $message = "
 <html>
 	<head>
