@@ -1,6 +1,6 @@
 //Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
 //preload custom fonts used for canvas
-const fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
+const fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"];
 for (let font of fonts) {
 	$(".font-loader").append(`<p style="font-family: ${font}">.</p>`);
 }
@@ -26,9 +26,12 @@ let defMOptions = {
 let hOptions, mOptions, //set canvas options (for one or both)
 	style = 0;
 
-const TEMPLATE_COUNT = 4;
+const TEMPLATE_COUNT = 6;
 
 export default function canvasTemplate(switchStyle) {
+	//special theme (if applicable)
+	let theme = "";
+
 	//boolean called to cycle template
 	if (switchStyle) {
 		style++;
@@ -98,11 +101,46 @@ export default function canvasTemplate(switchStyle) {
 				paddingY: 30
 			};
 			break;
+
+		case 4:
+			hOptions = {
+				font: "100px 'Creepster', cursive",
+				color: "#E87B18",
+				verticalAlign: "top",
+				paddingX: 30,
+				paddingY: 60
+			};
+			mOptions = {
+				font: "30px 'Lato', sans-serif",
+				color: "#FCFCFC",
+				paddingX: 30,
+				paddingY: 30
+			};
+			theme = "halloween";
+			break;
+
+		case 5:
+			hOptions = {
+				font: "small-caps 100px 'Vast Shadow', cursive",
+				color: "#883A16",
+				verticalAlign: "top",
+				paddingX: 30,
+				paddingY: 70
+			};
+			mOptions = {
+				font: "30px 'Homemade Apple', sans-serif",
+				color: "#FCFCFC",
+				paddingX: 30,
+				paddingY: 30
+			};
+			theme = "thanksgiving";
+			break;
 	}
 
 	//merge canvas options
 	return {
 		hOptions: Object.assign({}, defHOptions, hOptions),
-		mOptions: Object.assign({}, defMOptions, mOptions)
+		mOptions: Object.assign({}, defMOptions, mOptions),
+		theme: theme
 	};
 }

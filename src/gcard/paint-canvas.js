@@ -14,7 +14,7 @@ export default function paintCanvas(header,	message, style) {
 		  //initialize canvas
 		  ctx = canvas.getContext("2d");
 	
-	let { hOptions, mOptions } = canvasTemplate(style);
+	let { hOptions, mOptions, theme } = canvasTemplate(style);
 
 	//set :inputs to template font
 	$(".gcard__header").css({
@@ -25,6 +25,14 @@ export default function paintCanvas(header,	message, style) {
 		font: mOptions.font,
 		fontSize: "1em" //override font-size
 	});
+	
+	//set theme if applicable
+	const $themeIcon = $(".theme__icon");
+	if (theme) {
+		$themeIcon.attr("src", `img/themes/${theme}.svg`).removeClass("is-invisible");
+	} else {
+		$themeIcon.addClass("is-invisible");
+	}
 
 	//paint text onto canvas
 	canvasText(canvas, header, hOptions);

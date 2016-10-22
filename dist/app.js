@@ -1765,6 +1765,7 @@
 
 		var hOptions = _canvasTemplate.hOptions;
 		var mOptions = _canvasTemplate.mOptions;
+		var theme = _canvasTemplate.theme;
 
 		//set :inputs to template font
 
@@ -1776,6 +1777,14 @@
 			font: mOptions.font,
 			fontSize: "1em" //override font-size
 		});
+
+		//set theme if applicable
+		var $themeIcon = $(".theme__icon");
+		if (theme) {
+			$themeIcon.attr("src", "img/themes/" + theme + ".svg").removeClass("is-invisible");
+		} else {
+			$themeIcon.addClass("is-invisible");
+		}
 
 		//paint text onto canvas
 		(0, _canvasTextWrapper2.default)(canvas, header, hOptions);
@@ -2137,7 +2146,7 @@
 	exports.default = canvasTemplate;
 	//Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
 	//preload custom fonts used for canvas
-	var fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes"];
+	var fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"];
 	var _iteratorNormalCompletion = true;
 	var _didIteratorError = false;
 	var _iteratorError = undefined;
@@ -2187,9 +2196,12 @@
 	    //set canvas options (for one or both)
 	style = 0;
 
-	var TEMPLATE_COUNT = 4;
+	var TEMPLATE_COUNT = 6;
 
 	function canvasTemplate(switchStyle) {
+		//special theme (if applicable)
+		var theme = "";
+
 		//boolean called to cycle template
 		if (switchStyle) {
 			style++;
@@ -2259,12 +2271,47 @@
 					paddingY: 30
 				};
 				break;
+
+			case 4:
+				hOptions = {
+					font: "100px 'Creepster', cursive",
+					color: "#E87B18",
+					verticalAlign: "top",
+					paddingX: 30,
+					paddingY: 60
+				};
+				mOptions = {
+					font: "30px 'Lato', sans-serif",
+					color: "#FCFCFC",
+					paddingX: 30,
+					paddingY: 30
+				};
+				theme = "halloween";
+				break;
+
+			case 5:
+				hOptions = {
+					font: "small-caps 100px 'Vast Shadow', cursive",
+					color: "#883A16",
+					verticalAlign: "top",
+					paddingX: 30,
+					paddingY: 70
+				};
+				mOptions = {
+					font: "30px 'Homemade Apple', sans-serif",
+					color: "#FCFCFC",
+					paddingX: 30,
+					paddingY: 30
+				};
+				theme = "thanksgiving";
+				break;
 		}
 
 		//merge canvas options
 		return {
 			hOptions: Object.assign({}, defHOptions, hOptions),
-			mOptions: Object.assign({}, defMOptions, mOptions)
+			mOptions: Object.assign({}, defMOptions, mOptions),
+			theme: theme
 		};
 	}
 
