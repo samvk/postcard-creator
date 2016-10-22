@@ -73,8 +73,8 @@ export default function canvasTemplate(switchStyle) {
 				font: "30px 'Lato', sans-serif",
 				color: "#212121",
 				shadow: "#FCFCFC",
-				shadowOffsetX: 2,
-				shadowOffsetY: 2,
+				shadowOffsetX: 1,
+				shadowOffsetY: 1,
 				textAlign: "left",
 				verticalAlign: "bottom",
 				paddingY: 60
