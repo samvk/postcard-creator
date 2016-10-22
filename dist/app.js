@@ -2234,8 +2234,8 @@
 					font: "30px 'Lato', sans-serif",
 					color: "#212121",
 					shadow: "#FCFCFC",
-					shadowOffsetX: 2,
-					shadowOffsetY: 2,
+					shadowOffsetX: 1,
+					shadowOffsetY: 1,
 					textAlign: "left",
 					verticalAlign: "bottom",
 					paddingY: 60
@@ -2344,6 +2344,7 @@
 		$(this).siblings(".email__validate").removeClass("is-invisible");
 	});
 
+	//clear validation text for second send
 	_pubsub2.default.on("reset", function () {
 		$(".email__validate").addClass("is-invisible");
 	});
