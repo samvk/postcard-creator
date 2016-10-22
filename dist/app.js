@@ -2321,19 +2321,31 @@
 		});
 	});
 
-	_pubsub2.default.on("reset", function () {
+	_pubsub2.default.on("resetOver", function () {
 		$(".email-form")[0].reset();
 	});
 
 /***/ },
 /* 16 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	//allow validation text to appear on change
+	var _pubsub = __webpack_require__(2);
+
+	var _pubsub2 = _interopRequireDefault(_pubsub);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*************** </> Imports ******************/
+
+	//allow validation text to appear after input
 	$("input").blur(function () {
 		$(this).siblings(".email__validate").removeClass("is-invisible");
+	});
+
+	_pubsub2.default.on("reset", function () {
+		$(".email__validate").addClass("is-invisible");
 	});
 
 /***/ }

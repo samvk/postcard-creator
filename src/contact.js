@@ -40,6 +40,6 @@ $(".email-form").submit(function(e){
 	});
 });
 
-Events.on("reset", function(){
+Events.on("resetOver", function(){
 	$(".email-form")[0].reset();
 });
