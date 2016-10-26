@@ -7,7 +7,7 @@ export default function paintCanvas(header,	message, style) {
 	//Dev Note: Do not set these as default parameters to avoid ignoring empty strings
 	header = header || "Congratulations!";
 	//soft-hyphen(­) to "fix" ignored new-line issue on some browsers
-	message = message.replace(/\n{2,}/g, "\n ­ \n") || "Sending warm wishes to you on this festive occassion.";
+	message = message.replace(/\n{2,}/g, "\n ­ \n") || "Sending warm wishes to you on this festive occasion.";
 	message += " ­";
 
 	const canvas = $("#gcard")[0],
