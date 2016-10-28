@@ -42,11 +42,26 @@ $message = "
 <html>
 	<head>
 		<title>Greetings, World!</title>
+
+		<style>
+			a.home {
+				color: #F43329;
+				text-decoration: none;
+			}
+			a.home:hover { text-decoration: underline; }
+			div.redline {
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				border-top: 4px solid #F43329;
+				width: 300px;
+				height: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<p>{$body}</p>
-		<hr>
-		<p>Want to respond with style? Visit <a href='http://postcard.samvk.com'>GreetingsWorld.com<a> to send your own custom greeting card to {$from} at {$user_email}.</p>
+		<div class='redline'></div>
+		<p><strong>Want to respond with style? Visit <a class='home' href='https://greetingsworld.us'>GreetingsWorld.us</a> to send your own custom greeting card to {$from} at {$user_email}.</strong></p>
 	</body>
 </html>
 ";
@@ -57,7 +72,7 @@ $mail = new PHPMailer(true);
 try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
-	$mail->SetFrom("noreply@greetingsworld.com", "Greetings, World!");
+	$mail->SetFrom("noreply@samvk.com", "Greetings, World!");
 	$mail->Subject = "You've Recieved a Special Greeting from {$from}!";
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
