@@ -68,12 +68,13 @@ $message = "
 
 //SEND EMAIL TO RECIPIENT
 $mail = new PHPMailer(true);
+$mail->CharSet = "UTF-8";
 
 try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
-	$mail->SetFrom("noreply@samvk.com", "Greetings, World!");
-	$mail->Subject = "You've Recieved a Special Greeting from {$from}!";
+	$mail->SetFrom("noreply@samvk.com", "💕 Greetings, World!");
+	$mail->Subject = "You've Recieved a Special Greeting from {$from}! 💗";
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
 	$mail->Body = $message;
@@ -82,7 +83,7 @@ try {
 //SEND COPY OF EMAIL TO USER
 	$mail->ClearAddresses();
 	$mail->AddAddress($user_email);
-	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}!";
+	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}! 💗";
 	$mail->Send();
 
 	//SUCCESS
