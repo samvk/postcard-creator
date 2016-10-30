@@ -20,7 +20,7 @@ I chose to build the Postcard Creator as it felt like the most fully-rounded of 
 4. When decided, they'll be asked to write an optional backside message, as well as some information about themselves, and the recipient.
 5. Finally, the postcard is emailed, and the greeting card generator resets<sup>✝</sup>.
 
-<sup>✝</sup> All information besides recipient data is saved for easy repetition.
+<sup>✝</sup> All information except recipient data is saved for easy repetition.
 
 
 #### Notes
