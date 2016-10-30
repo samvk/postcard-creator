@@ -123,6 +123,8 @@ export default function canvasTemplate(switchStyle) {
 			hOptions = {
 				font: "small-caps 100px 'Vast Shadow', cursive",
 				color: "#883A16",
+				shadowOffsetX: 1,
+				shadowOffsetY: 1,
 				verticalAlign: "top",
 				paddingX: 30,
 				paddingY: 70
