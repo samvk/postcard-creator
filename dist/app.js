@@ -1781,9 +1781,9 @@
 		//set theme if applicable
 		var $themeIcon = $(".theme__icon");
 		if (theme) {
-			$themeIcon.attr("src", "img/themes/" + theme + ".svg").removeClass("is-invisible");
+			$themeIcon.attr("src", "img/themes/" + theme + ".svg").attr("data-theme", theme).removeClass("is-invisible");
 		} else {
-			$themeIcon.addClass("is-invisible");
+			$themeIcon.attr("data-theme", "").addClass("is-invisible");
 		}
 
 		//paint text onto canvas
@@ -2345,7 +2345,8 @@
 
 		var url = $(this).attr("action"),
 		    image = $("#gcard")[0].toDataURL(),
-		    data = $(this).serialize() + "&image=" + image;
+		    theme = $(".theme__icon").attr("data-theme"),
+		    data = $(this).serialize() + ("&image=" + image + "&theme=" + theme);
 
 		$.ajax({
 			type: "POST",

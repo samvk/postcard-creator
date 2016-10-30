@@ -14,7 +14,8 @@ $from = trim($_POST["from"]);
 $body = trim($_POST["body"]);
 $user_email = trim($_POST["user-email"]);
 $target_email = trim($_POST["target-email"]);
-$img = trim($_POST["image"]);
+$img = $_POST["image"];
+$theme = $_POST["theme"];
 
 //Empty fields check (only if bypassed client-side validation)
 if ( empty($to) || empty($from) || empty($user_email) || empty($target_email) ) {
@@ -66,6 +67,13 @@ $message = "
 </html>
 ";
 
+//set theme
+$themeList = array(
+	"halloween" => "🎃",
+	"thanksgiving" => "🍁"
+);
+$themeIcon = $theme ? $themeList[$theme] : "💗"; //default subject symbol icon
+
 //SEND EMAIL TO RECIPIENT
 $mail = new PHPMailer(true);
 $mail->CharSet = "UTF-8";
@@ -74,7 +82,7 @@ try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
 	$mail->SetFrom("noreply@samvk.com", "💕 Greetings, World!");
-	$mail->Subject = "You've Recieved a Special Greeting from {$from}! 💗";
+	$mail->Subject = "You've Recieved a Special Greeting from {$from}! {$themeIcon}";
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
 	$mail->Body = $message;
@@ -83,7 +91,7 @@ try {
 //SEND COPY OF EMAIL TO USER
 	$mail->ClearAddresses();
 	$mail->AddAddress($user_email);
-	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}! 💗";
+	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}! {$themeIcon}";
 	$mail->Send();
 
 	//SUCCESS

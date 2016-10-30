@@ -15,7 +15,8 @@ $(".email-form").submit(function(e){
 
 	const url = $(this).attr("action"),
 		  image = $("#gcard")[0].toDataURL(),
-		  data = $(this).serialize() + "&image=" + image;
+		  theme = $(".theme__icon").attr("data-theme"),
+		  data = $(this).serialize() + `&image=${image}&theme=${theme}`;
 	
 	$.ajax({
 		type: "POST",

@@ -29,9 +29,9 @@ export default function paintCanvas(header,	message, style) {
 	//set theme if applicable
 	const $themeIcon = $(".theme__icon");
 	if (theme) {
-		$themeIcon.attr("src", `img/themes/${theme}.svg`).removeClass("is-invisible");
+		$themeIcon.attr("src", `img/themes/${theme}.svg`).attr("data-theme", theme).removeClass("is-invisible");
 	} else {
-		$themeIcon.addClass("is-invisible");
+		$themeIcon.attr("data-theme", "").addClass("is-invisible");
 	}
 
 	//paint text onto canvas
