@@ -81,7 +81,7 @@ $mail->CharSet = "UTF-8";
 try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
-	$mail->SetFrom("noreply@samvk.com", "💕 Greetings, World!");
+	$mail->SetFrom("greetingsworld@samvk.com", "💕 Greetings, World!");
 	$mail->Subject = "You've Recieved a Special Greeting from {$from}! {$themeIcon}";
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
