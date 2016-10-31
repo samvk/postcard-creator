@@ -56,9 +56,9 @@
 
 	__webpack_require__(10);
 
-	__webpack_require__(15);
-
 	__webpack_require__(16);
+
+	__webpack_require__(17);
 
 /***/ },
 /* 1 */
@@ -2136,7 +2136,7 @@
 
 /***/ },
 /* 14 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -2144,36 +2144,20 @@
 		value: true
 	});
 	exports.default = canvasTemplate;
-	//Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
-	//preload custom fonts used for canvas
-	var fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"];
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
 
-	try {
-		for (var _iterator = fonts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-			var font = _step.value;
+	var _preload = __webpack_require__(15);
 
-			$(".font-loader").append("<p style=\"font-family: " + font + "\">.</p>");
-		}
+	var _preload2 = _interopRequireDefault(_preload);
 
-		//default style options for header & message
-	} catch (err) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion && _iterator.return) {
-				_iterator.return();
-			}
-		} finally {
-			if (_didIteratorError) {
-				throw _iteratorError;
-			}
-		}
-	}
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/*************** </> Imports ******************/
+
+	//Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
+	(0, _preload2.default)("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"]);
+	(0, _preload2.default)("image", ["halloween", "thanksgiving"]);
+
+	//default style options for header & message
 	var defHOptions = {
 		lineHeight: 0.85,
 		shadow: "black",
@@ -2216,7 +2200,8 @@
 				};
 				mOptions = {
 					font: "30px 'Homemade Apple', sans-serif",
-					color: "#FCFCFC"
+					color: "#FCFCFC",
+					paddingY: 28
 				};
 				break;
 
@@ -2303,7 +2288,7 @@
 					font: "30px 'Homemade Apple', sans-serif",
 					color: "#FCFCFC",
 					paddingX: 30,
-					paddingY: 30
+					paddingY: 34
 				};
 				theme = "thanksgiving";
 				break;
@@ -2319,6 +2304,74 @@
 
 /***/ },
 /* 15 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = preload;
+	function preload(type, arr) {
+		if (type === "font") {
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var font = _step.value;
+
+					$(".font-loader").append("<p style=\"font-family: " + font + "\">.</p>");
+				}
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
+					}
+				}
+			}
+		} else if (type === "image") {
+			var images = [];
+			var _iteratorNormalCompletion2 = true;
+			var _didIteratorError2 = false;
+			var _iteratorError2 = undefined;
+
+			try {
+				for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+					var image = _step2.value;
+
+					images.push(new Image());
+					images[images.length - 1].src = "img/themes/" + image + ".svg";
+				}
+			} catch (err) {
+				_didIteratorError2 = true;
+				_iteratorError2 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion2 && _iterator2.return) {
+						_iterator2.return();
+					}
+				} finally {
+					if (_didIteratorError2) {
+						throw _iteratorError2;
+					}
+				}
+			}
+		} else {
+			throw new TypeError(type + " is not an accepted preload type.");
+		}
+	}
+
+/***/ },
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2376,7 +2429,7 @@
 	});
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

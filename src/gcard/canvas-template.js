@@ -1,9 +1,10 @@
-//Developers Note: fonts must be preloaded to ensure brower is prepped for canvas
-//preload custom fonts used for canvas
-const fonts = ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"];
-for (let font of fonts) {
-	$(".font-loader").append(`<p style="font-family: ${font}">.</p>`);
-}
+import preload from "gcard/preload";
+/*************** </> Imports ******************/
+
+
+//Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
+preload("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"]);
+preload("image", ["halloween", "thanksgiving"]);
 
 //default style options for header & message
 let defHOptions = {
@@ -47,6 +48,7 @@ export default function canvasTemplate(switchStyle) {
 			mOptions = {
 				font: "30px 'Homemade Apple', sans-serif",
 				color: "#FCFCFC",
+				paddingY: 28
 			};
 			break;
 
@@ -133,7 +135,7 @@ export default function canvasTemplate(switchStyle) {
 				font: "30px 'Homemade Apple', sans-serif",
 				color: "#FCFCFC",
 				paddingX: 30,
-				paddingY: 30
+				paddingY: 40
 			};
 			theme = "thanksgiving";
 			break;
