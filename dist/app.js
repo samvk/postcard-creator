@@ -1602,6 +1602,8 @@
 	/*************** </> Imports ******************/
 
 	function renderCanvas(img, switchStyle) {
+		if (!img) return; //don't rerender canvas if not updating
+
 		(0, _canvasOrientation2.default)(img); //set canvas orientation
 
 		var header = $(".gcard__header").val(),

@@ -5,6 +5,8 @@ import paintCanvas from "gcard/paint-canvas";
 
 
 function renderCanvas(img, switchStyle) {
+	if (!img) return; //don't rerender canvas if not updating
+
 	setCanvasOrientation(img); //set canvas orientation
 	
 	let header = $(".gcard__header").val(),
