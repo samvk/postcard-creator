@@ -2288,7 +2288,7 @@
 					font: "30px 'Homemade Apple', sans-serif",
 					color: "#FCFCFC",
 					paddingX: 30,
-					paddingY: 34
+					paddingY: 40
 				};
 				theme = "thanksgiving";
 				break;
