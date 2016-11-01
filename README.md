@@ -52,7 +52,7 @@ A small directory tests/ can be found with a few images to upload. It includes o
 
 #### Webcamjs
 * 1.0.16
-* A small Webcam library allowing for easy flash fallback
+* A small Webcam library allowing for simple flash fallback
 * The MIT License (MIT)
 * https://pixlcore.com/read/WebcamJS
 
