@@ -54,7 +54,7 @@ $message = "
 				border-left: 4px solid transparent;
 				border-right: 4px solid transparent;
 				border-top: 4px solid #F43329;
-				width: 300px;
+				width: 280px;
 				height: 0;
 			}
 		</style>
