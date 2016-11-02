@@ -5,7 +5,7 @@
 
 *Greetings, World!* is a proof-of-concent postcard creator. It takes image input from the user and converts them to a digital 4 x 6 postcard.
 
-I chose to build the Postcard Creator as it felt like the most fully-rounded of the options. It requires a bit of work in front-end, back-end, and design, and creates a finished product one could actually use. It also let's me play around with a lot of what HTML5 has to offer.
+I chose to build the Postcard Creator as it felt like the most fully-rounded of the options. It requires a bit of work in front-end, back-end, and design, and creates a finished product one could actually use. It also lets me play around with a lot of what HTML5 has to offer.
 
 #### Developer Notes
 
