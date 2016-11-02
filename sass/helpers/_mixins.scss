@@ -30,6 +30,7 @@
 // ==========================================================================//
 
 //Media queries breakpoints
+$xs-min: 420px;
 $sm-min: 769px;
 $md-min: 992px;
 $lg-min: 1200px;
@@ -41,7 +42,7 @@ $md-max: ($lg-min - 1);
 
 @mixin media($breakpoint) {
 	$query: "";
-	@if $breakpoint == $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min or $breakpoint == $xl-min {
+	@if $breakpoint == $xs-min or $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min or $breakpoint == $xl-min {
 		$query: "min-width";	
 	} @else if $breakpoint == $xs-max or $breakpoint == $sm-max or $breakpoint == $md-max {
 		$query: "max-width";

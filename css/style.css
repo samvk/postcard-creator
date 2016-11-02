@@ -474,7 +474,7 @@ img.padding {
   padding: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   img.xs-full-width {
     width: 100%;
   }
@@ -1049,6 +1049,12 @@ header {
   padding-left: 3%;
   padding-right: 3%;
   width: 100%;
+  transform: translateY(-100%);
+}
+@media screen and (min-width: 420px) {
+  .email__send--container {
+    transform: none;
+  }
 }
 
 .email__send--container input {

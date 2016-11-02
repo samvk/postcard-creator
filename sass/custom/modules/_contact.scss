@@ -54,6 +54,11 @@
 	//layout
 	@include padding-left-right(3%);
 	width: 100%;
+	transform: translateY(-100%);
+	
+	@include media($xs-min) {
+		transform: none;
+	}
 }
 
 .email__send--container input {
