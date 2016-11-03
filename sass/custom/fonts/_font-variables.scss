@@ -35,9 +35,9 @@
 }
 
 //Fonts
-$font-family--primary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
-$font-family--secondary: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
-$font-family--accent: "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+$font-family--primary: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+$font-family--secondary: $font-family--primary;
+$font-family--accent: "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
 $font-family--loud: "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 $font-family--logo: "Montserrat", Arial, Helvetica, sans-serif;
 

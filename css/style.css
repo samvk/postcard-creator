@@ -165,44 +165,44 @@ select {
 }
 
 body {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h2 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h3 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h4 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h5 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 h6 {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 p,
 blockquote,
 ul,
 button {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 input,
 textarea,
 select {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -576,7 +576,7 @@ a {
 }
 
 .red-circle, .step-count {
-  font-family: "BrandonGrotesqueBold", Arial, Helvetica, sans-serif;
+  font-family: "BrandonGrotesqueBold", "BrandonGrotesqueBoldItalic", "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
   background-color: #F43329;
   color: #FFF;
   box-shadow: 2px 2px 2px rgba(51, 51, 51, 0.4);
@@ -615,7 +615,7 @@ header {
 }
 
 .header__sub-title {
-  font: 1.5em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  font: 1.5em "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
   width: 78%;
   min-width: 278px;
 }
@@ -1065,16 +1065,16 @@ header {
   padding-right: 5%;
 }
 .email__send--container input:-moz-placeholder {
-  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  font: 1.2em "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
 }
 .email__send--container input::-moz-placeholder {
-  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  font: 1.2em "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
 }
 .email__send--container input:-ms-input-placeholder {
-  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  font: 1.2em "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
 }
 .email__send--container input::-webkit-input-placeholder {
-  font: 1.2em "BrandonGrotesqueItalic", Arial, Helvetica, sans-serif;
+  font: 1.2em "BrandonGrotesqueItalic", "BrandonGrotesqueBoldItalic", Arial, Helvetica, sans-serif;
 }
 
 .email__header, .email__header--message {
