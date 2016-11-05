@@ -2446,12 +2446,12 @@
 
 	//allow validation text to appear after input
 	$("input").blur(function () {
-		$(this).siblings(".email__validate").removeClass("is-invisible");
+		$(this).siblings(".email__validate").addClass("is-displayed");
 	});
 
 	//clear validation text for second send
 	_pubsub2.default.on("reset", function () {
-		$(".email__validate").addClass("is-invisible");
+		$(".email__validate").removeClass("is-displayed");
 	});
 
 /***/ }

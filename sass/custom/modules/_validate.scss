@@ -9,6 +9,7 @@
 
 	//design
 	opacity: 0;
+	visibility: hidden;
 
 	//layout
 	display: block;
@@ -20,12 +21,14 @@
 }
 
 .email__target-email .email__validate {
+	//layout
 	margin-top: 3%;
 	margin-left: 18.5%;
 }
 
-input:invalid + .email__validate {
+input:invalid + .email__validate.is-displayed {
 	//design
+	visibility: visible;
 	opacity: 1;
 
 	//layout

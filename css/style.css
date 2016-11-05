@@ -1117,6 +1117,7 @@ header {
   font-size: 0.8em;
   color: #Ef3D34;
   opacity: 0;
+  visibility: hidden;
   display: block;
   position: absolute;
   transform: translateY(-85%);
@@ -1131,7 +1132,8 @@ header {
   margin-left: 18.5%;
 }
 
-input:invalid + .email__validate {
+input:invalid + .email__validate.is-displayed {
+  visibility: visible;
   opacity: 1;
   transform: translateY(-110%);
 }
