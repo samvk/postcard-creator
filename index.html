@@ -101,13 +101,13 @@
 							</label>
 							<label class="email__user-email">
 								<span class="email__header">Return Email:</span>
-								<input type="email" name="user-email" placeholder="" maxlength="100" required>
+								<input type="email" name="user-email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" title="This email address is invalid" placeholder="" maxlength="100" required>
 								<span class="email__validate">Please enter your email address</span>
 							</label>
 						</div>
 						<div class="email__send--container">
 							<label class="email__target-email">
-								<input type="email" name="target-email" placeholder="What's the recipient's email address?" maxlength="1000" required>
+								<input type="email" name="target-email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" title="This email address is invalid" placeholder="What's the recipient's email address?" maxlength="1000" required>
 								<span class="email__validate">Please enter recipient's email address</span>
 
 								<button class="email__button" type="submit">Send!</button>
