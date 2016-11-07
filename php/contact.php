@@ -90,7 +90,9 @@ try {
 
 //SEND COPY OF EMAIL TO USER
 	$mail->ClearAddresses();
+	$mail->ClearReplyTos();
 	$mail->AddAddress($user_email);
+	$mail->AddReplyTo("noreply@samvk.com");
 	$mail->Subject = "Here's a Copy of Your Special Greeting to {$to}! {$themeIcon}";
 	$mail->Send();
 
