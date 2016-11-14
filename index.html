@@ -101,13 +101,13 @@
 							</label>
 							<label class="email__user-email">
 								<span class="email__header">Return Email:</span>
-								<input type="email" name="user-email" pattern="[A-Za-z0-9._%+-]{2,}@[a-zA-Z]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Enter a valid email address" placeholder="" maxlength="100" required>
+								<input type="email" name="user-email" pattern="[A-Za-z0-9._%+-]+[^\.]@[a-zA-Z]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Enter a valid email address" placeholder="" maxlength="100" required>
 								<span class="email__validate">Please enter your email address</span>
 							</label>
 						</div>
 						<div class="email__send--container">
 							<label class="email__target-email">
-								<input type="email" name="target-email" pattern="[A-Za-z0-9._%+-]{2,}@[a-zA-Z]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Enter a valid email address" placeholder="What's the recipient's email address?" maxlength="1000" required>
+								<input type="email" name="target-email" pattern="[A-Za-z0-9._%+-]+[^\.]@[a-zA-Z]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Enter a valid email address" placeholder="What's the recipient's email address?" maxlength="1000" required>
 								<span class="email__validate">Please enter recipient's email address</span>
 
 								<button class="email__button" type="submit">Send!</button>
