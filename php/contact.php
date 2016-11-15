@@ -82,7 +82,7 @@ try {
 	$mail->AddAddress($target_email);
 	$mail->AddReplyTo($user_email, $from);
 	$mail->SetFrom("greetingsworld@samvk.com", "💕 Greetings, World!");
-	$mail->Subject = "You've Recieved a Special Greeting from {$from}! {$themeIcon}";
+	$mail->Subject = "You've Received a Special Greeting from {$from}! {$themeIcon}";
 	$mail->IsHTML(true);
 	$mail->AddAttachment($file); //Attach uploaded image
 	$mail->Body = $message;
