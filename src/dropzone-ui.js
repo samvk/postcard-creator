@@ -7,7 +7,7 @@ const $dropzoneWrapper = $(".dropzone-wrapper");
 function dropzoneAlert(message, status = "", waitForResponse = false){
 	const $dropzoneMessage = $(".dropzone__message");
 	$dropzoneMessage.text(message).addClass("display-alert").attr("data-status", status);
-	
+
 	//fade message out (unless told waiting for something)
 	if (!waitForResponse) {
 		setTimeout(function() {
