@@ -83,8 +83,8 @@ A small directory tests/ can be found with a few images to upload. It includes o
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at https://postcard.samvk.com.
-**Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://postcard.samvk.com, locally, or with Firefox.
+*Greetings, World!* can be run locally (up until emailing) or previewed at https://greetingsworld.us.
+**Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://greetingsworld.us, locally, or with Firefox.
 
 
 ## License
