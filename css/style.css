@@ -749,7 +749,7 @@ header {
 
 .dropzone-wrapper {
   outline: 1px dashed rgba(244, 51, 41, 0.5);
-  background-image: url("/img/dropzone.png");
+  background-image: url("../img/dropzone.png");
   position: relative;
   overflow: hidden;
   -moz-transition: max-height 1800ms;
