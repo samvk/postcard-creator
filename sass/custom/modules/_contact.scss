@@ -54,10 +54,10 @@
 	//layout
 	@include padding-left-right(3%);
 	width: 100%;
-	transform: translateY(-100%);
+	@include transform(translateY(-100%));
 	
 	@include media($xs-min) {
-		transform: none;
+		@include transform(none);
 	}
 }
 
@@ -82,7 +82,7 @@
 
 	//layout
 	position: absolute;
-	transform: rotate(-4deg) translateY(-10%);
+	@include transform(rotate(-4deg) translateY(-10%));
 }
 
 .email__header--message {
@@ -93,7 +93,7 @@
 	left: 17%;
 	
 	//layout
-	transform: rotate(-3deg) translateY(-10%)
+	@include transform(rotate(-3deg) translateY(-10%));
 }
 
 .email__button {

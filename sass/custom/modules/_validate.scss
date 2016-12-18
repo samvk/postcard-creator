@@ -14,7 +14,7 @@
 	//layout
 	display: block;
 	position: absolute;
-	transform: translateY(-85%);
+	@include transform(translateY(-85%));
 
 	//animation
 	@include transition(opacity 500ms ease, transform 500ms ease);
@@ -32,5 +32,5 @@ input:invalid + .email__validate.is-displayed {
 	opacity: 1;
 
 	//layout
-	transform: translateY(-110%);
+	@include transform(translateY(-110%));
 }

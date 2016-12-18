@@ -402,6 +402,9 @@ body .hide-overflow {
 
 .center-abs, .dropzone__card--text {
   left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -629,6 +632,9 @@ header {
   top: 0;
   left: 0;
   position: absolute;
+  -moz-transform: translate(-42%, -42%);
+  -ms-transform: translate(-42%, -42%);
+  -webkit-transform: translate(-42%, -42%);
   transform: translate(-42%, -42%);
 }
 
@@ -798,6 +804,9 @@ header {
   width: 94%;
   top: 50%;
   left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   opacity: 0;
   -moz-transition: opacity 700ms linear;
@@ -900,6 +909,9 @@ header {
   color: #FFF;
   margin: 0;
   padding: .9em 1.5em;
+  -moz-transform: translate(-100%, -105%);
+  -ms-transform: translate(-100%, -105%);
+  -webkit-transform: translate(-100%, -105%);
   transform: translate(-100%, -105%);
   position: absolute;
 }
@@ -946,6 +958,9 @@ header {
   position: fixed;
   top: 50%;
   left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   max-width: 100%;
   opacity: 0;
@@ -978,6 +993,9 @@ header {
   width: 64px;
   height: 64px;
   left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   opacity: 0.6;
   -moz-transition: opacity 200ms linear;
@@ -1049,10 +1067,16 @@ header {
   padding-left: 3%;
   padding-right: 3%;
   width: 100%;
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
 }
 @media screen and (min-width: 420px) {
   .email__send--container {
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
     transform: none;
   }
 }
@@ -1081,12 +1105,18 @@ header {
   font-size: 1.2em;
   font-family: "Homemade Apple", cursive;
   position: absolute;
+  -moz-transform: rotate(-4deg) translateY(-10%);
+  -ms-transform: rotate(-4deg) translateY(-10%);
+  -webkit-transform: rotate(-4deg) translateY(-10%);
   transform: rotate(-4deg) translateY(-10%);
 }
 
 .email__header--message {
   text-decoration: underline;
   left: 17%;
+  -moz-transform: rotate(-3deg) translateY(-10%);
+  -ms-transform: rotate(-3deg) translateY(-10%);
+  -webkit-transform: rotate(-3deg) translateY(-10%);
   transform: rotate(-3deg) translateY(-10%);
 }
 
@@ -1120,6 +1150,9 @@ header {
   visibility: hidden;
   display: block;
   position: absolute;
+  -moz-transform: translateY(-85%);
+  -ms-transform: translateY(-85%);
+  -webkit-transform: translateY(-85%);
   transform: translateY(-85%);
   -moz-transition: opacity 500ms ease, -moz-transform 500ms ease;
   -o-transition: opacity 500ms ease, -o-transform 500ms ease;
@@ -1135,6 +1168,9 @@ header {
 input:invalid + .email__validate.is-displayed {
   visibility: visible;
   opacity: 1;
+  -moz-transform: translateY(-110%);
+  -ms-transform: translateY(-110%);
+  -webkit-transform: translateY(-110%);
   transform: translateY(-110%);
 }
 
