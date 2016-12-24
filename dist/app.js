@@ -2156,8 +2156,22 @@
 	/*************** </> Imports ******************/
 
 	//Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
-	(0, _preload2.default)("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"]);
-	(0, _preload2.default)("image", ["halloween", "thanksgiving"]);
+	(0, _preload2.default)("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow, Mountains of Christmas"]); /** Developer's Note:
+
+	                                                                                                                                                           * How to add a new template:
+
+	                                                                                                                                                           * 1. Import font at sass>custom>fonts>font-variables.scss
+	                                                                                                                                                           * 2. Add font to preload("font", []) array argument below
+	                                                                                                                                                           * 3. Add another case to function canvasTemplate()
+	                                                                                                                                                           * 4. Increase const TEMPLATE_COUNT by 1.
+
+	                                                                                                                                                           * If a themed template...
+	                                                                                                                                                           * 5. Add the name of the theme to the theme variable
+	                                                                                                                                                           * 6. Upload an svg with the theme name to img>themes
+	                                                                                                                                                           * 7. Add svg to preload("img", []) array argument below
+	                                                                                                                                                           **/
+
+	(0, _preload2.default)("image", ["halloween", "thanksgiving", "christmas"]);
 
 	//default style options for header & message
 	var defHOptions = {
@@ -2182,7 +2196,7 @@
 	    //set canvas options (for one or both)
 	style = 0;
 
-	var TEMPLATE_COUNT = 6;
+	var TEMPLATE_COUNT = 7;
 
 	function canvasTemplate(switchStyle) {
 		//special theme (if applicable)
@@ -2293,6 +2307,23 @@
 					paddingY: 40
 				};
 				theme = "thanksgiving";
+				break;
+
+			case 6:
+				hOptions = {
+					font: "90px 'Berkshire Swash', cursive",
+					color: "#E93E35",
+					shadowOffsetX: 3,
+					shadowOffsetY: 3
+				};
+				mOptions = {
+					font: "30px 'Mountains of Christmas', sans-serif",
+					color: "#FCFCFC",
+					textAlign: "right",
+					paddingX: 30,
+					paddingY: 30
+				};
+				theme = "christmas";
 				break;
 		}
 

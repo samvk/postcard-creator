@@ -1,10 +1,26 @@
+/** Developer's Note:
+
+*	How to add a new template:
+
+* 1. Import font at sass>custom>fonts>font-variables.scss
+* 2. Add font to preload("font", []) array argument below
+* 3. Add another case to function canvasTemplate()
+* 4. Increase const TEMPLATE_COUNT by 1.
+
+* 	If a themed template...
+* 5. Upload an svg with the theme name to img>themes
+* 6. Add svg to preload("img", []) array argument below
+* 7. Add the name of the theme to the theme variable in the case
+**/
+
+
 import preload from "gcard/preload";
 /*************** </> Imports ******************/
 
 
 //Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
-preload("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow"]);
-preload("image", ["halloween", "thanksgiving"]);
+preload("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow, Mountains of Christmas"]);
+preload("image", ["halloween", "thanksgiving", "christmas"]);
 
 //default style options for header & message
 let defHOptions = {
@@ -27,7 +43,7 @@ let defMOptions = {
 let hOptions, mOptions, //set canvas options (for one or both)
 	style = 0;
 
-const TEMPLATE_COUNT = 6;
+const TEMPLATE_COUNT = 7;
 
 export default function canvasTemplate(switchStyle) {
 	//special theme (if applicable)
@@ -138,6 +154,23 @@ export default function canvasTemplate(switchStyle) {
 				paddingY: 40
 			};
 			theme = "thanksgiving";
+			break;
+
+		case 6:
+			hOptions = {
+				font: "90px 'Berkshire Swash', cursive",
+				color: "#E93E35",
+				shadowOffsetX: 3,
+				shadowOffsetY: 3
+			};
+			mOptions = {
+				font: "30px 'Mountains of Christmas', sans-serif",
+				color: "#FCFCFC",
+				textAlign: "right",
+				paddingX: 30,
+				paddingY: 30
+			};
+			theme = "christmas";
 			break;
 	}
 
