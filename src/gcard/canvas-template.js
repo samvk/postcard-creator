@@ -19,7 +19,7 @@ import preload from "gcard/preload";
 
 
 //Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
-preload("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow, Mountains of Christmas"]);
+preload("font", ["Lobster Two", "Lato", "Oleo Script", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow", "Berkshire Swash", "Mountains of Christmas"]);
 preload("image", ["halloween", "thanksgiving", "christmas"]);
 
 //default style options for header & message
@@ -70,7 +70,7 @@ export default function canvasTemplate(switchStyle) {
 
 		case 1:
 			hOptions = {
-				font: "100px 'Berkshire Swash', cursive",
+				font: "100px 'Oleo Script', cursive",
 				color: "#FF5733",
 				textAlign: "left",
 				verticalAlign: "top",

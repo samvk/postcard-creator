@@ -2156,20 +2156,20 @@
 	/*************** </> Imports ******************/
 
 	//Developers Note: fonts & images must be preloaded to ensure browser is prepped for canvas
-	(0, _preload2.default)("font", ["Lobster Two", "Lato", "Berkshire Swash", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow, Mountains of Christmas"]); /** Developer's Note:
+	(0, _preload2.default)("font", ["Lobster Two", "Lato", "Oleo Script", "Pacifico", "Great Vibes", "Creepster", "Vast Shadow", "Berkshire Swash", "Mountains of Christmas"]); /** Developer's Note:
 
-	                                                                                                                                                           * How to add a new template:
+	                                                                                                                                                                            *	How to add a new template:
 
-	                                                                                                                                                           * 1. Import font at sass>custom>fonts>font-variables.scss
-	                                                                                                                                                           * 2. Add font to preload("font", []) array argument below
-	                                                                                                                                                           * 3. Add another case to function canvasTemplate()
-	                                                                                                                                                           * 4. Increase const TEMPLATE_COUNT by 1.
+	                                                                                                                                                                            * 1. Import font at sass>custom>fonts>font-variables.scss
+	                                                                                                                                                                            * 2. Add font to preload("font", []) array argument below
+	                                                                                                                                                                            * 3. Add another case to function canvasTemplate()
+	                                                                                                                                                                            * 4. Increase const TEMPLATE_COUNT by 1.
 
-	                                                                                                                                                           * If a themed template...
-	                                                                                                                                                           * 5. Add the name of the theme to the theme variable
-	                                                                                                                                                           * 6. Upload an svg with the theme name to img>themes
-	                                                                                                                                                           * 7. Add svg to preload("img", []) array argument below
-	                                                                                                                                                           **/
+	                                                                                                                                                                            * 	If a themed template...
+	                                                                                                                                                                            * 5. Upload an svg with the theme name to img>themes
+	                                                                                                                                                                            * 6. Add svg to preload("img", []) array argument below
+	                                                                                                                                                                            * 7. Add the name of the theme to the theme variable in the case
+	                                                                                                                                                                            **/
 
 	(0, _preload2.default)("image", ["halloween", "thanksgiving", "christmas"]);
 
@@ -2223,7 +2223,7 @@
 
 			case 1:
 				hOptions = {
-					font: "100px 'Berkshire Swash', cursive",
+					font: "100px 'Oleo Script', cursive",
 					color: "#FF5733",
 					textAlign: "left",
 					verticalAlign: "top",
