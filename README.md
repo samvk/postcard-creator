@@ -64,7 +64,7 @@ A small directory tests/ can be found with a few images to upload. It includes o
 
 #### jQuery
 * 3.1.1
-* A feature-rich JavaScript allowing for simpler DOM manipulation chaining
+* A feature-rich JavaScript library allowing for simple DOM manipulation chaining
 * The MIT License (MIT)
 * https://jquery.com
 
