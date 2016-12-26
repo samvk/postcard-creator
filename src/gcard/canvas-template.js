@@ -96,6 +96,7 @@ export default function canvasTemplate(switchStyle) {
 				shadow: "#FCFCFC",
 				shadowOffsetX: 1,
 				shadowOffsetY: 1,
+				shadowBlur: 0.5,
 				textAlign: "left",
 				verticalAlign: "bottom",
 				paddingY: 60
