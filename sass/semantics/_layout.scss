@@ -54,8 +54,8 @@
 	left: -9999px;
 }
 
-[aria-hidden="true"] {
-	@extend .is-hidden;
+[aria-hidden="true"] { //recommended
+	@extend .is-hidden; 
 }
 
 .is-invisible {
