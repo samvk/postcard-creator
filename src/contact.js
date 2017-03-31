@@ -35,6 +35,9 @@ $(".email-form").submit(function(e){
 		}, 4600);
 	})
 	.fail(response => {
+		response = JSON.parse(response);
+		console.error(response.message);
+
 		sending = false;
 		$(".email__button").removeClass("is-sending");
 		dropzoneAlert("Something went wrong. Your message could not be sent.", "error");

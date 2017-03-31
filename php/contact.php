@@ -107,7 +107,7 @@ try {
 } catch (phpmailerException $e) {
 	$response = array(
 		"status" => "error",
-		"message" =>  "Error: " . $e->errorMessage() //PHPMailer error
+		"message" =>  "PHPMailer error: " . $e->errorMessage() //PHPMailer error
 	);
 	echo json_encode($response);
 } catch (Exception $e) {
