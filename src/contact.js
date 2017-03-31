@@ -6,10 +6,10 @@ import dropzoneAlert from "dropzone-ui";
 let sending = false;
 
 $(".email-form").submit(function(e){
-	e.preventDefault();	
+	e.preventDefault();
 	if (sending) return false; //prevent duplicate requests
 	sending = true;
-	
+
 	dropzoneAlert("Sending...", null, true);
 	$(".email__button").addClass("is-sending");
 
@@ -17,7 +17,7 @@ $(".email-form").submit(function(e){
 		  image = $("#gcard")[0].toDataURL(),
 		  theme = $(".theme__icon").attr("data-theme"),
 		  data = $(this).serialize() + `&image=${image}&theme=${theme}`;
-	
+
 	$.ajax({
 		type: "POST",
 		url: url,
