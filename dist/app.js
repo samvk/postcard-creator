@@ -2452,6 +2452,9 @@
 				_pubsub2.default.trigger("resetOver");
 			}, 4600);
 		}).fail(function (response) {
+			response = JSON.parse(response);
+			console.error(response.message);
+
 			sending = false;
 			$(".email__button").removeClass("is-sending");
 			(0, _dropzoneUi2.default)("Something went wrong. Your message could not be sent.", "error");
