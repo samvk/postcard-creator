@@ -34,7 +34,7 @@
     outline: 3px dashed rgba(244, 51, 41, 0.4);
 
 	//animation
-    .dropzone__card { 
+    .dropzone__card {
         @include transition(opacity 0);
         opacity: 0.85;
     }
@@ -64,7 +64,7 @@
 .dropzone-wrapper.is-compressed .dropzone__message-wrapper {
 	//design
 	cursor: pointer;
-	
+
 	//layout
 	z-index: 20;
 }
