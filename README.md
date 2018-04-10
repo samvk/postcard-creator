@@ -3,14 +3,7 @@
 
 ## Synopsis
 
-*Greetings, World!* is a proof-of-concept postcard creator. It takes image input from the user and converts them to a digital 4 x 6 postcard.
-
-I chose to build the Postcard Creator as it felt like the most fully-rounded of the options. It requires a bit of work in front-end, back-end, and design, and creates a finished product one could actually use. It also lets me play around with a lot of what HTML5 has to offer.
-
-#### Developer Notes
-
-*Greetings, World!* is written in ES6 syntax and compiled & polyfilled with Babel. It uses Webpack as its module bundler of choice.
-
+*Greetings, World!* is a simple-to-use postcard creator. It takes any image or screenshot and converts that to a digital 4 x 6 postcard.
 
 ## Steps
 
@@ -80,10 +73,13 @@ A small directory `tests/` can be found with a few images to upload. It includes
 * GNU Lesser General Public License
 * https://github.com/PHPMailer/PHPMailer
 
+##### Developer Notes
+
+*Greetings, World!* is written in ES6 syntax and compiled & polyfilled with Babel. It uses Webpack as its module bundler of choice.
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at https://greetingsworld.us.
+*Greetings, World!* can be run locally (up until emailing) or previewed at https://greetingsworld.us.  
 **Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://greetingsworld.us, locally, or with Firefox.
 
 
