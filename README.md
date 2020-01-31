@@ -79,7 +79,7 @@ A small directory `tests/` can be found with a few images to upload. It includes
 
 ## Installation
 
-*Greetings, World!* can be run locally (up until emailing) or previewed at https://greetingsworld.us.  
+*Greetings, World!* can be run locally (up until emailing) or previewed at https://greetingsworld.us.
 **Note:** Chrome 47+ requires an SSL to access the webcam. View securely at https://greetingsworld.us, locally, or with Firefox.
 
 
