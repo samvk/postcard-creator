@@ -17,6 +17,10 @@ a {
 	color: $red;
 }
 
+textarea {
+    resize: none;
+}
+
 .container {
     //layout
 	@include margin-left-right(auto);
