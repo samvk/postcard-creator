@@ -34,7 +34,7 @@ $(".dropzone__message-wrapper").click(function(e) {
 	$dropzoneWrapper.removeClass("is-compressed");
 });
 
-//after image is already loaded 
+//after image is already loaded
 Events.on("gcardSet", function(){
 	$("body").on("click", function(){
 		$dropzoneWrapper.addClass("is-compressed");

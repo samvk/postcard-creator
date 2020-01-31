@@ -23,7 +23,7 @@
     //layout
     @include size(3em);
     margin-right: 11px;
-    
+
 }
 
 .step {
@@ -34,12 +34,12 @@
     color: $darkred;
     @extend .circle;
     text-shadow: 1px 1px 1px rgba(244, 51, 41, 0.22);
-    
+
     //layout
     @include line-height(3em);
     width: 26%;
     min-width: 230px;
-    
+
     //animations
 	transition: color 1400ms linear, background 1400ms linear;
 }

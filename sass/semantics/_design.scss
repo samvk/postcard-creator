@@ -13,7 +13,7 @@
 	cursor: pointer;
 	display: inline-block;
 	padding: em(10px) em(20px);
-	
+
 	@include hover {
 		text-decoration: none;
 	}

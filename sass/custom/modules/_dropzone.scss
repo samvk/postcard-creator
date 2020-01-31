@@ -16,7 +16,7 @@
     max-width: 310px;
     @extend .center;
 
-    
+
     @include media($sm-min) {
         //layout
         flex-direction: row;
@@ -30,7 +30,7 @@
     font-size: 1.7em;
     font-family: $font-family--loud;
     text-align: center;
-    
+
     //layout(self)
     flex-grow: 1;
 

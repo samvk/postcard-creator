@@ -21,7 +21,7 @@ function uploadFile(files) {
         dropzoneAlert(`Sorry, your photo is too large (max: ${MAX_FILESIZE} MBs)`, "error");
         return;
     }
-	
+
 	//LOADING SCREEN
 	reader.onloadstart = function() {
 		dropzoneAlert("Loading...", null, true);
@@ -50,7 +50,7 @@ function uploadFile(files) {
 			.on("load", function() {
 			Events.trigger("gcardSet", $gcardImage[0]);
 		});
-	}; 
+	};
 
 	//UPLOAD FILE
     reader.readAsDataURL(photoFile);

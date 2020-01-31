@@ -13,7 +13,7 @@
 	width: 94%;
 	@include center-abs(both);
 	@extend .no-spacing;
-	
+
 	//animation
 	opacity: 0;
 	transition: opacity 700ms linear;

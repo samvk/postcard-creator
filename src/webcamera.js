@@ -18,7 +18,7 @@ function openWebcam(e) {
 	});
 
 	Webcam.attach("#webcam");
-	
+
 	$(".webcam-wrapper").addClass("fade-in");
 
 	function takeSnapshot() {
@@ -32,7 +32,7 @@ function openWebcam(e) {
 		});
 		closeWebcam();
 	}
-	
+
 	$(".webcam__snap").click(takeSnapshot);
 }
 

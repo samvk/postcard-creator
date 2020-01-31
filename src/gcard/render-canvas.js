@@ -8,15 +8,15 @@ function renderCanvas(img, switchStyle) {
 	if (!img) return; //don't rerender canvas if not updating
 
 	setCanvasOrientation(img); //set canvas orientation
-	
+
 	let header = $(".gcard__header").val(),
 		message = $(".gcard__message").val();
-	
+
 	const canvas = $("#gcard")[0],
 		  //initialize canvas
 		  ctx = canvas.getContext("2d"),
 		  canvasOrientation = canvas.dataset.orientation;
-		  
+
 
 	//SIMULATE "COVER" ABILITY FOR CANVAS
 	let dx, dy, dWidth, dHeight, shape, scale;
@@ -40,7 +40,7 @@ function renderCanvas(img, switchStyle) {
 	}
 
 	ctx.drawImage(img, dx, dy, dWidth, dHeight);
-	
+
 	paintCanvas(header, message, switchStyle); //paint text (or defaults) onto canvas
 }
 

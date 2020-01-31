@@ -13,7 +13,7 @@ export default function paintCanvas(header,	message, style) {
 	const canvas = $("#gcard")[0],
 		  //initialize canvas
 		  ctx = canvas.getContext("2d");
-	
+
 	let { hOptions, mOptions, theme } = canvasTemplate(style);
 
 	//set :inputs to template font
@@ -25,7 +25,7 @@ export default function paintCanvas(header,	message, style) {
 		font: mOptions.font,
 		fontSize: "1em" //override font-size
 	});
-	
+
 	//set theme if applicable
 	const $themeIcon = $(".theme__icon");
 	if (theme) {

@@ -87,11 +87,11 @@
 
 .email__header--message {
 	@extend .email__header;
-	
+
 	//text
 	text-decoration: underline;
 	left: 17%;
-	
+
 	//layout
 	transform: rotate(-3deg) translateY(-10%);
 }

@@ -4,10 +4,10 @@
 
 // ==========================================================================
 // INCLUDES:
-// 
+//
 // Mixins:
 // * fade-in(position, duration){} mixin
-// 
+//
 // ==========================================================================//
 
 //NOTE: This mixin requires a "fade-in" class added to trigger
@@ -19,7 +19,7 @@
 
 	//layout
 	position: absolute;
-	
+
 	//animation
 	transition: opacity $duration $ease, visibility 0ms $duration;
 
@@ -30,7 +30,7 @@
 
 		//layout
 		position: $position;
-		
+
 		//animation
 		transition-delay: 0ms;
 	}

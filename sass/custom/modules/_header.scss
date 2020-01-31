@@ -22,10 +22,10 @@ header {
     font: 1.5em $font-family--accent;
     width: 78%;
     min-width: 278px;
-    
+
     //layout
     @extend .center;
-    
+
     @include media($lg-min) {
         font-size: 2em;
     }

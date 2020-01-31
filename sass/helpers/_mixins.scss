@@ -4,7 +4,7 @@
 
 // ==========================================================================
 // INCLUDES:
-// 
+//
 // Mixins:
 // * media{} queries
 // * hover{} state
@@ -26,7 +26,7 @@
 //
 // Placeholders:
 // * %clearfix on parent element of floats
-// 
+//
 // ==========================================================================//
 
 //Media queries breakpoints
@@ -43,7 +43,7 @@ $md-max: ($lg-min - 1);
 @mixin media($breakpoint) {
 	$query: "";
 	@if $breakpoint == $xs-min or $sm-min or $breakpoint == $md-min or $breakpoint == $lg-min or $breakpoint == $xl-min {
-		$query: "min-width";	
+		$query: "min-width";
 	} @else if $breakpoint == $xs-max or $breakpoint == $sm-max or $breakpoint == $md-max {
 		$query: "max-width";
 	}
@@ -147,7 +147,7 @@ $md-max: ($lg-min - 1);
         left: 50%;
 		transform: translate(-50%, -50%);
     }
-    
+
 }
 
 //vertically center text
@@ -171,13 +171,13 @@ $md-max: ($lg-min - 1);
 }
 
 @mixin arrow($direction, $color, $height: 6px, $width: 2*$height, $position: null){
-    
+
     @if ($direction == "up") {
         $position: "before" !default;
     } @else {
         $position: "after" !default;
     }
-    
+
     @include pseudo($position) {
         height: 0;
         width: 0;
@@ -201,7 +201,7 @@ $md-max: ($lg-min - 1);
             border-bottom: 0.5*$width solid transparent;
             border-left: 0.5*$width solid $color;
         }
-        
+
         @content;
     }
 }
@@ -229,11 +229,11 @@ $md-max: ($lg-min - 1);
 }
 
 @mixin selection($color: null, $background: null) {
-    ::-moz-selection { 
+    ::-moz-selection {
         color: $color;
         background-color: $background;
     };
-    ::selection { 
+    ::selection {
         color: $color;
         background-color: $background;
     };
@@ -245,7 +245,7 @@ $md-max: ($lg-min - 1);
 	//width(%)
 	//image-width(#)
 	//image-height(#)
-	
+
 	//design
     @if $url {
         background-image: url(#{$url});
