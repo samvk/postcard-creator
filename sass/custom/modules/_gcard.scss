@@ -2,6 +2,10 @@
 // GREETING CARD AND CANVAS
 // ==========================================================================//
 
+.front, .back {
+  opacity: 0.999; //HACK::required for `backface-visibility` in newer version of Chrome
+}
+
 .canvas-section {
 	//layout
 	max-width: 100%;
@@ -57,7 +61,7 @@
 	//layout
 	right: 0;
 	@include size(7em);
-	
+
 }
 
 .edit__button {

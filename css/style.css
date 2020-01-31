@@ -830,6 +830,10 @@ header {
   color: #A61009;
 }
 
+.front, .back {
+  opacity: 0.999;
+}
+
 .canvas-section {
   max-width: 100%;
   padding-bottom: 5em;
