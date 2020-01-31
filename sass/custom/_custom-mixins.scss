@@ -21,7 +21,7 @@
 	position: absolute;
 	
 	//animation
-	@include transition(opacity $duration $ease, visibility 0ms $duration);	
+	transition: opacity $duration $ease, visibility 0ms $duration;
 
 	&.fade-in {
 		//design

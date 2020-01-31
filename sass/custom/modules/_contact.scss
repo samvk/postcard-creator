@@ -54,10 +54,10 @@
 	//layout
 	@include padding-left-right(3%);
 	width: 100%;
-	@include transform(translateY(-100%));
-	
+	transform: translateY(-100%);
+
 	@include media($xs-min) {
-		@include transform(none);
+		transform: none;
 	}
 }
 
@@ -68,8 +68,8 @@
 	margin-left: 19%;
 	margin-top: 0.8%;
 	padding-right: 5%;
-	
-	@include input-placeholder {
+
+	&::placeholder {
 		//text
 		font: 1.2em $font-family--accent;
 	}
@@ -82,7 +82,7 @@
 
 	//layout
 	position: absolute;
-	@include transform(rotate(-4deg) translateY(-10%));
+	transform: rotate(-4deg) translateY(-10%);
 }
 
 .email__header--message {
@@ -93,7 +93,7 @@
 	left: 17%;
 	
 	//layout
-	@include transform(rotate(-3deg) translateY(-10%));
+	transform: rotate(-3deg) translateY(-10%);
 }
 
 .email__button {

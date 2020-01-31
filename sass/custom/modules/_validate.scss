@@ -14,10 +14,10 @@
 	//layout
 	display: block;
 	position: absolute;
-	@include transform(translateY(-85%));
+	transform: translateY(-85%);
 
 	//animation
-	@include transition(opacity 500ms ease, transform 500ms ease);
+	transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .email__target-email .email__validate {
@@ -32,5 +32,5 @@ input:invalid + .email__validate.is-displayed {
 	opacity: 1;
 
 	//layout
-	@include transform(translateY(-110%));
+	transform: translateY(-110%);
 }

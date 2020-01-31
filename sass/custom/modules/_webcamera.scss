@@ -38,7 +38,7 @@
 
 	//animation
 	opacity: 0.6;
-	@include transition(opacity 200ms linear);
+	transition: opacity 200ms linear;
 }
 
 .webcam__snap:hover {

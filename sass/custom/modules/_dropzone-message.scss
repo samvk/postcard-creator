@@ -16,7 +16,7 @@
 	
 	//animation
 	opacity: 0;
-	@include transition(opacity 700ms linear);
+	transition: opacity 700ms linear;
 }
 
 .dropzone__message.display-alert {

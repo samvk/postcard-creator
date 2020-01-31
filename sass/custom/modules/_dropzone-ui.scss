@@ -6,7 +6,7 @@
 .dropzone__browse,
 .dropzone__camera {
 	//animation
-    @include transition(opacity 150ms linear);
+    transition: opacity 150ms linear;
     &:hover { opacity: 0.85; }
 }
 
@@ -20,7 +20,7 @@
 	overflow: hidden;
 
 	//animation
-	@include transition(max-height 1800ms);
+	transition: max-height 1800ms;
 	max-height: 634px;
 
 	@include media($sm-min){
@@ -35,7 +35,7 @@
 
 	//animation
     .dropzone__card {
-        @include transition(opacity 0);
+        transition: opacity 0;
         opacity: 0.85;
     }
 }

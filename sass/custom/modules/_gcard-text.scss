@@ -42,6 +42,6 @@
 	//layout
 	margin: 0;
 	padding: .9em 1.5em;
-	@include transform(translate(-100%, -105%));
+	transform: translate(-100%, -105%);
 	position: absolute;
 }

@@ -5,14 +5,14 @@
 .steps-list {
     //layout
     width: 100%;
-    @include display-flex;
-    @include flex-direction(column);
-    @include align-items(center);
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     @include media($sm-min) {
         //layout
-        @include flex-direction(row);
-        @include justify-content(space-around);
+        flex-direction: row;
+        justify-content: space-around;
     }
 }
 

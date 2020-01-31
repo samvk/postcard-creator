@@ -63,5 +63,5 @@
 // =================== for hover() =======================//
 
 %color-transition {
-    @include transition(color 150ms linear, background-color 150ms linear);
+    transition: color 150ms linear, background-color 150ms linear;
 }
